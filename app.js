@@ -6,6 +6,7 @@ const cors = require('cors');
 const mime = require('mime');
 var bodyParser = require('body-parser');
 const fs = require('fs');
+const upload = require('express-fileupload')
 
 var routes = require('./routes/routes');
 
@@ -23,18 +24,57 @@ app.get('/', function (req, res) {
     res.send('cors problem fixed:)');
 });
 
-app.get('/start', function (req, res) {
+
+
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
+// Extended: https://swagger.io/specification/#infoObject
+const swaggerOptions = {
+    swaggerDefinition: {
+        info: {
+            version: "1.0.0",
+            title: "Customer API",
+            description: "Customer API Information",
+            contact: {
+                name: "Amazing Developer"
+            },
+            servers: ["http://localhost:5000"]
+        }
+    },
+    // ['.routes/*.js']
+    apis: ["app.js"]
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+app.get('/api/start', function (req, res) {
     res.send('start');
 })
-
-app.use('/api', routes);
-
-app.use('/uploadfile', (req, res, next) => { 
+app.post('/api/fileupload', (req, res) => {
+    if (req.file) {
+        console.log(req.files);
+        var file = req.files.file;
+        var filename = file.name
+        console.log(filename)
+        files.mv('./uploads/', filename, function (err) {
+            if (err) {
+                res.send(err)
+            } else {
+                res.send("File Upload")
+            }
+        })
+    }else{
+        res.send({msg:'no file'})
+    }
+})
+app.post('/api/uploadfile', (req, res, next) => {
     var imgB64Data = req.body.oData;
+    console.log(">>>", imgB64Data)
     var decodedImg = decodeBase64Image(imgB64Data);
     var imageBuffer = decodedImg.data;
     var type = decodedImg.type;
-    console.log("type", type) 
+    console.log("type", type)
     var extension = "jpg";
     console.log("type", extension);
     console.log(">>>", new Date());
@@ -49,6 +89,8 @@ app.use('/uploadfile', (req, res, next) => {
         res.send({ Message: " Fail to Upload File", Result: true, err: err })
     }
 });
+app.use('/api', routes);
+
 function decodeBase64Image(dataString) {
     var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
         response = {};
@@ -63,30 +105,13 @@ function decodeBase64Image(dataString) {
     return response;
 }
 
-var server = app.listen(8080, function () {
+var server = app.listen(8081, function () {
     console.log("Server Create");
-    const host=server.address().address
-    const port=server.address().port;
-    console.log("API Listening at http://%s:%s",host,port);
+    const host = server.address().address
+    const port = server.address().port;
+    console.log("API Listening at http://%s:%s", host, port);
+
+    require('./scripts/bootstrap');
+
 });
-
-mongoose
-    .connect(
-        'mongodb+srv://ajtest:b2VUp9qe7DiiMqlp@cluster0.b2p29.mongodb.net/Metaverse?retryWrites=true'
-    )
-    .then(result => {
-        console.log('mongoose connected');
-
-        var server = app.listen(8082);
-        const host=server.address().address
-        const port=server.address().port;
-        console.log("API Listening at http://%s:%s",host,port);
-
-        const io = require('./socket').init(server);
-        io.on('connection', socket => {
-            console.log('Client connected');
-            // require('./socket').getIO().emit('liveUser', { liveUser: require('./socket').getUserConnected() });
-            console.log(">>>>getNoOfUserConnected", require('./socket').getNoOfUserConnected());
-        })
-    })
-    .catch(err => console.log(err));
+ 
