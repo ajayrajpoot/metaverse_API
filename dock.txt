@@ -1,296 +1,112 @@
- users login :-
- username, phone no , email,id,profileimage,avatarurl,bio,name,gender,dirtof birt,followers count following count , metaverse friends count , suscribers(if profesional account)
-if user have profesional account hen account typr
-
-
-
-forget password :- account list(all account by email id phone no or usersname)
-
-
-
-
-otp api :-
-otp no
-
 account listing for recover password :-
 
 username , profileurl
-
-
-profile:-
-
-name,usersname,followerscount,following count , metaverse friends counts , post counts,bio
-
-
-
-
-
-feeling api:-   feeling image url 
-
-
-
-post url :-  post url , post description , post feeling count, post comment count,username,time of post shareing , feeling icon url   smachup api :-  smachup_url,smachup title , smachup descriptions,smachup views count , smachup   feeling count , smachup comment counts  feeling icon url , users name , time of uploading , time of video  profile url    metaverse smachup url :- smauchup url , smachup title , smachup descritons , users avatar url , usersname, feeling count,feeling icon url , comment count , views count   chroist tv api :-  chroist tv url , feeling icon url , feeling count , comment coments , views count , chroist tv description , usersname , profile url  metaverse chroist tv :-  same chroist wala rehega bas profile pick ki place pe avatar url hoga   
-
-stickerts give money api :-  stickers url , stickers money , time of giveing , usersnme users profile pic url (if users is from metaverse then) avatar url  
-
-message give money api :-  message , money amount , users name users profile pic (if users is from metaverse then) avatar url , time of giveing   give moneyfrom my funplace money :-  money amount , users name , time of giveing , profile pic (if users is from metaverse then) avatar url     my purchaces moviews :-  
-moviews category  moviews name , descriptions , moviews url(if moviews have captions then also)  , 
-
-how much days left in expire movies , kitne users ko share hua h   isme ek aur featrs h ki users rented ya purchaces moview ko friend ya family ke sath share kar sakata h to isme wo bhi show hoga ki kis kis ke sath show ho raha h  moviews shareing show api :- 
-users name , profile url , avatar url  , timeing of shareing to uwers
-
-
-
-profile felling api :-  profile feeling icon url , no of profile feeling   show ussers for chating ( chroist ) :-  username , time of last messageing , no of new messages , profile url   show users for chating ( metaverse users ) :-  sb same rahega bat profile pic url ke place pe avatar url hoga   chating api :-  
-
-
-
-
-
-
-
-
-
-
-
-
-storyies :-  usersname , users profile pic ,  pic video gif others url   yaha pe ek chijhe discuss karana h pools stickers 
-qa ke regaded    storyies showing api :-  last storyies , username      shop :-  product name , proucts off percentage , product descripting , products mrp , product prise of selling on our plat form , product first image url     metaverse land shop :-  land image url , land name , land locations , land size , land buying price 
-
-
-
-metaverse token shop :-  token image , token name , token type , token location , token prise    metaverse token for showing in users profile :-  token name , token image , token type, token descripting , token buying prise , token value    metaverse land for showing :- 
-metaverse land name , land location , land size , land nft image       followers for showing :-  
-usersname , user profile pic url     following for showing :-  
-users name , profile pic url    metaverse frinend for showing :-  metaverse username , metavesre avatar url    showing chroist users for splash api :-  username , folled by(in hi splashers or splashing) , profile pic    showing metaverse users for  add friend in metavese :-  usersname , avatar url     grocery products :-  product name , product description , product off percentage , product mrp , product selling prise on our platform , product quanitity   chroist tv food recepies in grocery shop tab :-  chroist tv url , chroist tv description    trending grocery products :-  product name , product mrp , product prise on sselling on our platform , off percentage , products description , product quanitity (ml . kg, more)    sugestion grocery products :-      moviews item for selling :-   moviews url , moiews name , moviews description , moviews category , moviews off per cantage , moviews rent prise , moviews bying prise   moviews item for showing in kart :-  moviews url , moviews name , moviews description , moviews category , moviews off percentage , moviews prise for selling , moview mrp    show categoryies for grocery shop :-  category image url , category name    
-showing my suscriptions of chanels :-   chales profile image, channl name   
-
-
-
-
-creators | profesional account data showing :-   channel name , logo , suscribers , splashing      post for showing in profile and professional profile :-
-
-
-post url    aur ha aur ek api hoga jis me srif users ka post show hoga , us me sb same data hoga jo post smachup me rahata h but users name profile nhi hoga  
-smachup for showing in profile and profesinoal profile :-  smachup url
-
-
-chroist tv for showing in profilw and professional profilw :-
-
-chroist tv 
-
-sab me srif image ya video url hi ayega   shop api for showing products in profile page :-  productname , mrp , prise of selling on our platform , off percentage , product firts image url
-
-
-
-
-
-auto comenting api  upload and fect (post , smahup , chroist tv metaverse post , metavese smachup ke liye same hoga):-  auto comment text 
-
-
-
-| api for metaverse (game)  upload my formers to formers place :-  3d modle url , name , description , size(mb gb etc) , creators name avatar url , category , 3d modle 10 images url
-
-
-
-api for showing   metaverse worlds :-  world url , world name , world url , world description , worldsize , world feeling count , world added photo  
-
-
-
-
-api for showing metaverse events :-  
-
-
-
-
-  api for showing metaverese theators events :-  
-
-
-
-
-api for metaverse fitness  :-         api for showing shop in metaverse shop :-    shop 3d url , shopname , shop location , shop category 
-
-
-
-
-
-   
-
-
-
-
-
-
-book vr headset in chroist camp :-
-
-
-
-
-
-
-
-
-
-
-collobrateinon with others  metavesre for formers place  :-  usersname, users avatar url     acepte collobration with others metaverse for formers place :-  world 3d url , user name , users avatar , time of sending collobratiotion invitri 
-
-
-
-
-
-api for share play :-   
-
-
-
-
-
-
-api for report :-  report reason 
-
-
-
-
-
-
-api fors world history :-  world history 3d modle url , world name , world size ;
-
-
-
-
-
-api for loading world category :-  category name    api for uploading world on my own propity :-
  
-name , descriptions , age of accesing this (age) , plasce is for (mobile , vr , pc )  , 10 photos , 3d url , agar shop h to then shop category , type of worls (public private) , propity owenr  name , avatar url , propity image url , propityname , profile image url 
+feeling api:- 
+feeling image url 
 
+shop :-
 
+product name , category  , proucts off percentage , product_count , product descripting , products mrp , product prise of selling on our plat form , product first image url , product rateing , product id
+ 
+ads_product name , category  ,  product id , ads_product mrp , product_count ,ads_ product prise   ,  ads_off percentage , ads_ products description  , ads_ product count (kitana product baca h ) , ads_ product id , product rateing
 
-load shop category for makeing shop in metaverse :-  shop category name
+(isme me rent shop wala bhi show hoga)
 
 
-notification api for chroist tv :-
+product name , time of rent ,category , product id,product_count  , proucts off percentage , product descripting , products mrp , product prise of selling on our plat form , product first image url , product rateing
+ 
+time ofrent ,product_count , ads_product name ,category  , product id , ads_product mrp ,ads_ product prise   ,  ads_off percentage , ads_ products description  , ads_ product count (kitana product baca h ) , ads_ product id , product rateing
 
-chroist tv video url , username who addes time , profile image
+(ye multiview recview h)
 
 
-notification api for metaverse chroist tv :-
 
-sab same rahega bas avatar urlhoga 
 
+metaverse land shop :-
 
-notification of post :-  post image url , users who addes ,profile image , time
+land image url , land name , land locations , land size , land buying price 
 
-notification of metaverse post :-  same rahega srif profile ke place pe avatar url hoga
+ads_land image url , ads_land name , ads_land locations , ads_land size , ads_land buying price 
 
+metaverse token shop :-
 
-notification for giveing feeling to post:-
+token image , token name , token type , token location , token prise 
 
+ads_token image , ads_token name , ads_token type , ads_token location , ads_token prise 
 
-post urls , time , username who give feeling , profile  image 
+grocery products :-
 
+product name ,category, product_count , product id , product description , product off percentage , product mrp , product selling prise on our platform , product quanitity , product id , product count
 
-notification of give feeling in metaverse:-
+ads_product name ,category ,product_count  , product id , ads_product mrp ,ads_ product prise   ,  ads_off percentage , ads_ products description ,  ads_ product quanitity (ml . kg, more) , ads_ product count (kitana product baca h ) , ads_ product id
 
-sab same hoga bas  avatar url hoga
+(ye multiview recview h)
 
 
-api fo
-r notifi user that you land is selled :-
 
+chroist tv food recepies in grocery shop tab :-
 
-land name , land nft image url , time 
+chroist tv url , chroist tv description 
 
 
 
-api for notifi users that your token is selled :-
 
+trending grocery products :-
 
+product name ,category ,product_count  , product id  product mrp , product prise on sselling on our platform , off percentage , products description , product quanitity (ml . kg, more) , product count (kitana product baca h ) , product id
 
-token name , token nft url , time
 
+moviews item for selling :-
 
 
+moviews url , moiews name , moviews description , moviews category , moviews off per cantage , moviews rent prise , moviews bying prise
 
+metaverse rent shop :-
 
-api for notifi that this users send invite in metavetse :-
+  metaverse_thing_name  , , product id ,  metavese_thing_3d_modle_url   , metaversething_mrp   metaverse_thing_prise  ,   metaverse_thing_for_time ;
 
 
-users name , avatar , time
+  land_name , land_location ,  land_nft_image , land_size , land_prise , time_for_rent;
 
+token_name , token_location , token_nft_image , token_size , token_prise , time_for_rent;
 
+ads_metaverse_thing_name  ,  ads_metavese_thing_3d_modle_url   , ads_metaversething_mrp   ads_metaverse_thing_prise  ,   ads_metaverse_thing_for_time ;
 
 
+  ads_land_name , ads_land_location , ads_land_nft_image , ads_land_size , ads_land_prise , ads_time_for_rent;
 
+ads_token_name , ads_token_location , ads_token_nft_image , ads_token_size , ads_token_prise , ads_time_for_rent;
 
-find my account for forget password :-
 
 
-username,profilepic,phone_no_emailid,_usersname
 
+shop rent item :-
 
+product name , product_count  , time of rent ,category , product id  , proucts off percentage , product descripting , products mrp , product prise of selling on our plat form , product first image url , product rateing
+ 
+time ofrent ,product_count  , ads_product name ,category  , product id , ads_product mrp ,ads_ product prise   ,  ads_off percentage , ads_ products description  , ads_ product count (kitana product baca h ) , ads_ product id , product rateing
 
-api for checking is pay latter bills paid or not :-  usersname, avatar, profile (is bill payed or not)
+(ye multiview recview h)
 
 
+ 
 
 
 
+show categoryies for grocery shop :-
 
-api for hastag page (all post chroist smachup metaversepost and all which users hastag) :-
+category image url , category name
 
+api for showing shop in metaverse shop :-
 
-sab datasame rhega jo post wagera me tota h
+ 
+shop 3d url , shopname , shop location , shop category 
 
+ 
+ads_shop 3d url , ads_shopname , ads_shop location , ads_shop category 
 
-api for showing hastag page inly image or video :-
+metaverse thing shop :-
 
-srif image aur video hoga
+name , description , mrp , product_count , seeling_prise , rateing , 3d modle , off percentage
 
-
-
-
-api for editing post  :-  description ,location, tags_to_people , hastag  , username,userprofile , feeling url
-
-
-api for editing smachup :-
-
-description , title , hashtag , feeling url , tags , usersname,profile urll
-
-
-
-api for editin chroist tv :-
-
-description , feeling url , profile , username
-
-
-metavsre post , smachup , chroist tv editing :-
-
-profileurl ko thro ke avatar rahega bakisam rahega
-
-
-
-
-api for showing users in group (who are in same group) :-
-
-
-username , profile urls , is users is admin  aur metaverse user ke liye bhi same bas profile url ke place pe avatar url hoga
-
-
-
-api for showing users for group calling   username , profile pic 
-
-
-
-
-api for addid green screnn :-
-
-
-image url
-
-
-
-
-
-api for showing group for add in profesional account channel :-
-
-
-group image name , groupname (iska same table to iska data group wale table se ayega)

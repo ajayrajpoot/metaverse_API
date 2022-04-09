@@ -20,7 +20,7 @@ Root URL >>> http://62.171.178.135:8081/api
 
 
 POST: /signup
-{
+Body {
 	 
     "username":"test",
     "name":"test",
@@ -39,15 +39,19 @@ POST: /signup
     }
     
 POST: /login
-{
+Body {
 	"username":"test@gmail.com",
 	"password":12345
 }
 
 GET: /get_otp?username=test@gmail.com
+
+
 reset_password
-{
+body {
 	"otp":"27281",
 	"password":123456
 }
+
+
 GET: /profilebyid?id=1

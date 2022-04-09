@@ -8,7 +8,13 @@ var bodyParser = require('body-parser');
 const fs = require('fs');
 const upload = require('express-fileupload')
 
+
+const multer = require('multer');
+const path = require('path');
+
+
 var routes = require('./routes/routes');
+const { urlencoded } = require('body-parser');
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
@@ -23,51 +29,105 @@ app.get('/', function (req, res) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.send('cors problem fixed:)');
 });
-
-
-
-const swaggerJsDoc = require("swagger-jsdoc");
-const swaggerUi = require("swagger-ui-express");
-// Extended: https://swagger.io/specification/#infoObject
-const swaggerOptions = {
-    swaggerDefinition: {
-        info: {
-            version: "1.0.0",
-            title: "Customer API",
-            description: "Customer API Information",
-            contact: {
-                name: "Amazing Developer"
-            },
-            servers: ["http://localhost:5000"]
-        }
+ 
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'public/uploads/');
     },
-    // ['.routes/*.js']
-    apis: ["app.js"]
-};
 
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+    // By default, multer removes file extensions so let's add them back
+    filename: function(req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+const imageFilter = function(req, file, cb) {
+    // Accept images only
+    if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF)$/)) {
+        req.fileValidationError = 'Only image files are allowed!';
+        return cb(new Error('Only image files are allowed!'), false);
+    }
+    cb(null, true);
+};  
 
+app.post('/api/fileupload', (req, res) => {
+// console.log("EVN",process.env.dev)
+
+    // 'profile_pic' is the name of our file input field in the HTML form
+    let upload = multer({ storage: storage, fileFilter: imageFilter }).single('file');
+
+    upload(req, res, function(err) {
+        // req.file contains information of uploaded file
+        // req.body contains information of text fields, if there were any
+
+        if (req.fileValidationError) {
+            return res.json({error:req.fileValidationError});
+        }
+        else if (!req.file) {
+            return res.json({error:'Please select an image to upload'});
+        }
+        else if (err instanceof multer.MulterError) {
+            return res.json({error:err});
+        }
+        else if (err) {
+            return res.json({error:err});
+        }
+
+        // Display uploaded image for user validation
+        let url = "http://localhost:8081/uploads/";
+        // let url = "http://62.171.178.135:8081/uploads/";
+        console.log(__line,req.file)
+        res.json({
+            file :`${url}${req.file.filename}`
+        } );
+    });
+});
+
+app.post('/api/upload-multiple-images', (req, res) => {
+    // 10 is the limit I've defined for number of uploaded files at once
+    // 'multiple_images' is the name of our file input field
+    let upload = multer({ storage: storage, fileFilter: imageFilter }).array('multiple_images', 10);
+
+    upload(req, res, function(err) {
+        if (req.fileValidationError) {
+            return res.send(req.fileValidationError);
+        }
+        else if (true) // The same as when uploading single images
+        {
+
+        }
+
+        let result = "You have uploaded these images: <hr />";
+        const files = req.files;
+        let index, len;
+
+        // Loop through all the uploaded images and display them on frontend
+        for (index = 0, len = files.length; index < len; ++index) {
+            result += `<img src="${files[index].path}" width="300" style="margin-right: 20px;">`;
+        }
+        result += '<hr/><a href="./">Upload more images</a>';
+        res.send(result);
+    });
+});
+ 
 app.get('/api/start', function (req, res) {
     res.send('start');
 })
-app.post('/api/fileupload', (req, res) => {
-    if (req.file) {
-        console.log(req.files);
-        var file = req.files.file;
-        var filename = file.name
-        console.log(filename)
-        files.mv('./uploads/', filename, function (err) {
-            if (err) {
-                res.send(err)
-            } else {
-                res.send("File Upload")
-            }
-        })
-    }else{
-        res.send({msg:'no file'})
-    }
-})
+
+// if (req.file) {
+//     console.log(req.files);
+//     var file = req.files.file;
+//     var filename = file.name
+//     console.log(filename)
+//     files.mv('./uploads/', filename, function (err) {
+//         if (err) {
+//             res.send(err)
+//         } else {
+//             res.send("File Upload")
+//         }
+//     })
+// } else {
+//     res.send({ msg: 'no file' })
+// } 
 app.post('/api/uploadfile', (req, res, next) => {
     var imgB64Data = req.body.oData;
     console.log(">>>", imgB64Data)
@@ -114,4 +174,4 @@ var server = app.listen(8081, function () {
     require('./scripts/bootstrap');
 
 });
- 
+

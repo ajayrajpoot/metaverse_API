@@ -11,9 +11,9 @@ exports.addUserDetail = async (req, res, next) => {
             .then(result => {
                 return result;
             });
-        res.status(201).json({ message: 'Add User detail Successfull', _id: result._id, Result: true });
+        res.json({ message: 'Add User detail Successfull', _id: result._id, Result: true });
     } catch (error) {
-        res.status(201).json({ Message: error.message, response: error, Result: false });
+        res.json({ Message: error.message, response: error, Result: false });
     }
 
 }
@@ -22,7 +22,7 @@ exports.getUserDetail = async (req, res) => {
         var user = await UserDetail.find({ userId: req.query.userId });
         res.send({ User: user });
     } catch (error) {
-        res.status(201).json({ Message: error.message, response: error, Result: false });
+        res.json({ Message: error.message, response: error, Result: false });
     }
 }
 exports.updateUserDetail = async (req, res) => { 
@@ -36,18 +36,18 @@ exports.getUserDetail = async (req, res) => {
         var userDetail = await UserDetail.find();
         res.send({ User: userDetail });
     } catch (error) {
-        res.status(201).json({ Message: error.message, response: error, Result: false });
+        res.json({ Message: error.message, response: error, Result: false });
     }
 }
 exports.deleteUserDetail = async (req, res) => {
     try {
         var result = await User.deleteOne({ _id: req.query._id }, { isDeleted: 1 });
         if (result.ok == 1) {
-            res.status(201).json({ Message: 'Delete User Detail!', response: result, Result: true });
+            res.json({ Message: 'Delete User Detail!', response: result, Result: true });
         } else {
-            res.status(201).json({ Message: 'Not Delete User  Detail!', response: result, Result: false });
+            res.json({ Message: 'Not Delete User  Detail!', response: result, Result: false });
         }
     } catch (error) {
-        res.status(201).json({ Message: error.message, response: error, Result: false });
+        res.json({ Message: error.message, response: error, Result: false });
     }
 }
