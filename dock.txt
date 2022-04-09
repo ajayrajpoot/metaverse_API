@@ -8,8 +8,7 @@ feeling image url
 shop :-
 
 product name , category  , proucts off percentage , product_count , product descripting , products mrp , product prise of selling on our plat form , product first image url , product rateing , product id
- 
-ads_product name , category  ,  product id , ads_product mrp , product_count ,ads_ product prise   ,  ads_off percentage , ads_ products description  , ads_ product count (kitana product baca h ) , ads_ product id , product rateing
+   product id , ads_product mrp , product_count ,ads_ product prise   ,  ads_off percentage , ads_ products description  , ads_ product count (kitana product baca h ) , ads_ product id , product rateing
 
 (isme me rent shop wala bhi show hoga)
 
@@ -25,13 +24,12 @@ time ofrent ,product_count , ads_product name ,category  , product id , ads_prod
 
 metaverse land shop :-
 
-land image url , land name , land locations , land size , land buying price 
-
-ads_land image url , ads_land name , ads_land locations , ads_land size , ads_land buying price 
+land image url , land name , land locations , land size , land buying price ,isAds
+ 
 
 metaverse token shop :-
 
-token image , token name , token type , token location , token prise 
+token image , token name , token type , token location , token prise ,isAds
 
 ads_token image , ads_token name , ads_token type , ads_token location , ads_token prise 
 

@@ -28,7 +28,7 @@ exports.updatecategory = async (req, res, next) => {
     console.log(">>>",p)
     try {
         // const result = await readDB.query(`SELECT id, image, timestemp FROM feeling_image WHERE 1 `);
-        const result = await writeDB.query(`UPDATE category SET  category= ? where id= ? `, p.category, p.id);
+        const result = await writeDB.query(`UPDATE category SET  category= ?, image=? where id= ? `, p.category, p.image, p.id);
 
         console.log(__line,result)
         if (result.affectedRows > 0) {

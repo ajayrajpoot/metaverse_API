@@ -12,10 +12,10 @@ module.exports = ((env = process.env.NODE_ENV) => {
 
     global._config_ = {
         "mysql": {
-            "host"      :   "62.171.178.135",
-            "user"      :   "ajayt",
-            "password"  :   "Asd@1234",
-            "database"  :   "shop",
+            "host"      :   "localhost",
+            "user"      :   "root",
+            "password"  :   "",
+            "database"  :   "metaverse",
             "port"      :   "3307"
         }
     }
