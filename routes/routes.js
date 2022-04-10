@@ -3,6 +3,7 @@ var router = express.Router();
 
 var user = require('../controllers/User');
 var shop = require('../controllers/shop');
+var shop_rent_item = require('../controllers/shop_rent_item');
 var metaverse_land_shop = require('../controllers/metaverse_land_shop');
 var metaverse_token_shop = require('../controllers/metaverse_token_shop');
 var grocery_products = require('../controllers/grocery_products');
@@ -15,6 +16,8 @@ var products_ads = require('../controllers/products_ads');
 
 var feeling_image = require('../controllers/feeling_image');
 var category = require('../controllers/category');
+var category_grocery_shop = require('../controllers/category_grocery_shop');
+var metaverse_thing_shop = require('../controllers/metaverse_thing_shop');
 
 const isAuth = require('../middleware/is-auth');
  
@@ -36,10 +39,26 @@ router.post('/addcategory', category.addcategory);
 router.post('/updatecategory', category.updatecategory);
 router.get('/deletecategory', category.deletecategory);
 
+router.get('/getcategory_grocery_shop', category_grocery_shop.getcategory_grocery_shop);
+router.post('/addcategory_grocery_shop', category_grocery_shop.addcategory_grocery_shop);
+router.post('/updatecategory_grocery_shop', category_grocery_shop.updatecategory_grocery_shop);
+router.get('/deletecategory_grocery_shop', category_grocery_shop.deletecategory_grocery_shop);
+
+router.get('/getmetaverse_thing_shop', metaverse_thing_shop.getmetaverse_thing_shop);
+router.post('/addmetaverse_thing_shop', metaverse_thing_shop.addmetaverse_thing_shop);
+router.post('/updatemetaverse_thing_shop', metaverse_thing_shop.updatemetaverse_thing_shop);
+router.get('/deletemetaverse_thing_shop', metaverse_thing_shop.deletemetaverse_thing_shop);
+
 router.get('/getshops', shop.getshops);
 router.post('/addshop', shop.addshop);
 router.post('/updateshop', shop.updateshop);
 router.get('/deleteshop', shop.deleteshop);
+
+
+router.get('/getshop_rent_item', shop_rent_item.getshop_rent_item);
+router.post('/addshop_rent_item', shop_rent_item.addshop_rent_item);
+router.post('/updateshop_rent_item', shop_rent_item.updateshop_rent_item);
+router.get('/deleteshop_rent_item', shop_rent_item.deleteshop_rent_item);
 
 router.get('/getmetaverse_land_shop', metaverse_land_shop.getmetaverse_land_shop);
 router.post('/addmetaverse_land_shop', metaverse_land_shop.addmetaverse_land_shop);
