@@ -1,5 +1,52 @@
 
 
+exports.getshop_rent_item = async (req, res, next) => {
+
+    try {
+
+        let condition = "";
+        if(req.query.isAds){
+            condition +=` ${condition==''?'':'and'} isAds = ${req.query.isAds} `;
+        }
+        // else if(req.query.isRent){
+        //     condition +=` ${condition==''?'':'and'} isRent = ${req.query.isRent} `;
+        // }
+        else if(req.query.search){
+            condition +=`  ${condition==''?'':'and'} name = %${req.query.search}% `;
+        }
+        else {
+            condition ='1';
+        }
+        // let shop_id = req.query.shop_id
+
+        let result = await readDB.query(`SELECT * FROM shop_rent_item WHERE ${condition} `);
+        console.log(__line, result)
+
+        // let shop_ids = result.map(i => i.id);
+        // let resultAds = [];
+        // if (shop_ids) {
+        //     resultAds = await readDB.query(`SELECT * FROM shop_rent_item_ads WHERE shop_id in ("${shop_ids.map(String).join("\",\"")}"); `);
+        // }
+        // let shop_rent_item = [];
+        // result.filter(i => {
+
+        //     let ads = resultAds.find(x => x.shop_id == i.id);
+
+        //     i.ads = ads;
+        //     shop_rent_item.push(i);
+
+        // })
+
+        res.json({ data: result, Message: 'shop_rent_item list with Ads.', Result: true });
+
+    } catch (error) {
+
+        console.log(__line, error);
+        res.json({ Message: error.message, response: error, Result: false });
+
+    }
+};
+
 exports.addshop_rent_item = async (req, res, next) => {
     var p = req.body;
 
@@ -62,40 +109,6 @@ exports.updateshop_rent_item = async (req, res, next) => {
     }
 
 }
-
-exports.getshop_rent_item = async (req, res, next) => {
-
-    try {
-
-        // let shop_id = req.query.shop_id
-
-        let result = await readDB.query(`SELECT * FROM shop_rent_item WHERE 1 `);
-        console.log(__line, result)
-
-        // let shop_ids = result.map(i => i.id);
-        // let resultAds = [];
-        // if (shop_ids) {
-        //     resultAds = await readDB.query(`SELECT * FROM shop_rent_item_ads WHERE shop_id in ("${shop_ids.map(String).join("\",\"")}"); `);
-        // }
-        // let shop_rent_item = [];
-        // result.filter(i => {
-
-        //     let ads = resultAds.find(x => x.shop_id == i.id);
-
-        //     i.ads = ads;
-        //     shop_rent_item.push(i);
-
-        // })
-
-        res.json({ data: result, Message: 'shop_rent_item list with Ads.', Result: true });
-
-    } catch (error) {
-
-        console.log(__line, error);
-        res.json({ Message: error.message, response: error, Result: false });
-
-    }
-};
 
 exports.deleteshop_rent_item = async (req, res, next) => {
 

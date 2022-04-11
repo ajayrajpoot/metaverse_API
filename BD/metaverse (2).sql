@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2022 at 11:11 AM
+-- Generation Time: Apr 11, 2022 at 04:51 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -30,8 +30,59 @@ SET time_zone = "+00:00";
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `category` varchar(100) NOT NULL,
-  `timestemp` timestamp NOT NULL DEFAULT current_timestamp()
+  `timestemp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `image` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `category`, `timestemp`, `image`) VALUES
+(2, 'category1', '2022-04-11 02:14:15', ''),
+(3, 'category1', '2022-04-11 02:14:15', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category_grocery_shop`
+--
+
+CREATE TABLE `category_grocery_shop` (
+  `id` int(11) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `category` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `category_grocery_shop`
+--
+
+INSERT INTO `category_grocery_shop` (`id`, `image`, `category`) VALUES
+(2, '', 'category1'),
+(3, '', 'category1'),
+(4, '', 'category1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chroist_tv`
+--
+
+CREATE TABLE `chroist_tv` (
+  `id` int(11) NOT NULL,
+  `url` varchar(100) NOT NULL,
+  `description` varchar(400) NOT NULL,
+  `timestemp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chroist_tv`
+--
+
+INSERT INTO `chroist_tv` (`id`, `url`, `description`, `timestemp`) VALUES
+(2, 'url', 'des', '2022-04-09 16:15:39'),
+(3, 'url', 'des', '2022-04-09 16:15:39');
 
 -- --------------------------------------------------------
 
@@ -42,6 +93,7 @@ CREATE TABLE `category` (
 CREATE TABLE `feeling_image` (
   `id` int(11) NOT NULL,
   `image` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
   `timestemp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -49,10 +101,146 @@ CREATE TABLE `feeling_image` (
 -- Dumping data for table `feeling_image`
 --
 
-INSERT INTO `feeling_image` (`id`, `image`, `timestemp`) VALUES
-(2, 'ee', '2022-04-09 07:57:11'),
-(3, 'ee 33', '2022-04-09 07:57:41'),
-(4, 'ee', '2022-04-09 08:03:37');
+INSERT INTO `feeling_image` (`id`, `image`, `name`, `timestemp`) VALUES
+(2, 'ee', '', '2022-04-09 07:57:11'),
+(3, 'ee 33', '', '2022-04-09 07:57:41'),
+(4, 'ee', '', '2022-04-09 08:03:37');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grocery_products`
+--
+
+CREATE TABLE `grocery_products` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `category` varchar(100) NOT NULL,
+  `product_count` int(11) NOT NULL,
+  `description` varchar(400) NOT NULL,
+  `off_percentage` float NOT NULL,
+  `mrp` float NOT NULL,
+  `selling_price` float NOT NULL,
+  `quanitity` int(11) NOT NULL,
+  `isAds` int(11) NOT NULL DEFAULT 0,
+  `timestemp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `isTrending` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `metaverse_land_shop`
+--
+
+CREATE TABLE `metaverse_land_shop` (
+  `id` int(11) NOT NULL,
+  `image_url` varchar(50) DEFAULT NULL,
+  `name` varchar(50) NOT NULL,
+  `locations` varchar(50) DEFAULT NULL,
+  `size` int(11) NOT NULL,
+  `buying_price` float DEFAULT NULL,
+  `idAds` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `metaverse_land_shop`
+--
+
+INSERT INTO `metaverse_land_shop` (`id`, `image_url`, `name`, `locations`, `size`, `buying_price`, `idAds`) VALUES
+(2, 'inn', '', 'p.locations', 3, 1.1, 0),
+(3, 'inn', '', 'p.locations', 3, 1.1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `metaverse_shop`
+--
+
+CREATE TABLE `metaverse_shop` (
+  `id` int(11) NOT NULL,
+  `shop_3d_url` varchar(200) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `location` varchar(100) DEFAULT NULL,
+  `category` varchar(100) DEFAULT NULL,
+  `idAds` int(11) NOT NULL DEFAULT 0,
+  `timestemp` int(11) NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `metaverse_shop`
+--
+
+INSERT INTO `metaverse_shop` (`id`, `shop_3d_url`, `name`, `location`, `category`, `idAds`, `timestemp`) VALUES
+(2, 'ss', 'sss', '', '', 0, 2147483647);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `metaverse_thing_shop`
+--
+
+CREATE TABLE `metaverse_thing_shop` (
+  `id` int(11) NOT NULL,
+  `name` varchar(400) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `mrp` float NOT NULL,
+  `product_count` int(11) NOT NULL,
+  `seeling_prise` float NOT NULL,
+  `rating` int(11) NOT NULL,
+  `modle_3d` varchar(50) NOT NULL,
+  `off_percentage` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `metaverse_token_shop`
+--
+
+CREATE TABLE `metaverse_token_shop` (
+  `id` int(11) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `token_type` varchar(100) NOT NULL,
+  `token_location` varchar(100) NOT NULL,
+  `token_price` float NOT NULL,
+  `timestemp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `isAds` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `metaverse_token_shop`
+--
+
+INSERT INTO `metaverse_token_shop` (`id`, `image`, `name`, `token_type`, `token_location`, `token_price`, `timestemp`, `isAds`) VALUES
+(2, '', 'nn', 'tt', 'jh', 0.1, '2022-04-09 15:56:56', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `movies`
+--
+
+CREATE TABLE `movies` (
+  `id` int(11) NOT NULL,
+  `url` varchar(100) DEFAULT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `category` varchar(100) NOT NULL,
+  `off_percantage` float NOT NULL DEFAULT 0,
+  `rent_price` float NOT NULL DEFAULT 0,
+  `bying_price` float NOT NULL,
+  `timestemp` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `movies`
+--
+
+INSERT INTO `movies` (`id`, `url`, `name`, `description`, `category`, `off_percantage`, `rent_price`, `bying_price`, `timestemp`) VALUES
+(2, 'p.url', 'p.name', 'p.description', 'p.category', 2, 1, 1, '2022-04-09 16:31:55'),
+(3, 'p.url', 'p.name', 'p.description', 'p.category', 2, 1, 1, '2022-04-09 16:31:55');
 
 -- --------------------------------------------------------
 
@@ -74,55 +262,60 @@ CREATE TABLE `post` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Table structure for table `shops`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE `shops` (
   `id` int(11) NOT NULL,
   `category_id` int(11) DEFAULT NULL,
   `name` varchar(400) NOT NULL,
   `off_percentage` float DEFAULT 0,
-  `products_count` int(11) DEFAULT 0,
+  `shop_count` int(11) DEFAULT 0,
+  `remaining_shop_count` int(11) NOT NULL,
   `descripting` varchar(400) DEFAULT NULL,
   `mrp` float DEFAULT 0,
   `selling_price` float DEFAULT 0,
-  `image_url1` varchar(100) DEFAULT NULL,
+  `icon_image` varchar(100) DEFAULT NULL,
   `reating` float DEFAULT 0,
-  `isAds` int(11) NOT NULL DEFAULT 0
+  `isAds` int(11) NOT NULL DEFAULT 0,
+  `isRent` int(11) NOT NULL DEFAULT 0,
+  `time_of_rent` varchar(10) DEFAULT NULL,
+  `timestemp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `images` varchar(400) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `products`
+-- Dumping data for table `shops`
 --
 
-INSERT INTO `products` (`id`, `category_id`, `name`, `off_percentage`, `products_count`, `descripting`, `mrp`, `selling_price`, `image_url1`, `reating`, `isAds`) VALUES
-(1, 1, 'name', 2, 0, '', 1, 3, '', 1, 0),
-(2, 1, 'name1', 2, 0, '', 1, 3, '', 1, 1),
-(3, 1, 'name', 2, 0, '', 1, 3, '', 1, 0);
+INSERT INTO `shops` (`id`, `category_id`, `name`, `off_percentage`, `shop_count`, `remaining_shop_count`, `descripting`, `mrp`, `selling_price`, `icon_image`, `reating`, `isAds`, `isRent`, `time_of_rent`, `timestemp`, `images`) VALUES
+(2, 1, 'name', 2, NULL, 0, '', 1, 3, '', 1, 0, 0, '0', '2022-04-09 14:41:00', ''),
+(3, 1, 'name', 2, 0, 0, '', 1, 3, '', 1, 0, 0, NULL, '2022-04-09 14:41:00', NULL),
+(4, 1, 'name', 2, 0, 0, '', 1, 3, '', 1, 0, 0, '0', '2022-04-09 15:07:36', ''),
+(5, 1, 'name', 2, 0, 0, '', 1, 3, '', 1, 0, 0, '0', '2022-04-09 15:16:27', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products_ads`
+-- Table structure for table `shop_rent_item`
 --
 
-CREATE TABLE `products_ads` (
+CREATE TABLE `shop_rent_item` (
   `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `product_count` int(11) NOT NULL DEFAULT 0,
-  `off_percentage` float NOT NULL DEFAULT 0,
-  `remaining_product_count` int(11) NOT NULL DEFAULT 0,
+  `name` varchar(100) NOT NULL,
+  `product_count` int(11) DEFAULT NULL,
+  `time_of_rent` varchar(10) DEFAULT NULL,
+  `off_percentage` float DEFAULT NULL,
+  `descripting` varchar(400) DEFAULT NULL,
+  `mrp` float DEFAULT NULL,
+  `selling_price` int(11) DEFAULT NULL,
+  `icon_image` varchar(400) DEFAULT NULL,
+  `reating` int(11) DEFAULT NULL,
+  `count` int(11) DEFAULT NULL,
+  `remaining_count` int(11) DEFAULT NULL,
+  `isAds` int(11) NOT NULL DEFAULT 0,
   `timestemp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `products_ads`
---
-
-INSERT INTO `products_ads` (`id`, `product_id`, `product_count`, `off_percentage`, `remaining_product_count`, `timestemp`) VALUES
-(1, 1, 1, 0, 3, '2022-04-09 08:58:54'),
-(2, 1, 1, 0, 3, '2022-04-09 08:59:23'),
-(3, 1, 1, 0, 3, '2022-04-09 08:59:42');
 
 -- --------------------------------------------------------
 
@@ -188,9 +381,57 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `category_grocery_shop`
+--
+ALTER TABLE `category_grocery_shop`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `chroist_tv`
+--
+ALTER TABLE `chroist_tv`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `feeling_image`
 --
 ALTER TABLE `feeling_image`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `grocery_products`
+--
+ALTER TABLE `grocery_products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `metaverse_land_shop`
+--
+ALTER TABLE `metaverse_land_shop`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `metaverse_shop`
+--
+ALTER TABLE `metaverse_shop`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `metaverse_thing_shop`
+--
+ALTER TABLE `metaverse_thing_shop`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `metaverse_token_shop`
+--
+ALTER TABLE `metaverse_token_shop`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `movies`
+--
+ALTER TABLE `movies`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -200,15 +441,15 @@ ALTER TABLE `post`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `products`
+-- Indexes for table `shops`
 --
-ALTER TABLE `products`
+ALTER TABLE `shops`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `products_ads`
+-- Indexes for table `shop_rent_item`
 --
-ALTER TABLE `products_ads`
+ALTER TABLE `shop_rent_item`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -231,7 +472,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `category_grocery_shop`
+--
+ALTER TABLE `category_grocery_shop`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `chroist_tv`
+--
+ALTER TABLE `chroist_tv`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `feeling_image`
@@ -240,22 +493,58 @@ ALTER TABLE `feeling_image`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `grocery_products`
+--
+ALTER TABLE `grocery_products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `metaverse_land_shop`
+--
+ALTER TABLE `metaverse_land_shop`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `metaverse_shop`
+--
+ALTER TABLE `metaverse_shop`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `metaverse_thing_shop`
+--
+ALTER TABLE `metaverse_thing_shop`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `metaverse_token_shop`
+--
+ALTER TABLE `metaverse_token_shop`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `movies`
+--
+ALTER TABLE `movies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT for table `shops`
 --
-ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `shops`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `products_ads`
+-- AUTO_INCREMENT for table `shop_rent_item`
 --
-ALTER TABLE `products_ads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `shop_rent_item`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `smachup`

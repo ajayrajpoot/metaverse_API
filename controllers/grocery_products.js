@@ -65,9 +65,22 @@ exports.getgrocery_products = async (req, res, next) => {
 
     try {
 
+        let condition = "";
+        if(req.query.isAds){
+            condition +=` ${condition==''?'':'and'} isAds = ${req.query.isAds} `;
+        }
+        // else if(req.query.isRent){
+        //     condition +=` ${condition==''?'':'and'} isRent = ${req.query.isRent} `;
+        // }
+        else if(req.query.search){
+            condition +=`  ${condition==''?'':'and'} name = %${req.query.search}% `;
+        }
+        else {
+            condition ='1';
+        }
         // let shop_id = req.query.shop_id
 
-        let result = await readDB.query(`SELECT * FROM grocery_products WHERE 1 `);
+        let result = await readDB.query(`SELECT * FROM grocery_products WHERE ${condition} `);
         console.log(__line, result)
 
         // let shop_ids = result.map(i => i.id);

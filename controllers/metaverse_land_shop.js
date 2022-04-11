@@ -1,4 +1,50 @@
 
+exports.getmetaverse_land_shop = async (req, res, next) => {
+
+    try {
+
+        // let shop_id = req.query.shop_id
+
+        let condition = "";
+        if(req.query.isAds){
+            condition +=` ${condition==''?'':'and'} isAds = ${req.query.isAds} `;
+        }
+        // else if(req.query.isRent){
+        //     condition +=` ${condition==''?'':'and'} isRent = ${req.query.isRent} `;
+        // }
+        else if(req.query.search){
+            condition +=`  ${condition==''?'':'and'} name = %${req.query.search}% `;
+        }
+        else {
+            condition ='1';
+        }
+        let result = await readDB.query(`SELECT * FROM metaverse_land_shop WHERE ${condition} `);
+        console.log(__line, result)
+
+        // let shop_ids = result.map(i => i.id);
+        // let resultAds = [];
+        // if (shop_ids) {
+        //     resultAds = await readDB.query(`SELECT * FROM metaverse_land_shop_ads WHERE shop_id in ("${shop_ids.map(String).join("\",\"")}"); `);
+        // }
+        // let metaverse_land_shop = [];
+        // result.filter(i => {
+
+        //     let ads = resultAds.find(x => x.shop_id == i.id);
+
+        //     i.ads = ads;
+        //     metaverse_land_shop.push(i);
+
+        // })
+
+        res.json({ data: result, Message: 'metaverse_land_shop list .', Result: true });
+
+    } catch (error) {
+
+        console.log(__line, error);
+        res.json({ Message: error.message, response: error, Result: false });
+
+    }
+};
 
 exports.addmetaverse_land_shop = async (req, res, next) => {
     var p = req.body;
@@ -57,39 +103,6 @@ exports.updatemetaverse_land_shop = async (req, res, next) => {
 
 }
 
-exports.getmetaverse_land_shop = async (req, res, next) => {
-
-    try {
-
-        // let shop_id = req.query.shop_id
-
-        let result = await readDB.query(`SELECT * FROM metaverse_land_shop WHERE 1 `);
-        console.log(__line, result)
-
-        // let shop_ids = result.map(i => i.id);
-        // let resultAds = [];
-        // if (shop_ids) {
-        //     resultAds = await readDB.query(`SELECT * FROM metaverse_land_shop_ads WHERE shop_id in ("${shop_ids.map(String).join("\",\"")}"); `);
-        // }
-        // let metaverse_land_shop = [];
-        // result.filter(i => {
-
-        //     let ads = resultAds.find(x => x.shop_id == i.id);
-
-        //     i.ads = ads;
-        //     metaverse_land_shop.push(i);
-
-        // })
-
-        res.json({ data: result, Message: 'metaverse_land_shop list .', Result: true });
-
-    } catch (error) {
-
-        console.log(__line, error);
-        res.json({ Message: error.message, response: error, Result: false });
-
-    }
-};
 
 exports.deletemetaverse_land_shop = async (req, res, next) => {
  

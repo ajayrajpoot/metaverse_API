@@ -11,9 +11,6 @@ var chroist_tv = require('../controllers/chroist_tv');
 var movies = require('../controllers/movies');
 var metaverse_shop = require('../controllers/metaverse_shop');
 
-
-var products_ads = require('../controllers/products_ads');
-
 var feeling_image = require('../controllers/feeling_image');
 var category = require('../controllers/category');
 var category_grocery_shop = require('../controllers/category_grocery_shop');
