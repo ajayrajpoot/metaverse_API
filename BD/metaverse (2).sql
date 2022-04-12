@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2022 at 04:51 AM
+-- Generation Time: Apr 12, 2022 at 05:21 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -20,6 +20,44 @@ SET time_zone = "+00:00";
 --
 -- Database: `metaverse`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `buy`
+--
+
+CREATE TABLE `buy` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `item_type` varchar(50) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `mrp` float DEFAULT NULL,
+  `buy_price` float DEFAULT NULL,
+  `description` varchar(400) DEFAULT NULL,
+  `comment` varchar(400) DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `buy_rent`
+--
+
+CREATE TABLE `buy_rent` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `item_type` varchar(50) NOT NULL,
+  `item_id` int(11) DEFAULT NULL,
+  `mrp` float DEFAULT NULL,
+  `buy_price` float DEFAULT NULL,
+  `description` varchar(400) DEFAULT NULL,
+  `comment` varchar(400) DEFAULT NULL,
+  `time_of_rent` datetime DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `time_of_rent_unit` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -73,16 +111,26 @@ CREATE TABLE `chroist_tv` (
   `id` int(11) NOT NULL,
   `url` varchar(100) NOT NULL,
   `description` varchar(400) NOT NULL,
-  `timestemp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `timestemp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `auto_commenting` varchar(100) NOT NULL,
+  `time_of_uploading` timestamp NULL DEFAULT current_timestamp(),
+  `user_id` varchar(100) DEFAULT NULL,
+  `profile_pic` varchar(100) DEFAULT NULL,
+  `feeling_url` varchar(100) DEFAULT NULL,
+  `like_count` int(11) NOT NULL DEFAULT 0,
+  `comment_count` int(11) NOT NULL DEFAULT 0,
+  `views_count` int(11) NOT NULL DEFAULT 0,
+  `share_count` int(11) NOT NULL DEFAULT 0,
+  `post_type` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `chroist_tv`
 --
 
-INSERT INTO `chroist_tv` (`id`, `url`, `description`, `timestemp`) VALUES
-(2, 'url', 'des', '2022-04-09 16:15:39'),
-(3, 'url', 'des', '2022-04-09 16:15:39');
+INSERT INTO `chroist_tv` (`id`, `url`, `description`, `timestemp`, `auto_commenting`, `time_of_uploading`, `user_id`, `profile_pic`, `feeling_url`, `like_count`, `comment_count`, `views_count`, `share_count`, `post_type`) VALUES
+(2, 'url', 'des', '2022-04-09 16:15:39', '', '2022-04-12 02:46:37', NULL, NULL, NULL, 0, 0, 0, 0, NULL),
+(3, 'url', 'des', '2022-04-09 16:15:39', '', '2022-04-12 02:46:37', NULL, NULL, NULL, 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -130,6 +178,29 @@ CREATE TABLE `grocery_products` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `metaverse_chroist_tv`
+--
+
+CREATE TABLE `metaverse_chroist_tv` (
+  `id` int(11) NOT NULL,
+  `vedio_url` varchar(100) DEFAULT NULL,
+  `description` varchar(400) NOT NULL,
+  `time_of_uploading` timestamp NOT NULL DEFAULT current_timestamp(),
+  `post_type` varchar(400) DEFAULT NULL,
+  `username` varchar(400) NOT NULL,
+  `profile_pic` varchar(400) DEFAULT NULL,
+  `feeling_url` varchar(400) DEFAULT NULL,
+  `auto_comment` varchar(400) NOT NULL DEFAULT '0',
+  `like_count` int(11) NOT NULL DEFAULT 0,
+  `comment_count` int(11) NOT NULL DEFAULT 0,
+  `views_count` int(11) NOT NULL DEFAULT 0,
+  `share_count` int(11) NOT NULL DEFAULT 0,
+  `exclude_user` varchar(400) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `metaverse_land_shop`
 --
 
@@ -154,6 +225,30 @@ INSERT INTO `metaverse_land_shop` (`id`, `image_url`, `name`, `locations`, `size
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `metaverse_post`
+--
+
+CREATE TABLE `metaverse_post` (
+  `id` int(11) NOT NULL,
+  `url` varchar(100) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `feeling_count` int(11) NOT NULL DEFAULT 0,
+  `comment_count` int(11) NOT NULL DEFAULT 0,
+  `username` varchar(50) NOT NULL,
+  `timestemp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `feeling_icon_urls` varchar(70) DEFAULT NULL,
+  `view_type` varchar(50) NOT NULL DEFAULT '0',
+  `post_type` varchar(50) NOT NULL DEFAULT '0',
+  `views_count` int(11) NOT NULL DEFAULT 0,
+  `share_count` int(11) NOT NULL DEFAULT 0,
+  `like_count` int(11) NOT NULL DEFAULT 0,
+  `exclude_user` varchar(500) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `metaverse_shop`
 --
 
@@ -173,6 +268,32 @@ CREATE TABLE `metaverse_shop` (
 
 INSERT INTO `metaverse_shop` (`id`, `shop_3d_url`, `name`, `location`, `category`, `idAds`, `timestemp`) VALUES
 (2, 'ss', 'sss', '', '', 0, 2147483647);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `metaverse_smachup`
+--
+
+CREATE TABLE `metaverse_smachup` (
+  `id` int(11) NOT NULL,
+  `video_url` varchar(400) DEFAULT NULL,
+  `auto_comment` varchar(400) DEFAULT NULL,
+  `post_type` varchar(400) DEFAULT NULL,
+  `description` varchar(400) DEFAULT NULL,
+  `title` varchar(400) DEFAULT NULL,
+  `timestemp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `username` varchar(400) DEFAULT NULL,
+  `profile_pic` varchar(400) DEFAULT NULL,
+  `feeling_url` varchar(400) DEFAULT NULL,
+  `like_count` int(11) NOT NULL DEFAULT 0,
+  `comment_count` int(11) NOT NULL DEFAULT 0,
+  `views_count` int(11) NOT NULL DEFAULT 0,
+  `share_count` int(11) NOT NULL DEFAULT 0,
+  `exclude_user` varchar(400) DEFAULT NULL,
+  `isAds` int(11) NOT NULL DEFAULT 0,
+  `avatar_url` varchar(400) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -256,7 +377,13 @@ CREATE TABLE `post` (
   `comment_count` int(11) NOT NULL DEFAULT 0,
   `username` varchar(50) NOT NULL,
   `timestemp` timestamp NOT NULL DEFAULT current_timestamp(),
-  `feeling_icon_urls` varchar(70) DEFAULT NULL
+  `feeling_icon_urls` varchar(70) DEFAULT NULL,
+  `view_type` varchar(50) NOT NULL DEFAULT '0',
+  `views_count` int(11) NOT NULL DEFAULT 0,
+  `share_count` int(11) NOT NULL DEFAULT 0,
+  `like_count` int(11) NOT NULL DEFAULT 0,
+  `exclude_user` varchar(500) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -335,7 +462,11 @@ CREATE TABLE `smachup` (
   `username` varchar(50) DEFAULT NULL,
   `time_of_uploading` timestamp NOT NULL DEFAULT current_timestamp(),
   `time_of_video` varchar(10) DEFAULT NULL,
-  `profile_url` varchar(100) DEFAULT NULL
+  `profile_url` varchar(100) DEFAULT NULL,
+  `exclude_user` int(11) DEFAULT NULL,
+  `share_count` int(11) NOT NULL,
+  `like_count` int(11) NOT NULL,
+  `view_type` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -375,6 +506,18 @@ INSERT INTO `users` (`id`, `username`, `name`, `gender`, `email`, `password`, `p
 --
 
 --
+-- Indexes for table `buy`
+--
+ALTER TABLE `buy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `buy_rent`
+--
+ALTER TABLE `buy_rent`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -405,15 +548,33 @@ ALTER TABLE `grocery_products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `metaverse_chroist_tv`
+--
+ALTER TABLE `metaverse_chroist_tv`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `metaverse_land_shop`
 --
 ALTER TABLE `metaverse_land_shop`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `metaverse_post`
+--
+ALTER TABLE `metaverse_post`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `metaverse_shop`
 --
 ALTER TABLE `metaverse_shop`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `metaverse_smachup`
+--
+ALTER TABLE `metaverse_smachup`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -469,6 +630,18 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `buy`
+--
+ALTER TABLE `buy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `buy_rent`
+--
+ALTER TABLE `buy_rent`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
@@ -499,16 +672,34 @@ ALTER TABLE `grocery_products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `metaverse_chroist_tv`
+--
+ALTER TABLE `metaverse_chroist_tv`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `metaverse_land_shop`
 --
 ALTER TABLE `metaverse_land_shop`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `metaverse_post`
+--
+ALTER TABLE `metaverse_post`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `metaverse_shop`
 --
 ALTER TABLE `metaverse_shop`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `metaverse_smachup`
+--
+ALTER TABLE `metaverse_smachup`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `metaverse_thing_shop`
