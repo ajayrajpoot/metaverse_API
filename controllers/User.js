@@ -83,6 +83,28 @@ exports.login = async (req, res, next) => {
     }
 };
 
+exports.getusers = async (req, res, next) => {
+
+    try {
+        // assert(req.query.id, 'no or invalid id provided');
+
+        // const id = req.query.id;
+
+        let condition = "";
+ 
+
+        const result = await readDB.query(`SELECT  id, username, name, gender, email,  phone_no, profileimage, avatarurl, bio, dirtof_birt, followers_count, metaverse_friends_count, suscribers, account_type
+          FROM users    `);
+
+
+        res.json({
+            Result: true, data: result
+        });
+    } catch (error) {
+        res.json({ Message: error.message, response: error, Result: false });
+
+    }
+};
 
 exports.profilebyid = async (req, res, next) => {
 

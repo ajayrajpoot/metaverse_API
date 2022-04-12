@@ -9,6 +9,8 @@ var metaverse_token_shop = require('../controllers/metaverse_token_shop');
 var grocery_products = require('../controllers/grocery_products');
 var chroist_tv = require('../controllers/chroist_tv');
 var movies = require('../controllers/movies');
+var buy_rent = require('../controllers/buy_rent');
+var buy = require('../controllers/buy');
 var metaverse_shop = require('../controllers/metaverse_shop');
 
 var feeling_image = require('../controllers/feeling_image');
@@ -22,6 +24,7 @@ router.get('/', (req, res) => { res.json({ mess: "API" }) })
  
 router.post('/signup', user.signup);
 router.post('/login', user.login);
+router.get('/getusers', user.getusers);
 router.get('/get_otp', user.get_otp);
 router.post('/reset_password', user.reset_password);
 router.get('/profilebyid', user.profilebyid);
@@ -92,6 +95,19 @@ router.post('/addmetaverse_shop', metaverse_shop.addmetaverse_shop);
 router.post('/updatemetaverse_shop', metaverse_shop.updatemetaverse_shop);
 router.get('/deletemetaverse_shop', metaverse_shop.deletemetaverse_shop);
 
+
+
+router.get('/getbuy', buy.getbuy);
+// router.post('/addbuy', buy.addbuy);
+// router.post('/updatebuy', buy.updatebuy);
+// router.get('/deletebuy', buy.deletebuy);
+
+
+
+// router.get('/getbuy_rent', buy_rent.getbuy_rent);
+// router.post('/addbuy_rent', buy_rent.addbuy_rent);
+// router.post('/updatebuy_rent', buy_rent.updatebuy_rent);
+// router.get('/deletebuy_rent', buy_rent.deletebuy_rent);
 
 
 module.exports = router 
