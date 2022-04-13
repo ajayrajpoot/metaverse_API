@@ -13,6 +13,9 @@ var chroist_tv = require('../controllers/chroist_tv');
 var movies = require('../controllers/movies');
 var buy_rent = require('../controllers/buy_rent');
 var buy = require('../controllers/buy');
+var stickers = require('../controllers/stickers');
+var my_collecting = require('../controllers/my_collecting');
+var stories = require('../controllers/stories');
 var post = require('../controllers/post');
 var metaverse_shop = require('../controllers/metaverse_shop');
 var metaverse_chroist_tv = require('../controllers/metaverse_chroist_tv');
@@ -136,5 +139,24 @@ router.post('/addpost', post.addpost);
 router.post('/updatepost', post.updatepost);
 router.get('/deletepost', post.deletepost);
 
+
+
+router.get('/getstories', stories.getstories);
+router.post('/addstories', stories.addstories);
+router.post('/updatestories', stories.updatestories);
+router.get('/deletestories', stories.deletestories);
+
+
+
+router.get('/getmy_collecting', my_collecting.getmy_collecting);
+router.post('/addmy_collecting', my_collecting.addmy_collecting);
+router.post('/updatemy_collecting', my_collecting.updatemy_collecting);
+router.get('/deletemy_collecting', my_collecting.deletemy_collecting);
+
+
+router.get('/getstickers', stickers.getstickers);
+router.post('/addstickers', stickers.addstickers);
+router.post('/updatestickers', stickers.updatestickers);
+router.get('/deletestickers', stickers.deletestickers);
 
 module.exports = router 
