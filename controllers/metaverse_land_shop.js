@@ -74,16 +74,26 @@ exports.updatemetaverse_land_shop = async (req, res, next) => {
 
         let obj = Object.assign({}, p);
 
-        obj = {
-            // id:0,
-            // id
-            image_url: p.image_url,
-            name: p.name,
-            locations: p.locations,
-            size: p.size,
-            buying_price: p.buying_price,
-            idAds: p.idAds,
-        }
+        obj = 
+            { 
+                "image_url": p.image_url,
+                "name": p.name,
+                "locations": p.locations,
+                "size": p.size,
+                "buying_price": p.buying_price,
+                "idAds": p.idAds,
+                "Keywords": p.Keywords,
+                "sellerorgin": p.sellerorgin,
+                "sellerprofilename": p.sellerprofilename,
+                "manufacturer_by": p.manufacturer_by,
+                "importedby": p.importedby,
+                "packedby": p.packedby,
+                "generic_name": p.generic_name,
+                "local_delivery_charges": p.local_delivery_charges,
+                "zonal_delivery": p.zonal_delivery,
+            }
+             
+        
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE metaverse_land_shop SET   ? where id= ? `, obj, p.id);

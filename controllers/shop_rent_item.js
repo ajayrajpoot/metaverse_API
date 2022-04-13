@@ -75,21 +75,32 @@ exports.updateshop_rent_item = async (req, res, next) => {
 
         let obj = Object.assign({}, p);
 
-        obj = {
-            // id:0,
-
-            "nameshop_rent_itemproduct_count": "",
-            "time_of_rent": "",
-            "off_percentage": "",
-            "descripting": "",
-            "mrp": "",
-            "selling_price": "",
-            "icon_image": "",
-            "reating": "",
-            "count": "",
-            "remaining_count": "",
-            "isAds": "",
-            "timestemp": "",
+        obj =  { 
+            "name": p.name,
+            "product_count": p.product_count,
+            "time_of_rent": p.time_of_rent,
+            "off_percentage": p.off_percentage,
+            "descripting": p.descripting,
+            "mrp": p.mrp,
+            "selling_price": p.selling_price,
+            "icon_image": p.icon_image,
+            "reating": p.reating,
+            "count": p.count,
+            "remaining_count": p.remaining_count,
+            "isAds": p.isAds,
+            "timestemp": p.timestemp,
+            "Keywords": p.Keywords,
+            "sellerorgin": p.sellerorgin,
+            "sellerprofilrname": p.sellerprofilrname,
+            "manufacturerby": p.manufacturerby,
+            "importedby": p.importedby,
+            "packedby": p.packedby,
+            "genricname": p.genricname,
+            "video": p.video,
+            "local_delivery_charges": p.local_delivery_charges,
+            "zonal_delivery": p.zonal_delivery,
+            "national_delivery_charges": p.national_delivery_charges,
+            "international_delivery_charges": p.international_delivery_charges
         }
 
         delete obj.id;

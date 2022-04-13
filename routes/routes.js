@@ -3,6 +3,8 @@ var router = express.Router();
 
 var user = require('../controllers/User');
 var shop = require('../controllers/shop');
+var metaverse_smachup = require('../controllers/metaverse_smachup');
+var smachup = require('../controllers/smachup'); 
 var shop_rent_item = require('../controllers/shop_rent_item');
 var metaverse_land_shop = require('../controllers/metaverse_land_shop');
 var metaverse_token_shop = require('../controllers/metaverse_token_shop');
@@ -11,7 +13,9 @@ var chroist_tv = require('../controllers/chroist_tv');
 var movies = require('../controllers/movies');
 var buy_rent = require('../controllers/buy_rent');
 var buy = require('../controllers/buy');
+var post = require('../controllers/post');
 var metaverse_shop = require('../controllers/metaverse_shop');
+var metaverse_chroist_tv = require('../controllers/metaverse_chroist_tv');
 
 var feeling_image = require('../controllers/feeling_image');
 var category = require('../controllers/category');
@@ -53,6 +57,16 @@ router.get('/getshops', shop.getshops);
 router.post('/addshop', shop.addshop);
 router.post('/updateshop', shop.updateshop);
 router.get('/deleteshop', shop.deleteshop);
+
+router.get('/getmetaverse_smachup', metaverse_smachup.getmetaverse_smachup);
+router.post('/addmetaverse_smachup', metaverse_smachup.addmetaverse_smachup);
+router.post('/updatemetaverse_smachup', metaverse_smachup.updatemetaverse_smachup);
+router.get('/deletemetaverse_smachup', metaverse_smachup.deletemetaverse_smachup);
+
+router.get('/getsmachup', smachup.getsmachup);
+router.post('/addsmachup', smachup.addsmachup);
+router.post('/updatesmachup', smachup.updatesmachup);
+router.get('/deletesmachup', smachup.deletesmachup);
 
 
 router.get('/getshop_rent_item', shop_rent_item.getshop_rent_item);
@@ -96,18 +110,31 @@ router.post('/updatemetaverse_shop', metaverse_shop.updatemetaverse_shop);
 router.get('/deletemetaverse_shop', metaverse_shop.deletemetaverse_shop);
 
 
+router.get('/getmetaverse_chroist_tv', metaverse_chroist_tv.getmetaverse_chroist_tv);
+router.post('/addmetaverse_chroist_tv', metaverse_chroist_tv.addmetaverse_chroist_tv);
+router.post('/updatemetaverse_chroist_tv', metaverse_chroist_tv.updatemetaverse_chroist_tv);
+router.get('/deletemetaverse_chroist_tv', metaverse_chroist_tv.deletemetaverse_chroist_tv);
+
+
 
 router.get('/getbuy', buy.getbuy);
-// router.post('/addbuy', buy.addbuy);
-// router.post('/updatebuy', buy.updatebuy);
-// router.get('/deletebuy', buy.deletebuy);
+router.post('/addbuy', buy.addbuy);
+router.post('/updatebuy', buy.updatebuy);
+router.get('/deletebuy', buy.deletebuy);
 
 
 
-// router.get('/getbuy_rent', buy_rent.getbuy_rent);
-// router.post('/addbuy_rent', buy_rent.addbuy_rent);
-// router.post('/updatebuy_rent', buy_rent.updatebuy_rent);
-// router.get('/deletebuy_rent', buy_rent.deletebuy_rent);
+router.get('/getbuy_rent', buy_rent.getbuy_rent);
+router.post('/addbuy_rent', buy_rent.addbuy_rent);
+router.post('/updatebuy_rent', buy_rent.updatebuy_rent);
+router.get('/deletebuy_rent', buy_rent.deletebuy_rent);
+
+
+
+router.get('/getpost', post.getpost);
+router.post('/addpost', post.addpost);
+router.post('/updatepost', post.updatepost);
+router.get('/deletepost', post.deletepost);
 
 
 module.exports = router 

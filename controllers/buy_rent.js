@@ -27,14 +27,18 @@ exports.updatebuy_rent = async (req, res, next) => {
     try {
  
 
-        let obj = {
-            // id
-            shop_3d_url: p.shop_3d_url,
-            name: p.name,
-            location: p.location,
-            category: p.category,
-            idAds: p.idAds,
-            
+        let obj ={
+            // "id": p.id,
+            "user_id": p.user_id,
+            "item_type": p.item_type,
+            "item_id": p.item_id,
+            "mrp": p.mrp,
+            "buy_price": p.buy_price,
+            "description": p.description,
+            "comment": p.comment,
+            "time_of_rent": p.time_of_rent,
+            // "timestamp": p.timestamp,
+            "time_of_rent_unit": p.time_of_rent_unit,
         }
 
         delete obj.id;

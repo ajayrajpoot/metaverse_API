@@ -26,9 +26,26 @@ exports.updatemetaverse_thing_shop = async (req, res, next) => {
     var p = req.body;
 
     console.log(">>>",p)
+
+    let obj ={ 
+        "name": p.name,
+        "description": p.description,
+        "mrp": p.mrp,
+        "product_count": p.product_count,
+        "seeling_prise": p.seeling_prise,
+        "rating": p.rating,
+        "modle_3d": p.modle_3d,
+        "off_percentage": p.off_percentage,
+        "Keywords_sellerorgin": p.Keywords_sellerorgin,
+        "sellerprofilrname": p.sellerprofilrname,
+        "manufacturerby": p.manufacturerby,
+        "importedby": p.importedby,
+        "packedby": p.packedby,
+        "genricname": p.genricname,
+    }
     try {
         // const result = await readDB.query(`SELECT id, image, timestemp FROM feeling_image WHERE 1 `);
-        const result = await writeDB.query(`UPDATE metaverse_thing_shop SET  category= ?, image=? where id= ? `, p.category, p.image, p.id);
+        const result = await writeDB.query(`UPDATE metaverse_thing_shop set ?   where id= ? `, obj, p.id);
 
         console.log(__line,result)
         if (result.affectedRows > 0) {
@@ -47,7 +64,7 @@ exports.getmetaverse_thing_shop = async (req, res, next) => {
 
     try {
 
-        const result = await readDB.query(`SELECT id, category,image FROM metaverse_thing_shop WHERE 1 `);
+        const result = await readDB.query(`SELECT * FROM metaverse_thing_shop WHERE 1 `);
 
         console.log(">>>>>", result)
 

@@ -175,3 +175,14 @@ var server = app.listen(8081, function () {
 
 });
 
+
+// var server = app.listen(8081,'62.171.178.135', function () {
+//     console.log("Server Create");
+//     const host = server.address().address
+//     const port = server.address().port;
+//     console.log("API Listening at http://%s:%s", host, port);
+
+//     require('./scripts/bootstrap');
+
+// });
+
