@@ -16,6 +16,10 @@ var buy = require('../controllers/buy');
 var stickers = require('../controllers/stickers');
 var my_collecting = require('../controllers/my_collecting');
 var stories = require('../controllers/stories');
+var followers = require('../controllers/followers');
+var subscribe = require('../controllers/subscribe');
+var wallet_transaction = require('../controllers/wallet_transaction');
+var wallet = require('../controllers/wallet');
 var post = require('../controllers/post');
 var metaverse_shop = require('../controllers/metaverse_shop');
 var metaverse_chroist_tv = require('../controllers/metaverse_chroist_tv');
@@ -145,6 +149,32 @@ router.get('/getstories', stories.getstories);
 router.post('/addstories', stories.addstories);
 router.post('/updatestories', stories.updatestories);
 router.get('/deletestories', stories.deletestories);
+
+
+
+
+router.get('/myfollowers', followers.myfollowers);
+router.post('/follow', followers.addfollowers);
+router.get('/unfollow', followers.unfollow);
+
+router.get('/mysubscriber', subscribe.mysubscriber);
+router.post('/subscribe', subscribe.mysubscriber);
+router.get('/unsubscribe', subscribe.unsubscribe);
+
+
+
+router.get('/getwallet', wallet.getwallet);
+router.post('/addwallet', wallet.addwallet);
+router.post('/updatewallet', wallet.updatewallet);
+router.get('/deletewallet', wallet.deletewallet);
+
+
+router.get('/getBalance', wallet_transaction.getBalance);
+router.get('/getwallet_transaction', wallet_transaction.getwallet_transaction);
+router.get('/getwallet_transaction_all', wallet_transaction.getwallet_transaction_all);
+router.post('/addwallet_transaction', wallet_transaction.addwallet_transaction);
+router.post('/updatewallet_transaction', wallet_transaction.updatewallet_transaction);
+router.get('/deletewallet_transaction', wallet_transaction.deletewallet_transaction);
 
 
 

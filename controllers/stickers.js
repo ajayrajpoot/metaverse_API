@@ -29,7 +29,9 @@ exports.updatestickers = async (req, res, next) => {
 
         let obj =  { 
             "stickers": p.stickers,
-            "url": p.url
+            "url": p.url,
+            is_payed: p.is_payed,
+            price: p.price
         }
 
         delete obj.id;
