@@ -20,6 +20,8 @@ var followers = require('../controllers/followers');
 var subscribe = require('../controllers/subscribe');
 var wallet_transaction = require('../controllers/wallet_transaction');
 var wallet = require('../controllers/wallet');
+var hashtag  = require('../controllers/hashtag ');
+var pay_later = require('../controllers/pay_later');
 var post = require('../controllers/post');
 var metaverse_shop = require('../controllers/metaverse_shop');
 var metaverse_chroist_tv = require('../controllers/metaverse_chroist_tv');
@@ -168,7 +170,6 @@ router.post('/addwallet', wallet.addwallet);
 router.post('/updatewallet', wallet.updatewallet);
 router.get('/deletewallet', wallet.deletewallet);
 
-
 router.get('/getBalance', wallet_transaction.getBalance);
 router.get('/getwallet_transaction', wallet_transaction.getwallet_transaction);
 router.get('/getwallet_transaction_all', wallet_transaction.getwallet_transaction_all);
@@ -176,6 +177,19 @@ router.post('/addwallet_transaction', wallet_transaction.addwallet_transaction);
 router.post('/updatewallet_transaction', wallet_transaction.updatewallet_transaction);
 router.get('/deletewallet_transaction', wallet_transaction.deletewallet_transaction);
 
+
+
+router.get('/getpay_later', pay_later.getpay_later);
+router.post('/addpay_later', pay_later.addpay_later);
+router.post('/updatepay_later_status', pay_later.updatepay_later_status);
+router.get('/deletepay_later', pay_later.deletepay_later);
+
+
+
+router.get('/gethashtag ', hashtag .gethashtag );
+router.post('/addhashtag ', hashtag .addhashtag );
+router.post('/updatehashtag ', hashtag .updatehashtag );
+router.get('/deletehashtag ', hashtag .deletehashtag );
 
 
 router.get('/getmy_collecting', my_collecting.getmy_collecting);
