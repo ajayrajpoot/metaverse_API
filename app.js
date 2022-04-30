@@ -8,10 +8,11 @@ var bodyParser = require('body-parser');
 const fs = require('fs');
 const upload = require('express-fileupload')
 
-
 const multer = require('multer');
 const path = require('path');
 
+const morgan = require('morgan')
+morgan(':method :url :status :res[content-length] - :response-time ms')
 
 var routes = require('./routes/routes');
 const { urlencoded } = require('body-parser');
@@ -29,56 +30,56 @@ app.get('/', function (req, res) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.send('cors problem fixed:)');
 });
- 
+
 const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
+    destination: function (req, file, cb) {
         cb(null, 'public/uploads/');
     },
 
     // By default, multer removes file extensions so let's add them back
-    filename: function(req, file, cb) {
+    filename: function (req, file, cb) {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
 });
-const imageFilter = function(req, file, cb) {
+const imageFilter = function (req, file, cb) {
     // Accept images only
     if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF)$/)) {
         req.fileValidationError = 'Only image files are allowed!';
         return cb(new Error('Only image files are allowed!'), false);
     }
     cb(null, true);
-};  
+};
 
 app.post('/api/fileupload', (req, res) => {
-// console.log("EVN",process.env.dev)
+    // console.log("EVN",process.env.dev)
 
     // 'profile_pic' is the name of our file input field in the HTML form
     let upload = multer({ storage: storage, fileFilter: imageFilter }).single('file');
 
-    upload(req, res, function(err) {
+    upload(req, res, function (err) {
         // req.file contains information of uploaded file
         // req.body contains information of text fields, if there were any
 
         if (req.fileValidationError) {
-            return res.json({error:req.fileValidationError});
+            return res.json({ error: req.fileValidationError });
         }
         else if (!req.file) {
-            return res.json({error:'Please select an image to upload'});
+            return res.json({ error: 'Please select an image to upload' });
         }
         else if (err instanceof multer.MulterError) {
-            return res.json({error:err});
+            return res.json({ error: err });
         }
         else if (err) {
-            return res.json({error:err});
+            return res.json({ error: err });
         }
 
         // Display uploaded image for user validation
         let url = "http://localhost:8081/uploads/";
         // let url = "http://62.171.178.135:8081/uploads/";
-        console.log(__line,req.file)
+        console.log(__line, req.file)
         res.json({
-            file :`${url}${req.file.filename}`
-        } );
+            file: `${url}${req.file.filename}`
+        });
     });
 });
 
@@ -87,7 +88,7 @@ app.post('/api/upload-multiple-images', (req, res) => {
     // 'multiple_images' is the name of our file input field
     let upload = multer({ storage: storage, fileFilter: imageFilter }).array('multiple_images', 10);
 
-    upload(req, res, function(err) {
+    upload(req, res, function (err) {
         if (req.fileValidationError) {
             return res.send(req.fileValidationError);
         }
@@ -108,7 +109,7 @@ app.post('/api/upload-multiple-images', (req, res) => {
         res.send(result);
     });
 });
- 
+
 app.get('/api/start', function (req, res) {
     res.send('start');
 })
@@ -149,7 +150,7 @@ app.post('/api/uploadfile', (req, res, next) => {
         res.send({ Message: " Fail to Upload File", Result: true, err: err })
     }
 });
-app.use('/api', routes);
+app.use('/report', routes);
 
 function decodeBase64Image(dataString) {
     var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),

@@ -15,7 +15,7 @@ module.exports = ((env = process.env.NODE_ENV) => {
             "host"      :   "localhost",
             "user"      :   "root",
             "password"  :   "",
-            "database"  :   "metaverse",
+            "database"  :   "shopreports",
             "port"      :   "3307"
         }
     }
@@ -26,7 +26,7 @@ module.exports = ((env = process.env.NODE_ENV) => {
             "host"      :   "localhost",
             "user"      :   "root",
             "password"  :   "",
-            "database"  :   "metaverse",
+            "database"  :   "shopreportsnode",
             "port"      :   "4406"
         }
     }
