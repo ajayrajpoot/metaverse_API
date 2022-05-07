@@ -1,16 +1,24 @@
 var express = require('express');
-var router = express.Router(); 
+var router = express.Router();
 
 var user = require('../controllers/User');
 var shop = require('../controllers/shop');
 var metaverse_smachup = require('../controllers/metaverse_smachup');
-var smachup = require('../controllers/smachup'); 
+var smachup = require('../controllers/smachup');
 var shop_rent_item = require('../controllers/shop_rent_item');
 var metaverse_land_shop = require('../controllers/metaverse_land_shop');
 var metaverse_token_shop = require('../controllers/metaverse_token_shop');
 var grocery_products = require('../controllers/grocery_products');
 var chroist_tv = require('../controllers/chroist_tv');
 var movies = require('../controllers/movies');
+var metaverse_formers_places = require('../controllers/metaverse_formers_places');
+var metaverse_formers_places_music = require('../controllers/metaverse_formers_places_music');
+var metaverse_memo_url = require('../controllers/metaverse_memo_url');
+var metaverse_invite_collaborating_request = require('../controllers/metaverse_invite_collaborating_request');
+var metaverse_free_avatar_things = require('../controllers/metaverse_free_avatar_things');
+var metaverse_games = require('../controllers/metaverse_games');
+var show_theaters_event = require('../controllers/show_theaters_event');
+var metaverse_worlds = require('../controllers/metaverse_worlds');
 var buy_rent = require('../controllers/buy_rent');
 var buy = require('../controllers/buy');
 var stickers = require('../controllers/stickers');
@@ -20,7 +28,7 @@ var followers = require('../controllers/followers');
 var subscribe = require('../controllers/subscribe');
 var wallet_transaction = require('../controllers/wallet_transaction');
 var wallet = require('../controllers/wallet');
-var hashtag  = require('../controllers/hashtag ');
+var hashtag = require('../controllers/hashtag');
 var pay_later = require('../controllers/pay_later');
 var post = require('../controllers/post');
 var metaverse_shop = require('../controllers/metaverse_shop');
@@ -32,9 +40,9 @@ var category_grocery_shop = require('../controllers/category_grocery_shop');
 var metaverse_thing_shop = require('../controllers/metaverse_thing_shop');
 
 const isAuth = require('../middleware/is-auth');
- 
+
 router.get('/', (req, res) => { res.json({ mess: "API" }) })
- 
+
 router.post('/signup', user.signup);
 router.post('/login', user.login);
 router.get('/getusers', user.getusers);
@@ -113,6 +121,49 @@ router.post('/updatemovies', movies.updatemovies);
 router.get('/deletemovies', movies.deletemovies);
 
 
+router.get('/getmetaverse_formers_places', metaverse_formers_places.getmetaverse_formers_places);
+router.post('/addmetaverse_formers_places', metaverse_formers_places.addmetaverse_formers_places);
+router.post('/updatemetaverse_formers_places', metaverse_formers_places.updatemetaverse_formers_places);
+router.get('/deletemetaverse_formers_places', metaverse_formers_places.deletemetaverse_formers_places);
+
+
+router.get('/getmetaverse_formers_places_music', metaverse_formers_places_music.getmetaverse_formers_places_music);
+router.post('/addmetaverse_formers_places_music', metaverse_formers_places_music.addmetaverse_formers_places_music);
+router.post('/updatemetaverse_formers_places_music', metaverse_formers_places_music.updatemetaverse_formers_places_music);
+router.get('/deletemetaverse_formers_places_music', metaverse_formers_places_music.deletemetaverse_formers_places_music);
+
+router.get('/getmetaverse_invite_collaborating_request', metaverse_invite_collaborating_request.getmetaverse_invite_collaborating_request);
+router.post('/addmetaverse_invite_collaborating_request', metaverse_invite_collaborating_request.addmetaverse_invite_collaborating_request);
+router.post('/updatemetaverse_invite_collaborating_request', metaverse_invite_collaborating_request.updatemetaverse_invite_collaborating_request);
+router.get('/deletemetaverse_invite_collaborating_request', metaverse_invite_collaborating_request.deletemetaverse_invite_collaborating_request);
+
+
+router.get('/getmetaverse_free_avatar_things', metaverse_free_avatar_things.getmetaverse_free_avatar_things);
+router.post('/addmetaverse_free_avatar_things', metaverse_free_avatar_things.addmetaverse_free_avatar_things);
+router.post('/updatemetaverse_free_avatar_things', metaverse_free_avatar_things.updatemetaverse_free_avatar_things);
+router.get('/deletemetaverse_free_avatar_things', metaverse_free_avatar_things.deletemetaverse_free_avatar_things);
+
+
+
+
+router.get('/getmetaverse_games', metaverse_games.getmetaverse_games);
+router.post('/addmetaverse_games', metaverse_games.addmetaverse_games);
+router.post('/updatemetaverse_games', metaverse_games.updatemetaverse_games);
+router.get('/deletemetaverse_games', metaverse_games.deletemetaverse_games);
+
+
+router.get('/getshow_theaters_event', show_theaters_event.getshow_theaters_event);
+router.post('/addshow_theaters_event', show_theaters_event.addshow_theaters_event);
+router.post('/updateshow_theaters_event', show_theaters_event.updateshow_theaters_event);
+router.get('/deleteshow_theaters_event', show_theaters_event.deleteshow_theaters_event);
+
+
+router.get('/getmetaverse_worlds', metaverse_worlds.getmetaverse_worlds);
+router.post('/addmetaverse_worlds', metaverse_worlds.addmetaverse_worlds);
+router.post('/updatemetaverse_worlds', metaverse_worlds.updatemetaverse_worlds);
+router.get('/deletemetaverse_worlds', metaverse_worlds.deletemetaverse_worlds);
+
+
 router.get('/getmetaverse_shop', metaverse_shop.getmetaverse_shop);
 router.post('/addmetaverse_shop', metaverse_shop.addmetaverse_shop);
 router.post('/updatemetaverse_shop', metaverse_shop.updatemetaverse_shop);
@@ -186,10 +237,10 @@ router.get('/deletepay_later', pay_later.deletepay_later);
 
 
 
-router.get('/gethashtag ', hashtag .gethashtag );
-router.post('/addhashtag ', hashtag .addhashtag );
-router.post('/updatehashtag ', hashtag .updatehashtag );
-router.get('/deletehashtag ', hashtag .deletehashtag );
+router.get('/gethashtag', hashtag.gethashtag);
+router.post('/addhashtag', hashtag.addhashtag);
+router.post('/updatehashtag', hashtag.updatehashtag);
+router.get('/deletehashtag', hashtag.deletehashtag);
 
 
 router.get('/getmy_collecting', my_collecting.getmy_collecting);
@@ -202,5 +253,45 @@ router.get('/getstickers', stickers.getstickers);
 router.post('/addstickers', stickers.addstickers);
 router.post('/updatestickers', stickers.updatestickers);
 router.get('/deletestickers', stickers.deletestickers);
+
+
+
+router.get('/getmetaverse_memo_url', metaverse_memo_url.getmetaverse_memo_url);
+router.post('/addmetaverse_memo_url', metaverse_memo_url.addmetaverse_memo_url);
+router.post('/updatemetaverse_memo_url', metaverse_memo_url.updatemetaverse_memo_url);
+router.get('/deletemetaverse_memo_url', metaverse_memo_url.deletemetaverse_memo_url);
+
+const my_story_memo = require('../controllers/my_story_memo');
+router.get('/getmy_story_memo', my_story_memo.getmy_story_memo);
+router.post('/addmy_story_memo', my_story_memo.addmy_story_memo);
+router.post('/updatemy_story_memo', my_story_memo.updatemy_story_memo);
+router.get('/deletemy_story_memo', my_story_memo.deletemy_story_memo);
+
+const metaverse_friends_request = require('../controllers/metaverse_friends_request');
+router.get('/getmetaverse_friends_request', metaverse_friends_request.getmetaverse_friends_request);
+router.post('/addmetaverse_friends_request', metaverse_friends_request.addmetaverse_friends_request);
+router.post('/updatemetaverse_friends_request', metaverse_friends_request.updatemetaverse_friends_request);
+router.get('/deletemetaverse_friends_request', metaverse_friends_request.deletemetaverse_friends_request);
+ 
+const chroist_memo = require('../controllers/chroist_memo');
+router.get('/getchroist_memo', chroist_memo.getchroist_memo);
+router.post('/addchroist_memo', chroist_memo.addchroist_memo);
+router.post('/updatechroist_memo', chroist_memo.updatechroist_memo);
+router.get('/deletechroist_memo', chroist_memo.deletechroist_memo);
+
+
+const relation = require('../controllers/relation');
+router.get('/getrelation', relation.getrelation);
+router.post('/addrelation', relation.addrelation);
+router.post('/updaterelation', relation.updaterelation);
+router.get('/deleterelation', relation.deleterelation);
+
+const metaverse_my_events_theater_tickets = require('../controllers/metaverse_my_events_theater_tickets');
+router.get('/getmetaverse_my_events_theater_tickets', metaverse_my_events_theater_tickets.getmetaverse_my_events_theater_tickets);
+router.post('/addmetaverse_my_events_theater_tickets', metaverse_my_events_theater_tickets.addmetaverse_my_events_theater_tickets);
+router.post('/updatemetaverse_my_events_theater_tickets', metaverse_my_events_theater_tickets.updatemetaverse_my_events_theater_tickets);
+router.get('/deletemetaverse_my_events_theater_tickets', metaverse_my_events_theater_tickets.deletemetaverse_my_events_theater_tickets);
+
+
 
 module.exports = router 
