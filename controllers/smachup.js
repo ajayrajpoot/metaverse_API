@@ -90,22 +90,7 @@ exports.getsmachup = async (req, res, next) => {
         // let smachup_id = req.query.smachup_id
 
         let result = await readDB.query(`SELECT * FROM smachup WHERE ${condition} `);
-        // console.log(__line, result)
-
-        // let smachup_ids = result.map(i => i.id);
-        // let resultAds = [];
-        // if (smachup_ids) {
-        //     resultAds = await readDB.query(`SELECT * FROM smachup_ads WHERE smachup_id in ("${smachup_ids.map(String).join("\",\"")}"); `);
-        // }
-        // let smachup = [];
-        // result.filter(i => {
-
-        //     let ads = resultAds.find(x => x.smachup_id == i.id);
-
-        //     i.ads = ads;
-        //     smachup.push(i);
-
-        // })
+       
 
         res.json({ data: result, Message: 'smachup list with Ads.', Result: true });
 

@@ -80,20 +80,7 @@ exports.getbuy_rent = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM buy_rent WHERE ${condition} `);
         console.log(__line, result)
 
-        // let shop_ids = result.map(i => i.id);
-        // let resultAds = [];
-        // if (shop_ids) {
-        //     resultAds = await readDB.query(`SELECT * FROM buy_rent_ads WHERE shop_id in ("${shop_ids.map(String).join("\",\"")}"); `);
-        // }
-        // let buy_rent = [];
-        // result.filter(i => {
-
-        //     let ads = resultAds.find(x => x.shop_id == i.id);
-
-        //     i.ads = ads;
-        //     buy_rent.push(i);
-
-        // })
+      
 
         res.json({ data: result, Message: 'buy_rent list .', Result: true });
 

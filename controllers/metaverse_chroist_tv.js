@@ -81,21 +81,7 @@ exports.getmetaverse_chroist_tv = async (req, res, next) => {
 
         let result = await readDB.query(`SELECT * FROM metaverse_chroist_tv WHERE ${condition} `);
         console.log(__line, result)
-
-        // let shop_ids = result.map(i => i.id);
-        // let resultAds = [];
-        // if (shop_ids) {
-        //     resultAds = await readDB.query(`SELECT * FROM metaverse_chroist_tv_ads WHERE shop_id in ("${shop_ids.map(String).join("\",\"")}"); `);
-        // }
-        // let metaverse_chroist_tv = [];
-        // result.filter(i => {
-
-        //     let ads = resultAds.find(x => x.shop_id == i.id);
-
-        //     i.ads = ads;
-        //     metaverse_chroist_tv.push(i);
-
-        // })
+ 
 
         res.json({ data: result, Message: 'metaverse_chroist_tv list .', Result: true });
 

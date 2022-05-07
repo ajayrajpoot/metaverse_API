@@ -61,22 +61,7 @@ exports.getchroist_tv = async (req, res, next) => {
 
         let result = await readDB.query(`SELECT * FROM chroist_tv WHERE 1 `);
         console.log(__line, result)
-
-        // let shop_ids = result.map(i => i.id);
-        // let resultAds = [];
-        // if (shop_ids) {
-        //     resultAds = await readDB.query(`SELECT * FROM chroist_tv_ads WHERE shop_id in ("${shop_ids.map(String).join("\",\"")}"); `);
-        // }
-        // let chroist_tv = [];
-        // result.filter(i => {
-
-        //     let ads = resultAds.find(x => x.shop_id == i.id);
-
-        //     i.ads = ads;
-        //     chroist_tv.push(i);
-
-        // })
-
+ 
         res.json({ data: result, Message: 'chroist_tv list .', Result: true });
 
     } catch (error) {

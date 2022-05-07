@@ -64,12 +64,7 @@ exports.getbuy = async (req, res, next) => {
         if(req.query.user_id){
             condition +=` ${condition==''?'':'and'} user_id = ${req.query.user_id} `;
         }
-        // else if(req.query.isRent){
-        //     condition +=` ${condition==''?'':'and'} isRent = ${req.query.isRent} `;
-        // }
-        // else if(req.query.search){
-        //     condition +=`  ${condition==''?'':'and'} name = %${req.query.search}% `;
-        // }
+        
         else {
             condition ='1';
         }
@@ -77,22 +72,7 @@ exports.getbuy = async (req, res, next) => {
 
         let result = await readDB.query(`SELECT * FROM buy WHERE ${condition} `);
         console.log(__line, result)
-
-        // let shop_ids = result.map(i => i.id);
-        // let resultAds = [];
-        // if (shop_ids) {
-        //     resultAds = await readDB.query(`SELECT * FROM buy_ads WHERE shop_id in ("${shop_ids.map(String).join("\",\"")}"); `);
-        // }
-        // let buy = [];
-        // result.filter(i => {
-
-        //     let ads = resultAds.find(x => x.shop_id == i.id);
-
-        //     i.ads = ads;
-        //     buy.push(i);
-
-        // })
-
+ 
         res.json({ data: result, Message: 'buy list .', Result: true });
 
     } catch (error) {

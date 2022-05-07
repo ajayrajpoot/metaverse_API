@@ -75,21 +75,7 @@ exports.getmetaverse_token_shop = async (req, res, next) => {
 
         let result = await readDB.query(`SELECT * FROM metaverse_token_shop WHERE ${condition} `);
         console.log(__line, result)
-
-        // let shop_ids = result.map(i => i.id);
-        // let resultAds = [];
-        // if (shop_ids) {
-        //     resultAds = await readDB.query(`SELECT * FROM metaverse_token_shop_ads WHERE shop_id in ("${shop_ids.map(String).join("\",\"")}"); `);
-        // }
-        // let metaverse_token_shop = [];
-        // result.filter(i => {
-
-        //     let ads = resultAds.find(x => x.shop_id == i.id);
-
-        //     i.ads = ads;
-        //     metaverse_token_shop.push(i);
-
-        // })
+ 
 
         res.json({ data: result, Message: 'metaverse_token_shop list .', Result: true });
 

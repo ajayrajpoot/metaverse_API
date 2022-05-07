@@ -90,22 +90,7 @@ exports.getmetaverse_smachup = async (req, res, next) => {
         // let metaverse_smachup_id = req.query.metaverse_smachup_id
 
         let result = await readDB.query(`SELECT * FROM metaverse_smachup WHERE ${condition} `);
-        // console.log(__line, result)
-
-        // let metaverse_smachup_ids = result.map(i => i.id);
-        // let resultAds = [];
-        // if (metaverse_smachup_ids) {
-        //     resultAds = await readDB.query(`SELECT * FROM metaverse_smachup_ads WHERE metaverse_smachup_id in ("${metaverse_smachup_ids.map(String).join("\",\"")}"); `);
-        // }
-        // let metaverse_smachup = [];
-        // result.filter(i => {
-
-        //     let ads = resultAds.find(x => x.metaverse_smachup_id == i.id);
-
-        //     i.ads = ads;
-        //     metaverse_smachup.push(i);
-
-        // })
+      
 
         res.json({ data: result, Message: 'metaverse_smachup list with Ads.', Result: true });
 

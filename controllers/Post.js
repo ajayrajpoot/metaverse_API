@@ -88,22 +88,7 @@ exports.getpost = async (req, res, next) => {
 
         let result = await readDB.query(`SELECT * FROM post WHERE ${condition} `);
         // console.log(__line, result)
-
-        // let post_ids = result.map(i => i.id);
-        // let resultAds = [];
-        // if (post_ids) {
-        //     resultAds = await readDB.query(`SELECT * FROM post_ads WHERE post_id in ("${post_ids.map(String).join("\",\"")}"); `);
-        // }
-        // let post = [];
-        // result.filter(i => {
-
-        //     let ads = resultAds.find(x => x.post_id == i.id);
-
-        //     i.ads = ads;
-        //     post.push(i);
-
-        // })
-
+ 
         res.json({ data: result, Message: 'post list with Ads.', Result: true });
 
     } catch (error) {

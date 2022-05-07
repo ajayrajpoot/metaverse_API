@@ -21,21 +21,7 @@ exports.getshop_rent_item = async (req, res, next) => {
 
         let result = await readDB.query(`SELECT * FROM shop_rent_item WHERE ${condition} `);
         console.log(__line, result)
-
-        // let shop_ids = result.map(i => i.id);
-        // let resultAds = [];
-        // if (shop_ids) {
-        //     resultAds = await readDB.query(`SELECT * FROM shop_rent_item_ads WHERE shop_id in ("${shop_ids.map(String).join("\",\"")}"); `);
-        // }
-        // let shop_rent_item = [];
-        // result.filter(i => {
-
-        //     let ads = resultAds.find(x => x.shop_id == i.id);
-
-        //     i.ads = ads;
-        //     shop_rent_item.push(i);
-
-        // })
+ 
 
         res.json({ data: result, Message: 'shop_rent_item list with Ads.', Result: true });
 

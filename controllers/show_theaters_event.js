@@ -1,38 +1,11 @@
 exports.getshow_theaters_event = async (req, res, next) => {
 
     try {
-
-        // let shop_id = req.query.shop_id
-
-        // let condition = "";
-        // if(req.query.isAds){
-        //     condition +=` ${condition==''?'':'and'} isAds = ${req.query.isAds} `;
-        // }
-        // // else if(req.query.isRent){
-        // //     condition +=` ${condition==''?'':'and'} isRent = ${req.query.isRent} `;
-        // // }
-        // else if(req.query.search){
-        //     condition +=`  ${condition==''?'':'and'} name = %${req.query.search}% `;
-        // }
-        // else{}
-
+ 
         let result = await readDB.query(`SELECT * FROM show_theaters_event WHERE 1 `);
         console.log(__line, result)
 
-        // let shop_ids = result.map(i => i.id);
-        // let resultAds = [];
-        // if (shop_ids) {
-        //     resultAds = await readDB.query(`SELECT * FROM show_theaters_event_ads WHERE shop_id in ("${shop_ids.map(String).join("\",\"")}"); `);
-        // }
-        // let show_theaters_event = [];
-        // result.filter(i => {
-
-        //     let ads = resultAds.find(x => x.shop_id == i.id);
-
-        //     i.ads = ads;
-        //     show_theaters_event.push(i);
-
-        // })
+     
 
         res.json({ data: result, Message: 'show_theaters_event list .', Result: true });
 

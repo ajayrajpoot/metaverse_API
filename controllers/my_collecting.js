@@ -60,13 +60,7 @@ exports.getmy_collecting = async (req, res, next) => {
         let condition = "";
         if(req.query.user_id){
             condition +=` ${condition==''?'':'and'} user_id = ${req.query.user_id} `;
-        }
-        // else if(req.query.isRent){
-        //     condition +=` ${condition==''?'':'and'} isRent = ${req.query.isRent} `;
-        // }
-        // else if(req.query.search){
-        //     condition +=`  ${condition==''?'':'and'} name = %${req.query.search}% `;
-        // }
+        } 
         else {
             condition ='1';
         }
@@ -74,21 +68,7 @@ exports.getmy_collecting = async (req, res, next) => {
 
         let result = await readDB.query(`SELECT * FROM my_collecting WHERE ${condition} `);
         console.log(__line, result)
-
-        // let shop_ids = result.map(i => i.id);
-        // let resultAds = [];
-        // if (shop_ids) {
-        //     resultAds = await readDB.query(`SELECT * FROM my_collecting_ads WHERE shop_id in ("${shop_ids.map(String).join("\",\"")}"); `);
-        // }
-        // let my_collecting = [];
-        // result.filter(i => {
-
-        //     let ads = resultAds.find(x => x.shop_id == i.id);
-
-        //     i.ads = ads;
-        //     my_collecting.push(i);
-
-        // })
+ 
 
         res.json({ data: result, Message: 'my_collecting list .', Result: true });
 
