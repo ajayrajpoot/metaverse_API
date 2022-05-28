@@ -1,4 +1,4 @@
-exports.getmetaverse_free_avatar_things_music = async (req, res, next) => {
+exports.getmetaverse_free_avatar_things = async (req, res, next) => {
 
     try {
  
@@ -16,7 +16,7 @@ exports.getmetaverse_free_avatar_things_music = async (req, res, next) => {
 };
 
 
-exports.addmetaverse_free_avatar_things_music = async (req, res, next) => {
+exports.addmetaverse_free_avatar_things = async (req, res, next) => {
     var p = req.body;
 
     try {
@@ -37,7 +37,7 @@ exports.addmetaverse_free_avatar_things_music = async (req, res, next) => {
 
 }
 
-exports.updatemetaverse_free_avatar_things_music = async (req, res, next) => {
+exports.updatemetaverse_free_avatar_things = async (req, res, next) => {
     var p = req.body;
 
     try {
@@ -72,7 +72,7 @@ exports.updatemetaverse_free_avatar_things_music = async (req, res, next) => {
 }
 
 
-exports.deletemetaverse_free_avatar_things_music = async (req, res, next) => {
+exports.deletemetaverse_free_avatar_things = async (req, res, next) => {
 
     try {
         const id = req.query.id;

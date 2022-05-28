@@ -41,7 +41,7 @@ var metaverse_thing_shop = require('../controllers/metaverse_thing_shop');
 
 const isAuth = require('../middleware/is-auth');
 
-router.get('/', (req, res) => { res.json({ mess: "API" }) })
+router.get('/test', (req, res) => { res.json({ mess: "API" }) })
 
 router.post('/signup', user.signup);
 router.post('/login', user.login);
@@ -253,8 +253,6 @@ router.get('/getstickers', stickers.getstickers);
 router.post('/addstickers', stickers.addstickers);
 router.post('/updatestickers', stickers.updatestickers);
 router.get('/deletestickers', stickers.deletestickers);
-
-
 
 router.get('/getmetaverse_memo_url', metaverse_memo_url.getmetaverse_memo_url);
 router.post('/addmetaverse_memo_url', metaverse_memo_url.addmetaverse_memo_url);
