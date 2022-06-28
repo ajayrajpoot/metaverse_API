@@ -35,14 +35,7 @@ const CreateDB = (params, limit = 2) => {
     });
 
     const promisedConnectionQuery = util.promisify(connectionPool.query).bind(connectionPool);
-
-    /**
-     * Perform a DB query but use a Promise instead of function callback
-     * @param  {String}     query       The mysql query to run
-     * @param  {Array}      params      The params you need to use in the above query. Don't pass if you're using pre-escaped values
-     * @param  {Function}   callback    Optional. If one is not provided, a promise is returned. 
-     * @return {Promise}                The promise will reject if a connection wasn't acquired or your query failed. It will resolve if the query was successful.
-     */
+ 
     const dbConnection = {
         escape: (val) => connectionPool.escape(val),
         query: (query, ...params) => {

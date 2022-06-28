@@ -30,14 +30,7 @@ module.exports = ((env = process.env.NODE_ENV) => {
             "port"      :   "4406"
         }
     }
-
-    if (process.env.sqlHOST && process.env.sqlUSER && process.env.sqlPASS) {
-
-        _config_.mysql.host = process.env.sqlHOST
-        _config_.mysql.user = process.env.sqlUSER
-        _config_.mysql.password = process.env.sqlPASS
-        _config_.mysql.database = env != "production" ? (env === "staging" ? "node" : "staging") : "shyplitenode";
-    }
+ 
 
     global.writeDB = new DB(_config_.mysql, 1);
     global.readDB = new DB(_config_.mysql, 5);
