@@ -23,11 +23,11 @@ module.exports = ((env = process.env.NODE_ENV) => {
   
     global._config_ = {
         "mysql": {
-            "host"      :   "localhost",
-            "user"      :   "root",
-            "password"  :   "",
-            "database"  :   "metaverse",
-            "port"      :   "4406"
+            "host"      :   "103.175.163.85",
+            "user"      :   "jarhain_metaver",
+            "password"  :   "Asd@1234",
+            "database"  :   "jarhain_metaver",
+            "port"      :   "3306"
         }
     }
  
