@@ -30,7 +30,7 @@ const wallet_transaction = require('../controllers/wallet_transaction');
 const wallet = require('../controllers/wallet');
 const hashtag = require('../controllers/hashtag');
 const pay_later = require('../controllers/pay_later');
-const post = require('../controllers/post');
+const posts = require('../controllers/post');
 const metaverse_shop = require('../controllers/metaverse_shop');
 const metaverse_chroist_tv = require('../controllers/metaverse_chroist_tv');
 
@@ -204,10 +204,10 @@ router.get('/deletebuy_rent', buy_rent.deletebuy_rent);
 
 
 
-router.get('/getpost', post.getpost);
-router.post('/addpost', post.addpost);
-router.post('/updatepost', post.updatepost);
-router.get('/deletepost', post.deletepost);
+router.get('/getpost', posts.getpost);
+router.post('/addpost', posts.addpost);
+router.post('/updatepost', posts.updatepost);
+router.get('/deletepost', posts.deletepost);
 
 
 
