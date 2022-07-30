@@ -66,16 +66,16 @@ exports.login = async (req, res, next) => {
         //     throw error;
         // };
 
-        // const token = jwt.sign(
-        //     {
-        //         email: loadedUser.Email,
-        //         userId: loadedUser._id.toString()
-        //     },
-        //     'somesupersecretsecret',
-        //     { expiresIn: '8760h' }
-        // );
+        const token = jwt.sign(
+            {
+                email: loadedUser.email,
+                userId: loadedUser.id.toString()
+            },
+            'somesupersecretsecret',
+            { expiresIn: '8760h' }
+        );
         res.json({
-            Result: true, loadedUser
+            Result: true, loadedUser, token
         });
     } catch (error) {
         res.json({ Message: error.message, response: error, Result: false });
@@ -91,7 +91,7 @@ exports.getusers = async (req, res, next) => {
         // const id = req.query.id;
 
         let condition = "";
- 
+
 
         const result = await readDB.query(`SELECT  id, username, name, gender, email,  phone_no, profileimage, avatarurl, bio, dirtof_birt, followers_count, metaverse_friends_count, suscribers, account_type
           FROM users    `);
@@ -175,8 +175,6 @@ exports.get_otp = async (req, res, next) => {
             }
         }
 
-        // const result = await readDB.query(`SELECT  id, username, name, gender, email,  phone_no  FROM users WHERE (email='${username}' or username='${username}' or phone_no='${username}')  `);
-
     } catch (error) {
 
         res.json({ Message: error.message, response: error, Result: false });
@@ -190,7 +188,7 @@ exports.reset_password = async (req, res, next) => {
         assert(req.body.otp, 'no or invalid otp provided');
         assert(req.body.password, 'no or invalid password provided');
 
-        const otp = req.body.otp ;
+        const otp = req.body.otp;
         const password = req.body.password;
 
         let otpdetail = otpcode.find(data => data.id == otp);
