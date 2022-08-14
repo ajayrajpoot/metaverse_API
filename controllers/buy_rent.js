@@ -14,8 +14,7 @@ exports.addbuy_rent = async (req, res, next) => {
             res.json({ Message: 'Fail to Add buy_rent .', Result: false });
         }
 
-    } catch (error) {
-        console.log(__line, error)
+    } catch (error) { 
         res.json({ Message: error.message, response: error, Result: false });
     }
 
@@ -28,23 +27,12 @@ exports.updatebuy_rent = async (req, res, next) => {
  
 
         let obj ={
-            // "id": p.id,
-            "user_id": p.user_id,
-            "item_type": p.item_type,
-            "item_id": p.item_id,
-            "mrp": p.mrp,
-            "buy_price": p.buy_price,
-            "description": p.description,
-            "comment": p.comment,
-            "time_of_rent": p.time_of_rent,
-            // "timestamp": p.timestamp,
-            "time_of_rent_unit": p.time_of_rent_unit,
+            "id": p.id,
+            "search_title": p.search_title,
         }
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE buy_rent SET   ? where id= ? `, obj, p.id);
-        // 
-        // const result = await writeDB.query(`INSERT INTO buy_rent SET ?   `, p);
 
         if (result.affectedRows > 0) {
             res.json({ Message: 'Update buy_rent .', Result: true });
@@ -65,22 +53,13 @@ exports.getbuy_rent = async (req, res, next) => {
         let condition = "";
         if(req.query.user_id){
             condition +=` ${condition==''?'':'and'} user_id = ${req.query.user_id} `;
-        }
-        // else if(req.query.isRent){
-        //     condition +=` ${condition==''?'':'and'} isRent = ${req.query.isRent} `;
-        // }
-        // else if(req.query.search){
-        //     condition +=`  ${condition==''?'':'and'} name = %${req.query.search}% `;
-        // }
+        } 
         else {
             condition ='1';
-        }
-        // let shop_id = req.query.shop_id
+        } 
 
         let result = await readDB.query(`SELECT * FROM buy_rent WHERE ${condition} `);
         console.log(__line, result)
-
-      
 
         res.json({ data: result, Message: 'buy_rent list .', Result: true });
 

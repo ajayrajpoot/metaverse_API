@@ -28,25 +28,6 @@ exports.updateshop = async (req, res, next) => {
 
         let obj = Object.assign({}, p);
 
-        obj = {
-            // id:0,
-            category_id: p.category_id,
-            name: p.name,
-            off_percentage: p.off_percentage,
-            shop_count: p.shop_count,
-            remaining_shop_count:p.remaining_shop_count,
-            descripting: p.descripting,
-            mrp: p.mrp,
-            selling_price: p.selling_price,
-            icon_image: p.icon_image,
-            images: p.images,
-            reating: p.reating,
-            isAds: p.isAds,
-            isRent: p.isRent,
-            isAds: p.isAds,
-            time_of_rent:p.time_of_rent 
-        }
-
         delete obj.id;
         const result = await writeDB.query(`UPDATE shops SET   ? where id= ? `, obj, p.id);
         // 

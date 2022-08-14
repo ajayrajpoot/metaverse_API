@@ -46,24 +46,8 @@ exports.updatemovies = async (req, res, next) => {
 
         let obj = Object.assign({}, p);
 
-        obj = {
-            
-            // id
-            url: p.url,
-            name: p.name,
-            description: p.description,
-            category: p.category,
-            off_percantage: p.off_percantage,
-            rent_price: p.rent_price,
-            bying_price: p.bying_price,
-            timestemp: p.timestemp,
-            
-        }
-
         delete obj.id;
         const result = await writeDB.query(`UPDATE movies SET   ? where id= ? `, obj, p.id);
-        // 
-        // const result = await writeDB.query(`INSERT INTO movies SET ?   `, p);
 
         if (result.affectedRows > 0) {
             res.json({ Message: 'Update movies .', Result: true });

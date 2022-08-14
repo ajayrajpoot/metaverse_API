@@ -30,7 +30,7 @@ const wallet_transaction = require('../controllers/wallet_transaction');
 const wallet = require('../controllers/wallet');
 const hashtag = require('../controllers/hashtag');
 const pay_later = require('../controllers/pay_later');
-//const posts = require('../controllers/post');
+const posts = require('../controllers/post');
 const metaverse_shop = require('../controllers/metaverse_shop');
 const metaverse_chroist_tv = require('../controllers/metaverse_chroist_tv');
 
@@ -47,6 +47,15 @@ const seller_auth = require('../controllers/seller_auth');
 const chroist_camp_ownear_inventory_order = require('../controllers/chroist_camp_ownear_inventory_order'); 
 const my_things_metaverse = require('../controllers/my_things_metaverse');
 const vr_booking_online_api = require('../controllers/vr_booking_online_api');
+
+
+//--------------14-08 2022
+const exchange_tv_ac_refigartor_smart_phone_laptop_brands = require('../controllers/exchange_tv_ac_refigartor_smart_phone_laptop_brands');
+const logout = require('../controllers/logout');
+const report_reason = require('../controllers/report_reason');
+const shop_category = require('../controllers/shop_category');
+const shop_search_history = require('../controllers/shop_search_history');
+const tv_search_history = require('../controllers/tv_search_history');
 
 
 
@@ -204,10 +213,10 @@ router.get('/deletebuy_rent', buy_rent.deletebuy_rent);
 
 
 
-// router.get('/getpost', posts.getpost);
-// router.post('/addpost', posts.addpost);
-// router.post('/updatepost', posts.updatepost);
-// router.get('/deletepost', posts.deletepost);
+router.get('/getpost', posts.getpost);
+router.post('/addpost', posts.addpost);
+router.post('/updatepost', posts.updatepost);
+router.get('/deletepost', posts.deletepost);
 
 
 
@@ -344,5 +353,44 @@ router.post('/addvr_booking_online_api', vr_booking_online_api.addvr_booking_onl
 router.post('/updatevr_booking_online_api', vr_booking_online_api.updatevr_booking_online_api);
 router.get('/deletevr_booking_online_api', vr_booking_online_api.deletevr_booking_online_api);
 
+//--------------14-08 2022
+
+
+router.get('/getexchange_tv_ac_refigartor_smart_phone_laptop_brands', exchange_tv_ac_refigartor_smart_phone_laptop_brands.getexchange_tv_ac_refigartor_smart_phone_laptop_brands);
+router.post('/addexchange_tv_ac_refigartor_smart_phone_laptop_brands', exchange_tv_ac_refigartor_smart_phone_laptop_brands.addexchange_tv_ac_refigartor_smart_phone_laptop_brands);
+router.post('/updateexchange_tv_ac_refigartor_smart_phone_laptop_brands', exchange_tv_ac_refigartor_smart_phone_laptop_brands.updateexchange_tv_ac_refigartor_smart_phone_laptop_brands);
+router.get('/deleteexchange_tv_ac_refigartor_smart_phone_laptop_brands', exchange_tv_ac_refigartor_smart_phone_laptop_brands.deleteexchange_tv_ac_refigartor_smart_phone_laptop_brands);
+
+
+
+router.get('/getlogout', logout.getlogout);
+router.post('/addlogout', logout.addlogout); 
+
+
+router.get('/getreport_reason', report_reason.getreport_reason);
+router.post('/addreport_reason', report_reason.addreport_reason);
+router.post('/updatereport_reason', report_reason.updatereport_reason);
+router.get('/deletereport_reason', report_reason.deletereport_reason);
+
+
+
+router.get('/getshop_category', shop_category.getshop_category);
+router.post('/addshop_category', shop_category.addshop_category);
+router.post('/updateshop_category', shop_category.updateshop_category);
+router.get('/deleteshop_category', shop_category.deleteshop_category);
+
+
+
+router.get('/getshop_search_history', shop_search_history.getshop_search_history);
+router.post('/addshop_search_history', shop_search_history.addshop_search_history);
+router.post('/updateshop_search_history', shop_search_history.updateshop_search_history);
+router.get('/deleteshop_search_history', shop_search_history.deleteshop_search_history);
+
+
+
+router.get('/gettv_search_history', tv_search_history.gettv_search_history);
+router.post('/addtv_search_history', tv_search_history.addtv_search_history);
+router.post('/updatetv_search_history', tv_search_history.updatetv_search_history);
+router.get('/deletetv_search_history', tv_search_history.deletetv_search_history);
 
 module.exports = router 

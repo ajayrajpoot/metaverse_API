@@ -28,20 +28,7 @@ exports.updategrocery_products = async (req, res, next) => {
 
         let obj = Object.assign({}, p);
 
-        obj = {
-            // id
-            name: p.name,
-            category: p.category,
-            product_count: p.product_count,
-            description: p.description,
-            off_percentage: p.off_percentage,
-            mrp: p.mrp,
-            selling_price: p.selling_price,
-            quanitity: p.quanitity,
-            isAds: p.isAds,
-            isTrending: p.isTrending
-            // timestemp: p.timestemp,
-        }
+       
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE grocery_products SET   ? where id= ? `, obj, p.id);
