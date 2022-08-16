@@ -38,6 +38,7 @@ const feeling_image = require('../controllers/feeling_image');
 const category = require('../controllers/category');
 const category_grocery_shop = require('../controllers/category_grocery_shop');
 const metaverse_thing_shop = require('../controllers/metaverse_thing_shop');
+const my_story_memo = require('../controllers/my_story_memo');
 
 
 const accidental_facility_accident_messgae = require('../controllers/accidental_facility_accident_messgae');
@@ -61,7 +62,7 @@ const tv_search_history = require('../controllers/tv_search_history');
 
  
 
-const isAuth = require('../middleware/is-auth');
+// const isAuth = require('../middleware/is-auth');
 
 router.get('/test', (req, res) => { res.json({ mess: "API" }) })
 
@@ -281,7 +282,6 @@ router.post('/addmetaverse_memo_url', metaverse_memo_url.addmetaverse_memo_url);
 router.post('/updatemetaverse_memo_url', metaverse_memo_url.updatemetaverse_memo_url);
 router.get('/deletemetaverse_memo_url', metaverse_memo_url.deletemetaverse_memo_url);
 
-const my_story_memo = require('../controllers/my_story_memo');
 router.get('/getmy_story_memo', my_story_memo.getmy_story_memo);
 router.post('/addmy_story_memo', my_story_memo.addmy_story_memo);
 router.post('/updatemy_story_memo', my_story_memo.updatemy_story_memo);
