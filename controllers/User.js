@@ -10,13 +10,18 @@ const assert = require('assert');
 exports.signup = async (req, res, next) => {
     var p = req.body;
 
+    console.log("............",p)
+
 
     try {
-        var hashedPw = await bcrypt
-            .hash(p.password, 12)
-            .then(hashedPw => {
-                return hashedPw
-            })
+
+        // var hashedPw = await bcrypt
+        //     .hash(p.password, 12)
+        //     .then(hashedPw => {
+        //         return hashedPw
+        //     })
+
+        //     p.password = hashedPw;
 
         const result = await writeDB.query(`INSERT INTO users SET ?`, p);
 
@@ -69,13 +74,13 @@ exports.login = async (req, res, next) => {
         const token = jwt.sign(
             {
                 email: loadedUser.email,
-                userId: loadedUser.id.toString()
+                userId: loadedUser.id
             },
             'somesupersecretsecret',
             { expiresIn: '8760h' }
         );
         res.json({
-            Result: true, loadedUser, token
+            Result: true, loadedUser, token:token
         });
     } catch (error) {
         res.json({ Message: error.message, response: error, Result: false });
