@@ -13,7 +13,7 @@ const chroist_tv = require('../controllers/chroist_tv');
 const movies = require('../controllers/movies');
 const metaverse_formers_places = require('../controllers/metaverse_formers_places');
 const metaverse_formers_places_music = require('../controllers/metaverse_formers_places_music');
-// const metaverse_memo_url = require('../controllers/metaverse_memo_url');
+const metaverse_memo_url = require('../controllers/metaverse_memo_url');
 const metaverse_invite_collaborating_request = require('../controllers/metaverse_invite_collaborating_request');
 const metaverse_free_avatar_things = require('../controllers/metaverse_free_avatar_things');
 const metaverse_games = require('../controllers/metaverse_games');
@@ -30,7 +30,7 @@ const wallet_transaction = require('../controllers/wallet_transaction');
 const wallet = require('../controllers/wallet');
 const hashtag = require('../controllers/hashtag');
 const pay_later = require('../controllers/pay_later');
-// const posts = require('../controllers/post');
+const posts = require('../controllers/post');
 const metaverse_shop = require('../controllers/metaverse_shop');
 const metaverse_chroist_tv = require('../controllers/metaverse_chroist_tv');
 
@@ -213,10 +213,10 @@ router.get('/deletebuy_rent', buy_rent.deletebuy_rent);
 
 
 
-// router.get('/getpost', posts.getpost);
-// router.post('/addpost', posts.addpost);
-// router.post('/updatepost', posts.updatepost);
-// router.get('/deletepost', posts.deletepost);
+router.get('/getpost', posts.getpost);
+router.post('/addpost', posts.addpost);
+router.post('/updatepost', posts.updatepost);
+router.get('/deletepost', posts.deletepost);
 
 
 
@@ -276,10 +276,10 @@ router.post('/addstickers', stickers.addstickers);
 router.post('/updatestickers', stickers.updatestickers);
 router.get('/deletestickers', stickers.deletestickers);
 
-// router.get('/getmetaverse_memo_url', metaverse_memo_url.getmetaverse_memo_url);
-// router.post('/addmetaverse_memo_url', metaverse_memo_url.addmetaverse_memo_url);
-// router.post('/updatemetaverse_memo_url', metaverse_memo_url.updatemetaverse_memo_url);
-// router.get('/deletemetaverse_memo_url', metaverse_memo_url.deletemetaverse_memo_url);
+router.get('/getmetaverse_memo_url', metaverse_memo_url.getmetaverse_memo_url);
+router.post('/addmetaverse_memo_url', metaverse_memo_url.addmetaverse_memo_url);
+router.post('/updatemetaverse_memo_url', metaverse_memo_url.updatemetaverse_memo_url);
+router.get('/deletemetaverse_memo_url', metaverse_memo_url.deletemetaverse_memo_url);
 
 const my_story_memo = require('../controllers/my_story_memo');
 router.get('/getmy_story_memo', my_story_memo.getmy_story_memo);
