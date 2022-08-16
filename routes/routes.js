@@ -41,22 +41,22 @@ const metaverse_thing_shop = require('../controllers/metaverse_thing_shop');
 const my_story_memo = require('../controllers/my_story_memo');
 
 
-// const accidental_facility_accident_messgae = require('../controllers/accidental_facility_accident_messgae');
-// const accidental_facility_history = require('../controllers/accidental_facility_history');
-// const my_intreste_senstive_brand_my_intrest = require('../controllers/my_intreste_senstive_brand_my_intrest');
-// const seller_auth = require('../controllers/seller_auth');
-// const chroist_camp_ownear_inventory_order = require('../controllers/chroist_camp_ownear_inventory_order'); 
-// const my_things_metaverse = require('../controllers/my_things_metaverse');
-// const vr_booking_online_api = require('../controllers/vr_booking_online_api');
+const accidental_facility_accident_messgae = require('../controllers/accidental_facility_accident_messgae');
+const accidental_facility_history = require('../controllers/accidental_facility_history');
+const my_intreste_senstive_brand_my_intrest = require('../controllers/my_intreste_senstive_brand_my_intrest');
+const seller_auth = require('../controllers/seller_auth');
+const chroist_camp_ownear_inventory_order = require('../controllers/chroist_camp_ownear_inventory_order'); 
+const my_things_metaverse = require('../controllers/my_things_metaverse');
+const vr_booking_online_api = require('../controllers/vr_booking_online_api');
 
 
 //--------------14-08 2022
-// const exchange_tv_ac_refigartor_smart_phone_laptop_brands = require('../controllers/exchange_tv_ac_refigartor_smart_phone_laptop_brands');
-// const logout = require('../controllers/logout');
-// const report_reason = require('../controllers/report_reason');
-// const shop_category = require('../controllers/shop_category');
-// const shop_search_history = require('../controllers/shop_search_history');
-// const tv_search_history = require('../controllers/tv_search_history');
+const exchange_tv_ac_refigartor_smart_phone_laptop_brands = require('../controllers/exchange_tv_ac_refigartor_smart_phone_laptop_brands');
+const logout = require('../controllers/logout');
+const report_reason = require('../controllers/report_reason');
+const shop_category = require('../controllers/shop_category');
+const shop_search_history = require('../controllers/shop_search_history');
+const tv_search_history = require('../controllers/tv_search_history');
 
 
 
@@ -314,83 +314,83 @@ router.get('/deletemetaverse_my_events_theater_tickets', metaverse_my_events_the
 
 //---30 -07 -2022
 
-// router.get('/getmy_intreste_senstive_brand_my_intrest', my_intreste_senstive_brand_my_intrest.getmy_intreste_senstive_brand_my_intrest);
-// router.post('/addmy_intreste_senstive_brand_my_intrest', my_intreste_senstive_brand_my_intrest.addmy_intreste_senstive_brand_my_intrest);
-// router.post('/updatemy_intreste_senstive_brand_my_intrest', my_intreste_senstive_brand_my_intrest.updatemy_intreste_senstive_brand_my_intrest);
-// router.get('/deletemy_intreste_senstive_brand_my_intrest', my_intreste_senstive_brand_my_intrest.deletemy_intreste_senstive_brand_my_intrest);
+router.get('/getmy_intreste_senstive_brand_my_intrest', my_intreste_senstive_brand_my_intrest.getmy_intreste_senstive_brand_my_intrest);
+router.post('/addmy_intreste_senstive_brand_my_intrest', my_intreste_senstive_brand_my_intrest.addmy_intreste_senstive_brand_my_intrest);
+router.post('/updatemy_intreste_senstive_brand_my_intrest', my_intreste_senstive_brand_my_intrest.updatemy_intreste_senstive_brand_my_intrest);
+router.get('/deletemy_intreste_senstive_brand_my_intrest', my_intreste_senstive_brand_my_intrest.deletemy_intreste_senstive_brand_my_intrest);
 
 
-// router.get('/getseller_auth', seller_auth.getseller_auth);
-// router.post('/addseller_auth', seller_auth.addseller_auth);
-// router.post('/updateseller_auth', seller_auth.updateseller_auth);
-// router.get('/deleteseller_auth', seller_auth.deleteseller_auth);
+router.get('/getseller_auth', seller_auth.getseller_auth);
+router.post('/addseller_auth', seller_auth.addseller_auth);
+router.post('/updateseller_auth', seller_auth.updateseller_auth);
+router.get('/deleteseller_auth', seller_auth.deleteseller_auth);
 
 
-// router.get('/getaccidental_facility_accident_messgae', accidental_facility_accident_messgae.getaccidental_facility_accident_messgae);
-// router.post('/addaccidental_facility_accident_messgae', accidental_facility_accident_messgae.addaccidental_facility_accident_messgae);
-// router.post('/updateaccidental_facility_accident_messgae', accidental_facility_accident_messgae.updateaccidental_facility_accident_messgae);
-// router.get('/deleteaccidental_facility_accident_messgae', accidental_facility_accident_messgae.deleteaccidental_facility_accident_messgae);
+router.get('/getaccidental_facility_accident_messgae', accidental_facility_accident_messgae.getaccidental_facility_accident_messgae);
+router.post('/addaccidental_facility_accident_messgae', accidental_facility_accident_messgae.addaccidental_facility_accident_messgae);
+router.post('/updateaccidental_facility_accident_messgae', accidental_facility_accident_messgae.updateaccidental_facility_accident_messgae);
+router.get('/deleteaccidental_facility_accident_messgae', accidental_facility_accident_messgae.deleteaccidental_facility_accident_messgae);
 
 
-// router.get('/getaccidental_facility_history', accidental_facility_history.getaccidental_facility_history);
-// router.post('/addaccidental_facility_history', accidental_facility_history.addaccidental_facility_history);
-// router.post('/updateaccidental_facility_history', accidental_facility_history.updateaccidental_facility_history);
-// router.get('/deleteaccidental_facility_history', accidental_facility_history.deleteaccidental_facility_history);
+router.get('/getaccidental_facility_history', accidental_facility_history.getaccidental_facility_history);
+router.post('/addaccidental_facility_history', accidental_facility_history.addaccidental_facility_history);
+router.post('/updateaccidental_facility_history', accidental_facility_history.updateaccidental_facility_history);
+router.get('/deleteaccidental_facility_history', accidental_facility_history.deleteaccidental_facility_history);
  
 
-// router.get('/getchroist_camp_ownear_inventory_order', chroist_camp_ownear_inventory_order.getchroist_camp_ownear_inventory_order);
-// router.post('/addchroist_camp_ownear_inventory_order', chroist_camp_ownear_inventory_order.addchroist_camp_ownear_inventory_order);
-// router.post('/updatechroist_camp_ownear_inventory_order', chroist_camp_ownear_inventory_order.updatechroist_camp_ownear_inventory_order);
-// router.get('/deletechroist_camp_ownear_inventory_order', chroist_camp_ownear_inventory_order.deletechroist_camp_ownear_inventory_order);
+router.get('/getchroist_camp_ownear_inventory_order', chroist_camp_ownear_inventory_order.getchroist_camp_ownear_inventory_order);
+router.post('/addchroist_camp_ownear_inventory_order', chroist_camp_ownear_inventory_order.addchroist_camp_ownear_inventory_order);
+router.post('/updatechroist_camp_ownear_inventory_order', chroist_camp_ownear_inventory_order.updatechroist_camp_ownear_inventory_order);
+router.get('/deletechroist_camp_ownear_inventory_order', chroist_camp_ownear_inventory_order.deletechroist_camp_ownear_inventory_order);
 
-// router.get('/getmy_things_metaverse', my_things_metaverse.getmy_things_metaverse);
-// router.post('/addmy_things_metaverse', my_things_metaverse.addmy_things_metaverse);
-// router.post('/updatemy_things_metaverse', my_things_metaverse.updatemy_things_metaverse);
-// router.get('/deletemy_things_metaverse', my_things_metaverse.deletemy_things_metaverse);
+router.get('/getmy_things_metaverse', my_things_metaverse.getmy_things_metaverse);
+router.post('/addmy_things_metaverse', my_things_metaverse.addmy_things_metaverse);
+router.post('/updatemy_things_metaverse', my_things_metaverse.updatemy_things_metaverse);
+router.get('/deletemy_things_metaverse', my_things_metaverse.deletemy_things_metaverse);
 
-// router.get('/getvr_booking_online_api', vr_booking_online_api.getvr_booking_online_api);
-// router.post('/addvr_booking_online_api', vr_booking_online_api.addvr_booking_online_api);
-// router.post('/updatevr_booking_online_api', vr_booking_online_api.updatevr_booking_online_api);
-// router.get('/deletevr_booking_online_api', vr_booking_online_api.deletevr_booking_online_api);
+router.get('/getvr_booking_online_api', vr_booking_online_api.getvr_booking_online_api);
+router.post('/addvr_booking_online_api', vr_booking_online_api.addvr_booking_online_api);
+router.post('/updatevr_booking_online_api', vr_booking_online_api.updatevr_booking_online_api);
+router.get('/deletevr_booking_online_api', vr_booking_online_api.deletevr_booking_online_api);
 
 //--------------14-08 2022
 
 
-// router.get('/getexchange_tv_ac_refigartor_smart_phone_laptop_brands', exchange_tv_ac_refigartor_smart_phone_laptop_brands.getexchange_tv_ac_refigartor_smart_phone_laptop_brands);
-// router.post('/addexchange_tv_ac_refigartor_smart_phone_laptop_brands', exchange_tv_ac_refigartor_smart_phone_laptop_brands.addexchange_tv_ac_refigartor_smart_phone_laptop_brands);
-// router.post('/updateexchange_tv_ac_refigartor_smart_phone_laptop_brands', exchange_tv_ac_refigartor_smart_phone_laptop_brands.updateexchange_tv_ac_refigartor_smart_phone_laptop_brands);
-// router.get('/deleteexchange_tv_ac_refigartor_smart_phone_laptop_brands', exchange_tv_ac_refigartor_smart_phone_laptop_brands.deleteexchange_tv_ac_refigartor_smart_phone_laptop_brands);
+router.get('/getexchange_tv_ac_refigartor_smart_phone_laptop_brands', exchange_tv_ac_refigartor_smart_phone_laptop_brands.getexchange_tv_ac_refigartor_smart_phone_laptop_brands);
+router.post('/addexchange_tv_ac_refigartor_smart_phone_laptop_brands', exchange_tv_ac_refigartor_smart_phone_laptop_brands.addexchange_tv_ac_refigartor_smart_phone_laptop_brands);
+router.post('/updateexchange_tv_ac_refigartor_smart_phone_laptop_brands', exchange_tv_ac_refigartor_smart_phone_laptop_brands.updateexchange_tv_ac_refigartor_smart_phone_laptop_brands);
+router.get('/deleteexchange_tv_ac_refigartor_smart_phone_laptop_brands', exchange_tv_ac_refigartor_smart_phone_laptop_brands.deleteexchange_tv_ac_refigartor_smart_phone_laptop_brands);
 
 
 
-// router.get('/getlogout', logout.getlogout);
-// router.post('/addlogout', logout.addlogout); 
+router.get('/getlogout', logout.getlogout);
+router.post('/addlogout', logout.addlogout); 
 
 
-// router.get('/getreport_reason', report_reason.getreport_reason);
-// router.post('/addreport_reason', report_reason.addreport_reason);
-// router.post('/updatereport_reason', report_reason.updatereport_reason);
-// router.get('/deletereport_reason', report_reason.deletereport_reason);
-
-
-
-// router.get('/getshop_category', shop_category.getshop_category);
-// router.post('/addshop_category', shop_category.addshop_category);
-// router.post('/updateshop_category', shop_category.updateshop_category);
-// router.get('/deleteshop_category', shop_category.deleteshop_category);
+router.get('/getreport_reason', report_reason.getreport_reason);
+router.post('/addreport_reason', report_reason.addreport_reason);
+router.post('/updatereport_reason', report_reason.updatereport_reason);
+router.get('/deletereport_reason', report_reason.deletereport_reason);
 
 
 
-// router.get('/getshop_search_history', shop_search_history.getshop_search_history);
-// router.post('/addshop_search_history', shop_search_history.addshop_search_history);
-// router.post('/updateshop_search_history', shop_search_history.updateshop_search_history);
-// router.get('/deleteshop_search_history', shop_search_history.deleteshop_search_history);
+router.get('/getshop_category', shop_category.getshop_category);
+router.post('/addshop_category', shop_category.addshop_category);
+router.post('/updateshop_category', shop_category.updateshop_category);
+router.get('/deleteshop_category', shop_category.deleteshop_category);
 
 
 
-// router.get('/gettv_search_history', tv_search_history.gettv_search_history);
-// router.post('/addtv_search_history', tv_search_history.addtv_search_history);
-// router.post('/updatetv_search_history', tv_search_history.updatetv_search_history);
-// router.get('/deletetv_search_history', tv_search_history.deletetv_search_history);
+router.get('/getshop_search_history', shop_search_history.getshop_search_history);
+router.post('/addshop_search_history', shop_search_history.addshop_search_history);
+router.post('/updateshop_search_history', shop_search_history.updateshop_search_history);
+router.get('/deleteshop_search_history', shop_search_history.deleteshop_search_history);
+
+
+
+router.get('/gettv_search_history', tv_search_history.gettv_search_history);
+router.post('/addtv_search_history', tv_search_history.addtv_search_history);
+router.post('/updatetv_search_history', tv_search_history.updatetv_search_history);
+router.get('/deletetv_search_history', tv_search_history.deletetv_search_history);
 
 module.exports = router 
