@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 14, 2022 at 01:40 PM
+-- Generation Time: Aug 18, 2022 at 04:29 PM
 -- Server version: 10.2.43-MariaDB
 -- PHP Version: 7.2.30
 
@@ -74,6 +74,23 @@ CREATE TABLE `accidental_facility_history` (
 
 INSERT INTO `accidental_facility_history` (`id`, `helper_name`, `donation_amount`, `location`, `message`, `notification_message`, `images_videos_live_stream`, `time`, `date`, `accidental_prn_live`, `active`, `timestemp`, `user_id`) VALUES
 (1, '', 0, '', '', '', '', NULL, NULL, '', 0, '2022-07-30 17:39:21', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brand_approve`
+--
+
+CREATE TABLE `brand_approve` (
+  `id` int(11) NOT NULL,
+  `brand_name` varchar(200) DEFAULT NULL,
+  `brand_pricetag` float DEFAULT NULL,
+  `brand_file_upload` varchar(200) DEFAULT NULL,
+  `approve_date` varchar(30) DEFAULT NULL,
+  `brand_logo` varchar(200) DEFAULT NULL,
+  `are_you_ownear` int(11) DEFAULT NULL,
+  `brand_price` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -176,6 +193,55 @@ INSERT INTO `category_grocery_shop` (`id`, `image`, `category`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `chroist_camp_go_deatels`
+--
+
+CREATE TABLE `chroist_camp_go_deatels` (
+  `id` int(11) NOT NULL,
+  `chroist_camp` varchar(400) DEFAULT NULL,
+  `money` float DEFAULT NULL,
+  `name_of_inventorys` varchar(400) DEFAULT NULL,
+  `location` varchar(400) DEFAULT NULL,
+  `employ` varchar(400) DEFAULT NULL,
+  `machine` varchar(400) DEFAULT NULL,
+  `eletricy_bill` varchar(400) DEFAULT NULL,
+  `water_bill` varchar(400) DEFAULT NULL,
+  `gas_bill` varchar(400) DEFAULT NULL,
+  `employ_cost` float DEFAULT NULL,
+  `chroist_camp_go` varchar(400) DEFAULT NULL,
+  `employ_name` varchar(400) DEFAULT NULL,
+  `employ_driving_upload` varchar(400) DEFAULT NULL,
+  `employ_identilyupload` varchar(400) DEFAULT NULL,
+  `DOB_employ` varchar(400) DEFAULT NULL,
+  `exprience` varchar(400) DEFAULT NULL,
+  `sallary` float DEFAULT NULL,
+  `employ_type` varchar(400) DEFAULT NULL,
+  `machine_name` varchar(400) DEFAULT NULL,
+  `proof_upload` varchar(400) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `date` varchar(400) DEFAULT NULL,
+  `machne_type` varchar(400) DEFAULT NULL,
+  `company` varchar(400) DEFAULT NULL,
+  `vechile_registor_no` varchar(400) DEFAULT NULL,
+  `vechile_type` varchar(400) DEFAULT NULL,
+  `proof_upload_of_gas_bill` varchar(400) DEFAULT NULL,
+  `proof` varchar(400) DEFAULT NULL,
+  `upload_of_electric_bill` varchar(400) DEFAULT NULL,
+  `no_of_vechile` varchar(400) DEFAULT NULL,
+  `proof_upload_vechile_bill` varchar(400) DEFAULT NULL,
+  `timestemp` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chroist_camp_go_deatels`
+--
+
+INSERT INTO `chroist_camp_go_deatels` (`id`, `chroist_camp`, `money`, `name_of_inventorys`, `location`, `employ`, `machine`, `eletricy_bill`, `water_bill`, `gas_bill`, `employ_cost`, `chroist_camp_go`, `employ_name`, `employ_driving_upload`, `employ_identilyupload`, `DOB_employ`, `exprience`, `sallary`, `employ_type`, `machine_name`, `proof_upload`, `price`, `date`, `machne_type`, `company`, `vechile_registor_no`, `vechile_type`, `proof_upload_of_gas_bill`, `proof`, `upload_of_electric_bill`, `no_of_vechile`, `proof_upload_vechile_bill`, `timestemp`) VALUES
+(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-18 16:20:10');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `chroist_camp_ownear_inventory_order`
 --
 
@@ -210,17 +276,25 @@ CREATE TABLE `chroist_tv` (
   `comment_count` int(11) NOT NULL DEFAULT 0,
   `views_count` int(11) NOT NULL DEFAULT 0,
   `share_count` int(11) NOT NULL DEFAULT 0,
-  `post_type` varchar(50) DEFAULT NULL
+  `post_type` varchar(50) DEFAULT NULL,
+  `videourl` varchar(200) DEFAULT NULL,
+  `tag` varchar(200) DEFAULT NULL,
+  `location` varchar(200) DEFAULT NULL,
+  `isarchive` varchar(200) DEFAULT NULL,
+  `user_location_of_uploading` varchar(200) DEFAULT NULL,
+  `quiz_user_iploading_intreste` varchar(200) DEFAULT NULL,
+  `location_blocked_by_chroist_metaverse` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `chroist_tv`
 --
 
-INSERT INTO `chroist_tv` (`id`, `url`, `description`, `timestemp`, `auto_commenting`, `time_of_uploading`, `user_id`, `profile_pic`, `feeling_url`, `like_count`, `comment_count`, `views_count`, `share_count`, `post_type`) VALUES
-(2, 'url', 'des', '2022-04-09 16:15:39', '', '2022-04-12 02:46:37', NULL, NULL, NULL, 0, 0, 0, 0, NULL),
-(3, 'url', 'des', '2022-04-09 16:15:39', '', '2022-04-12 02:46:37', NULL, NULL, NULL, 0, 0, 0, 0, NULL),
-(4, 'sdasd', '', '2022-04-12 16:48:54', '', '0000-00-00 00:00:00', '', '', '', 0, 0, 0, 0, '');
+INSERT INTO `chroist_tv` (`id`, `url`, `description`, `timestemp`, `auto_commenting`, `time_of_uploading`, `user_id`, `profile_pic`, `feeling_url`, `like_count`, `comment_count`, `views_count`, `share_count`, `post_type`, `videourl`, `tag`, `location`, `isarchive`, `user_location_of_uploading`, `quiz_user_iploading_intreste`, `location_blocked_by_chroist_metaverse`) VALUES
+(2, 'url', 'des', '2022-04-09 16:15:39', '', '2022-04-12 02:46:37', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'url', 'des', '2022-04-09 16:15:39', '', '2022-04-12 02:46:37', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'sdasd', '', '2022-04-12 16:48:54', '', '0000-00-00 00:00:00', '', '', '', 0, 0, 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'url', 'des', '2022-08-18 15:28:52', '', '2022-04-12 02:46:37', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -429,15 +503,22 @@ CREATE TABLE `metaverse_chroist_tv` (
   `views_count` int(11) NOT NULL DEFAULT 0,
   `share_count` int(11) NOT NULL DEFAULT 0,
   `exclude_user` varchar(400) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `tag` varchar(200) DEFAULT NULL,
+  `location` varchar(200) DEFAULT NULL,
+  `isarchive` varchar(200) DEFAULT NULL,
+  `user_location_of_uploading` varchar(200) DEFAULT NULL,
+  `quiz_user_iploading_intreste` varchar(200) DEFAULT NULL,
+  `location_blocked_by_chroist_metaverse` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `metaverse_chroist_tv`
 --
 
-INSERT INTO `metaverse_chroist_tv` (`id`, `vedio_url`, `description`, `time_of_uploading`, `post_type`, `username`, `profile_pic`, `feeling_url`, `auto_comment`, `like_count`, `comment_count`, `views_count`, `share_count`, `exclude_user`, `user_id`) VALUES
-(2, ' 1', '', '0000-00-00 00:00:00', '', '', '', '', '', 0, 0, 0, 0, '', 0);
+INSERT INTO `metaverse_chroist_tv` (`id`, `vedio_url`, `description`, `time_of_uploading`, `post_type`, `username`, `profile_pic`, `feeling_url`, `auto_comment`, `like_count`, `comment_count`, `views_count`, `share_count`, `exclude_user`, `user_id`, `tag`, `location`, `isarchive`, `user_location_of_uploading`, `quiz_user_iploading_intreste`, `location_blocked_by_chroist_metaverse`) VALUES
+(2, ' 1', '', '2022-08-18 15:33:58', '', '', '', '', '', 0, 0, 0, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, ' 1', '', '2022-08-18 15:31:29', '', '', '', '', '', 0, 0, 0, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -598,15 +679,17 @@ CREATE TABLE `metaverse_memo_url` (
   `metaverse_Image_url` varchar(200) NOT NULL,
   `metaverse_video_url` varchar(200) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `timestemp` int(11) NOT NULL DEFAULT current_timestamp()
+  `timestemp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `isFaviraet` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `metaverse_memo_url`
 --
 
-INSERT INTO `metaverse_memo_url` (`id`, `metaverse_Image_url`, `metaverse_video_url`, `user_id`, `timestemp`) VALUES
-(1, '', '', 0, 2147483647);
+INSERT INTO `metaverse_memo_url` (`id`, `metaverse_Image_url`, `metaverse_video_url`, `user_id`, `timestemp`, `isFaviraet`) VALUES
+(2, 'd', 'sds', 0, '2022-08-18 15:51:30', 1),
+(3, 'd', 'sds', 0, '2022-08-18 15:51:53', 1);
 
 -- --------------------------------------------------------
 
@@ -650,15 +733,26 @@ CREATE TABLE `metaverse_post` (
   `share_count` int(11) NOT NULL DEFAULT 0,
   `like_count` int(11) NOT NULL DEFAULT 0,
   `exclude_user` varchar(500) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL
+  `user_id` int(11) DEFAULT NULL,
+  `tag` varchar(200) DEFAULT NULL,
+  `location` varchar(200) DEFAULT NULL,
+  `isarchive` varchar(200) DEFAULT NULL,
+  `vieware_name_time_of_whatching` varchar(200) DEFAULT NULL,
+  `vieware_profile_url` varchar(200) DEFAULT NULL,
+  `iare_bio` varchar(200) DEFAULT NULL,
+  `user_location_of_uploading` varchar(200) DEFAULT NULL,
+  `quiz_user_iploading_intreste` varchar(200) DEFAULT NULL,
+  `metaverse_post_viewing_time` varchar(200) DEFAULT NULL,
+  `location_blocked_by_chroist_metaverse` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `metaverse_post`
 --
 
-INSERT INTO `metaverse_post` (`id`, `url`, `description`, `feeling_count`, `comment_count`, `username`, `timestemp`, `feeling_icon_urls`, `view_type`, `post_type`, `views_count`, `share_count`, `like_count`, `exclude_user`, `user_id`) VALUES
-(1, 'dasdas', 'sadads', 0, 0, 'sada', '2022-04-13 02:38:36', NULL, '0', '0', 0, 0, 0, NULL, NULL);
+INSERT INTO `metaverse_post` (`id`, `url`, `description`, `feeling_count`, `comment_count`, `username`, `timestemp`, `feeling_icon_urls`, `view_type`, `post_type`, `views_count`, `share_count`, `like_count`, `exclude_user`, `user_id`, `tag`, `location`, `isarchive`, `vieware_name_time_of_whatching`, `vieware_profile_url`, `iare_bio`, `user_location_of_uploading`, `quiz_user_iploading_intreste`, `metaverse_post_viewing_time`, `location_blocked_by_chroist_metaverse`) VALUES
+(1, 'dasdas', 'sadads', 0, 0, 'sada', '2022-04-13 02:38:36', NULL, '0', '0', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'frfer', 'erer', 0, 0, 'rere', '2022-08-18 16:21:46', 'erer', '0', '0', 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -707,15 +801,29 @@ CREATE TABLE `metaverse_smachup` (
   `exclude_user` varchar(400) DEFAULT NULL,
   `isAds` int(11) NOT NULL DEFAULT 0,
   `avatar_url` varchar(400) NOT NULL,
-  `user_id` int(11) DEFAULT NULL
+  `user_id` int(11) DEFAULT NULL,
+  `tag` varchar(200) NOT NULL,
+  `location` varchar(200) NOT NULL,
+  `isarchive` varchar(200) NOT NULL,
+  `vieware_name` varchar(200) NOT NULL,
+  `vieware_name_age` varchar(200) NOT NULL,
+  `vieware_user_name` varchar(200) NOT NULL,
+  `vieware_name_time_of_whatching` varchar(200) NOT NULL,
+  `vieware_profile_url` varchar(200) DEFAULT NULL,
+  `iare_bio` varchar(200) DEFAULT NULL,
+  `vieware_intreste` varchar(200) DEFAULT NULL,
+  `user_location_of_uploading` varchar(200) DEFAULT NULL,
+  `quiz_user_iploading_intreste` varchar(200) DEFAULT NULL,
+  `metaverse_smachup_viewing_time` varchar(200) DEFAULT NULL,
+  `location_blocked_by_chroist_metaverse` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `metaverse_smachup`
 --
 
-INSERT INTO `metaverse_smachup` (`id`, `video_url`, `auto_comment`, `post_type`, `description`, `title`, `timestemp`, `username`, `profile_pic`, `feeling_url`, `like_count`, `comment_count`, `views_count`, `share_count`, `exclude_user`, `isAds`, `avatar_url`, `user_id`) VALUES
-(2, 'dss', '', '', '', '', '0000-00-00 00:00:00', '', '', '', 0, 0, 0, 0, '', 0, '', NULL);
+INSERT INTO `metaverse_smachup` (`id`, `video_url`, `auto_comment`, `post_type`, `description`, `title`, `timestemp`, `username`, `profile_pic`, `feeling_url`, `like_count`, `comment_count`, `views_count`, `share_count`, `exclude_user`, `isAds`, `avatar_url`, `user_id`, `tag`, `location`, `isarchive`, `vieware_name`, `vieware_name_age`, `vieware_user_name`, `vieware_name_time_of_whatching`, `vieware_profile_url`, `iare_bio`, `vieware_intreste`, `user_location_of_uploading`, `quiz_user_iploading_intreste`, `metaverse_smachup_viewing_time`, `location_blocked_by_chroist_metaverse`) VALUES
+(2, 'dss', '', '', '', '', '0000-00-00 00:00:00', '', '', '', 0, 0, 0, 0, '', 0, '', NULL, '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1062,6 +1170,30 @@ INSERT INTO `post` (`id`, `url`, `description`, `feeling_count`, `comment_count`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `process_image_video_audio_sugestion`
+--
+
+CREATE TABLE `process_image_video_audio_sugestion` (
+  `id` int(11) NOT NULL,
+  `url` varchar(400) DEFAULT NULL,
+  `type` varchar(20) DEFAULT NULL COMMENT 'Vidoe , image , audio url',
+  `user_id` int(11) DEFAULT NULL,
+  `timestemp` timestamp NULL DEFAULT current_timestamp(),
+  `web_broweser_history` varchar(400) DEFAULT NULL,
+  `scorlling_speed` varchar(200) DEFAULT NULL,
+  `user_gallery` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `process_image_video_audio_sugestion`
+--
+
+INSERT INTO `process_image_video_audio_sugestion` (`id`, `url`, `type`, `user_id`, `timestemp`, `web_broweser_history`, `scorlling_speed`, `user_gallery`) VALUES
+(1, NULL, NULL, NULL, '2022-08-18 16:20:32', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `relation`
 --
 
@@ -1385,16 +1517,22 @@ CREATE TABLE `smachup` (
   `share_count` int(11) NOT NULL DEFAULT 0,
   `like_count` int(11) NOT NULL DEFAULT 0,
   `view_type` int(11) DEFAULT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `tag` varchar(100) DEFAULT NULL,
+  `isarchive` varchar(100) DEFAULT NULL,
+  `user_location_of_uploading` varchar(100) DEFAULT NULL,
+  `quiz_user_iploading_intreste` varchar(100) DEFAULT NULL,
+  `location_blocked_by_chroist_metaverse` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `smachup`
 --
 
-INSERT INTO `smachup` (`id`, `url`, `title`, `descriptions`, `views_count`, `feeling_count`, `comment_counts`, `feeling_icon_url`, `username`, `time_of_uploading`, `time_of_video`, `profile_url`, `exclude_user`, `share_count`, `like_count`, `view_type`, `user_id`) VALUES
-(1, 'asdd', '', '', 0, 0, 0, '', '', '0000-00-00 00:00:00', '', '', 0, 0, 0, 0, 0),
-(2, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, '2022-04-13 02:12:31', NULL, NULL, NULL, 0, 0, NULL, 0);
+INSERT INTO `smachup` (`id`, `url`, `title`, `descriptions`, `views_count`, `feeling_count`, `comment_counts`, `feeling_icon_url`, `username`, `time_of_uploading`, `time_of_video`, `profile_url`, `exclude_user`, `share_count`, `like_count`, `view_type`, `user_id`, `tag`, `isarchive`, `user_location_of_uploading`, `quiz_user_iploading_intreste`, `location_blocked_by_chroist_metaverse`) VALUES
+(1, 'asdd', '', '', 0, 0, 0, '', '', '0000-00-00 00:00:00', '', '', 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL),
+(2, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, '2022-04-13 02:12:31', NULL, NULL, NULL, 0, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL),
+(3, 'asdd', '', '', 0, 0, 0, '', '', '0000-00-00 00:00:00', '', '', 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1441,7 +1579,8 @@ CREATE TABLE `stories` (
 --
 
 INSERT INTO `stories` (`id`, `user_id`, `image_vedio`, `url`, `timestemp`, `text_msg`, `exclude_user`, `story_type`) VALUES
-(1, NULL, NULL, NULL, '2022-04-13 14:30:58', NULL, NULL, '');
+(1, NULL, NULL, NULL, '2022-04-13 14:30:58', NULL, NULL, ''),
+(2, NULL, NULL, NULL, '2022-08-18 15:46:10', NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -1508,8 +1647,24 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `name`, `gender`, `email`, `password`, `phone_no`, `profileimage`, `avatarurl`, `bio`, `dirtof_birt`, `followers_count`, `metaverse_friends_count`, `suscribers`, `account_type`, `otp`) VALUES
-(1, 'test', 'test', '', 'test@gmail.com', '123456', '', '', '', '', '', 0, 0, 0, 0, 24994),
-(2, 'test', 'test', '', 'test@gmail.com', '12345', '', '', '', '', '', 0, 0, 0, 0, NULL);
+(1, 'test', 'test', '', 'test@gmail.com', '123456', '', '', '', '', '', 0, 0, 0, 0, 22907),
+(2, 'test', 'test', '', 'test@gmail.com', '12345', '', '', '', '', '', 0, 0, 0, 0, NULL),
+(3, 'test', 'test', '1', 'test2@gmail.com', '12345', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(4, 'test', 'test', '', 'test@gmail.com', '12345', '', '', '', '', '', 0, 0, 0, 0, NULL),
+(5, 'test', 'test', '1', 'test3@gmail.com', '12345', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(6, 'test', 'test', '1', 'test3@gmail.com', '12345', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(7, 'test', 'test', '1', 'test3@gmail.com', '12345', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(8, 'test', 'test', '1', 'test3@gmail.com', '12345', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(9, 'test', 'test', '1', 'test3@gmail.com', '12345', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(10, 'test', 'test', '1', 'test3@gmail.com', '12345', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(11, 'nikhil', 'nikhil', NULL, 'nikhilmalani7777@gmail.com', '123456', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(12, 'nikhil', 'nikhil', NULL, 'nikhilmalani7777@gmail.com', '123456', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(13, 'nikhil', 'nikhil', NULL, 'nikhilmalani7777@gmail.com', '123456', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(14, 'nikhil', 'nikhil', NULL, 'nikhilmalani7777@gmail.com', '123456', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(15, 'nikhil', 'nikhil', NULL, 'nikhilmalani7777@gmail.com', '123456', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(16, 'nikhil', 'nikhil', NULL, 'nikhilmalani7777@gmail.com', '123456', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(17, 'nikhil', 'nikhil', NULL, 'nikhilmalani7777@gmail.com', '123456', '1', '', '', '', '', 0, 0, 0, 0, NULL),
+(18, 'test', 'test', '1', 'test3@gmail.com', '12345', '1', '', '', '', '', 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -1588,6 +1743,12 @@ ALTER TABLE `accidental_facility_history`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `brand_approve`
+--
+ALTER TABLE `brand_approve`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `buy`
 --
 ALTER TABLE `buy`
@@ -1609,6 +1770,12 @@ ALTER TABLE `category`
 -- Indexes for table `category_grocery_shop`
 --
 ALTER TABLE `category_grocery_shop`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `chroist_camp_go_deatels`
+--
+ALTER TABLE `chroist_camp_go_deatels`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1780,6 +1947,12 @@ ALTER TABLE `post`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `process_image_video_audio_sugestion`
+--
+ALTER TABLE `process_image_video_audio_sugestion`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `relation`
 --
 ALTER TABLE `relation`
@@ -1898,6 +2071,12 @@ ALTER TABLE `accidental_facility_history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `brand_approve`
+--
+ALTER TABLE `brand_approve`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `buy`
 --
 ALTER TABLE `buy`
@@ -1922,10 +2101,16 @@ ALTER TABLE `category_grocery_shop`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `chroist_camp_go_deatels`
+--
+ALTER TABLE `chroist_camp_go_deatels`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `chroist_tv`
 --
 ALTER TABLE `chroist_tv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `exchange_tv_ac_refigartor_smart_phone_laptop_brands`
@@ -1967,7 +2152,7 @@ ALTER TABLE `logout`
 -- AUTO_INCREMENT for table `metaverse_chroist_tv`
 --
 ALTER TABLE `metaverse_chroist_tv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `metaverse_formers_places`
@@ -2003,7 +2188,7 @@ ALTER TABLE `metaverse_land_shop`
 -- AUTO_INCREMENT for table `metaverse_memo_url`
 --
 ALTER TABLE `metaverse_memo_url`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `metaverse_my_events_theater_tickets`
@@ -2015,7 +2200,7 @@ ALTER TABLE `metaverse_my_events_theater_tickets`
 -- AUTO_INCREMENT for table `metaverse_post`
 --
 ALTER TABLE `metaverse_post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `metaverse_shop`
@@ -2090,6 +2275,12 @@ ALTER TABLE `post`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `process_image_video_audio_sugestion`
+--
+ALTER TABLE `process_image_video_audio_sugestion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `relation`
 --
 ALTER TABLE `relation`
@@ -2141,7 +2332,7 @@ ALTER TABLE `show_theaters_event`
 -- AUTO_INCREMENT for table `smachup`
 --
 ALTER TABLE `smachup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `stickers`
@@ -2153,7 +2344,7 @@ ALTER TABLE `stickers`
 -- AUTO_INCREMENT for table `stories`
 --
 ALTER TABLE `stories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `subscribe`
@@ -2171,7 +2362,7 @@ ALTER TABLE `tv_search_history`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `vr_booking_online_api`
