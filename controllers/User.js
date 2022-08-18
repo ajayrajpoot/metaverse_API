@@ -147,11 +147,11 @@ exports.get_otp = async (req, res, next) => {
 
             console.log(__line, result1);
 
-            if (result1.length == 0) {
+            if (result1.affectedRows == 0) {
 
                 res.json({ Message: `Invalied id.`, Result: true });
 
-            } else if (result1.length == 1) {
+            } else if (result1.affectedRows == 1) {
 
                 res.json({ Message: `OTP  ${code} for Reset.`, Result: true });
 
