@@ -27,14 +27,7 @@ exports.updatestories = async (req, res, next) => {
     try {
  
 
-        let obj =  {
-            // "id": "",
-            "user_id": p.user_id,
-            "image_vedio": p.image_vedio,
-            "url": p.url, 
-            "text_msg": p.text_msg,
-            "exclude_user": p.exclude_user,
-        }
+        let obj = p;
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE stories SET   ? where id= ? `, obj, p.id);

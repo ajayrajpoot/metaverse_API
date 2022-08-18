@@ -27,21 +27,7 @@ exports.updatemetaverse_chroist_tv = async (req, res, next) => {
     try {
  
 
-        let obj = { 
-            "vedio_url": p.vedio_url,
-            "description": p.description,
-            "time_of_uploading": p.time_of_uploading,
-            "post_type": p.post_type,
-            "username": p.username,
-            "profile_pic": p.profile_pic,
-            "feeling_url": p.feeling_url,
-            "auto_comment": p.auto_comment,
-            "like_count": p.like_count,
-            "comment_count": p.comment_count,
-            "views_count": p.views_count,
-            "share_count": p.share_count,
-            "exclude_user": p.exclude_user
-        }
+        let obj = p;
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE metaverse_chroist_tv SET   ? where id= ? `, obj, p.id);

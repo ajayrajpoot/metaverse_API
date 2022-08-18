@@ -6,7 +6,8 @@ exports.addpost = async (req, res, next) => {
     try {
 
         const result = await writeDB.query(`INSERT INTO post SET ?   `, p);
- 
+
+        console.log(__line, result)
         if (result.affectedRows > 0) {
             res.json({ Message: 'Add post .', Result: true, insertId: result.insertId });
         } else {
@@ -26,11 +27,12 @@ exports.updatepost = async (req, res, next) => {
     try {
 
         let obj = Object.assign({}, p);
- 
+
+        obj = p;
 
         delete obj.id;
-        const result = await writeDB.query(`UPDATE post SET   ? where id= ? `, obj, p.id); 
-
+        const result = await writeDB.query(`UPDATE post SET   ? where id= ? `, obj, p.id);
+        
         if (result.affectedRows > 0) {
             res.json({ Message: 'Update post .', Result: true });
         } else {
@@ -46,17 +48,29 @@ exports.updatepost = async (req, res, next) => {
 
 exports.getpost = async (req, res, next) => {
 
-    try { 
+    try {
+        console.log("condition",req.query)
+        console.log("condition",req.query.isAds)
 
         let condition = "";
-        if (req.query.user_id) {
-            condition += ` ${condition == '' ? '' : 'and'} user_id = ${req.query.user_id} `;
+        if(req.query.isAds){
+            condition +=` ${condition==''?'':'and'} isAds = ${req.query.isAds} `;
+        }else
+        if(req.query.isRent){
+            condition +=` ${condition==''?'':'and'} isRent = ${req.query.isRent} `;
+        }else
+        if(req.query.search){
+            condition +=`  ${condition==''?'':'and'} name = %${req.query.search}% `;
         }
         else {
-            condition = '1';
-        } 
+            condition ='1=1';
+        }
+        // console.log("condition",req)
+        console.log("condition",condition)
+        // let post_id = req.query.post_id
 
-        let result = await readDB.query(`SELECT * FROM post WHERE ${condition} `); 
+        let result = await readDB.query(`SELECT * FROM post WHERE ${condition} `);
+        // console.log(__line, result)
  
         res.json({ data: result, Message: 'post list with Ads.', Result: true });
 

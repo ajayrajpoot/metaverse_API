@@ -45,18 +45,10 @@ exports.updatemetaverse_memo_url = async (req, res, next) => {
 
         let obj = Object.assign({}, p);
 
-        obj = {
-            
-            "metaverse_Image_url":p.metaverse_Image_url,
-            "metaverse_video_url":p.metaverse_video_url,
-            "user_id":p.user_id
-            
-        }
+        
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE metaverse_memo_url SET   ? where id= ? `, obj, p.id);
-        // 
-        // const result = await writeDB.query(`INSERT INTO metaverse_memo_url SET ?   `, p);
 
         if (result.affectedRows > 0) {
             res.json({ Message: 'Update metaverse_memo_url .', Result: true });

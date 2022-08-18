@@ -1,17 +1,17 @@
 
 
-exports.addmetaverse_smachup = async (req, res, next) => {
+exports.addmetaverse_post = async (req, res, next) => {
     var p = req.body;
 
     try {
 
-        const result = await writeDB.query(`INSERT INTO metaverse_smachup SET ?   `, p);
+        const result = await writeDB.query(`INSERT INTO metaverse_post SET ?   `, p);
 
         console.log(__line, result)
         if (result.affectedRows > 0) {
-            res.json({ Message: 'Add metaverse_smachup .', Result: true, insertId: result.insertId });
+            res.json({ Message: 'Add metaverse_post .', Result: true, insertId: result.insertId });
         } else {
-            res.json({ Message: 'Fail to Add metaverse_smachup .', Result: false });
+            res.json({ Message: 'Fail to Add metaverse_post .', Result: false });
         }
 
     } catch (error) {
@@ -21,7 +21,7 @@ exports.addmetaverse_smachup = async (req, res, next) => {
 
 }
 
-exports.updatemetaverse_smachup = async (req, res, next) => {
+exports.updatemetaverse_post = async (req, res, next) => {
     var p = req.body;
 
     try {
@@ -31,14 +31,12 @@ exports.updatemetaverse_smachup = async (req, res, next) => {
         obj = p;
 
         delete obj.id;
-        const result = await writeDB.query(`UPDATE metaverse_smachup SET   ? where id= ? `, obj, p.id);
-        // 
-        // const result = await writeDB.query(`INSERT INTO metaverse_smachup SET ?   `, p);
-
+        const result = await writeDB.query(`UPDATE metaverse_post SET   ? where id= ? `, obj, p.id);
+        
         if (result.affectedRows > 0) {
-            res.json({ Message: 'Update metaverse_smachup .', Result: true });
+            res.json({ Message: 'Update metaverse_post .', Result: true });
         } else {
-            res.json({ Message: 'Fail to Update metaverse_smachup .', Result: false });
+            res.json({ Message: 'Fail to Update metaverse_post .', Result: false });
         }
 
     } catch (error) {
@@ -48,7 +46,7 @@ exports.updatemetaverse_smachup = async (req, res, next) => {
 
 }
 
-exports.getmetaverse_smachup = async (req, res, next) => {
+exports.getmetaverse_post = async (req, res, next) => {
 
     try {
         console.log("condition",req.query)
@@ -69,12 +67,12 @@ exports.getmetaverse_smachup = async (req, res, next) => {
         }
         // console.log("condition",req)
         console.log("condition",condition)
-        // let metaverse_smachup_id = req.query.metaverse_smachup_id
+        // let metaverse_post_id = req.query.metaverse_post_id
 
-        let result = await readDB.query(`SELECT * FROM metaverse_smachup WHERE ${condition} `);
-      
-
-        res.json({ data: result, Message: 'metaverse_smachup list with Ads.', Result: true });
+        let result = await readDB.query(`SELECT * FROM metaverse_post WHERE ${condition} `);
+        // console.log(__line, result)
+ 
+        res.json({ data: result, Message: 'metaverse_post list with Ads.', Result: true });
 
     } catch (error) {
 
@@ -84,18 +82,18 @@ exports.getmetaverse_smachup = async (req, res, next) => {
     }
 };
 
-exports.deletemetaverse_smachup = async (req, res, next) => {
+exports.deletemetaverse_post = async (req, res, next) => {
 
     try {
         const id = req.query.id;
 
-        const result = await writeDB.query(`DELETE FROM metaverse_smachup WHERE  id=? `, id);
+        const result = await writeDB.query(`DELETE FROM metaverse_post WHERE  id=? `, id);
 
         console.log(">>>>>", result)
         if (result.affectedRows > 0) {
-            res.json({ Message: 'Delete metaverse_smachup .', Result: true });
+            res.json({ Message: 'Delete metaverse_post .', Result: true });
         } else {
-            res.json({ Message: 'Fail to Delete metaverse_smachup .', Result: false });
+            res.json({ Message: 'Fail to Delete metaverse_post .', Result: false });
         }
 
     } catch (error) {

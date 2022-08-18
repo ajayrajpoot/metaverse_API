@@ -27,31 +27,9 @@ exports.updatesmachup = async (req, res, next) => {
     try {
 
         let obj = Object.assign({}, p);
-
-        obj =  
-            { 
-                "url": p.url ,
-                "title": p.title ,
-                "descriptions": p.descriptions ,
-                "views_count": p.views_count ,
-                "feeling_count": p.feeling_count ,
-                "comment_counts": p.comment_counts ,
-                "feeling_icon_url": p.feeling_icon_url ,
-                "username": p.username ,
-                "time_of_uploading": p.time_of_uploading ,
-                "time_of_video": p.time_of_video ,
-                "profile_url": p.profile_url ,
-                "exclude_user": p.exclude_user ,
-                "share_count": p.share_count ,
-                "like_count": p.like_count ,
-                "view_type": p.view_type ,
-            }
-        
-
+ 
         delete obj.id;
-        const result = await writeDB.query(`UPDATE smachup SET   ? where id= ? `, obj, p.id);
-        // 
-        // const result = await writeDB.query(`INSERT INTO smachup SET ?   `, p);
+        const result = await writeDB.query(`UPDATE smachup SET   ? where id= ? `, obj, p.id); 
 
         if (result.affectedRows > 0) {
             res.json({ Message: 'Update smachup .', Result: true });

@@ -59,8 +59,12 @@ const shop_search_history = require('../controllers/shop_search_history');
 const tv_search_history = require('../controllers/tv_search_history');
 
 
+//----------------- 18-08- 2022
 
- 
+const process_image_video_audio_sugestion = require('../controllers/process_image_video_audio_sugestion');
+const metaverse_post = require('../controllers/metaverse_post');
+const chroist_camp_go_deatels = require('../controllers/chroist_camp_go_deatels');
+
 
 // const isAuth = require('../middleware/is-auth');
 
@@ -392,5 +396,27 @@ router.get('/gettv_search_history', tv_search_history.gettv_search_history);
 router.post('/addtv_search_history', tv_search_history.addtv_search_history);
 router.post('/updatetv_search_history', tv_search_history.updatetv_search_history);
 router.get('/deletetv_search_history', tv_search_history.deletetv_search_history);
+
+//---- 18-08 - 2022
+
+
+router.get('/getprocess_image_video_audio_sugestion', process_image_video_audio_sugestion.getprocess_image_video_audio_sugestion);
+router.post('/addprocess_image_video_audio_sugestion', process_image_video_audio_sugestion.addprocess_image_video_audio_sugestion);
+router.post('/updateprocess_image_video_audio_sugestion', process_image_video_audio_sugestion.updateprocess_image_video_audio_sugestion);
+router.get('/deleteprocess_image_video_audio_sugestion', process_image_video_audio_sugestion.deleteprocess_image_video_audio_sugestion);
+
+
+router.get('/getmetaverse_post', metaverse_post.getmetaverse_post);
+router.post('/addmetaverse_post', metaverse_post.addmetaverse_post);
+router.post('/updatemetaverse_post', metaverse_post.updatemetaverse_post);
+router.get('/deletemetaverse_post', metaverse_post.deletemetaverse_post);
+
+router.get('/getchroist_camp_go_deatels', chroist_camp_go_deatels.getchroist_camp_go_deatels);
+router.post('/addchroist_camp_go_deatels', chroist_camp_go_deatels.addchroist_camp_go_deatels);
+router.post('/updatechroist_camp_go_deatels', chroist_camp_go_deatels.updatechroist_camp_go_deatels);
+router.get('/deletechroist_camp_go_deatels', chroist_camp_go_deatels.deletechroist_camp_go_deatels);
+
+
+
 
 module.exports = router 
