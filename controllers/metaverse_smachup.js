@@ -27,9 +27,7 @@ exports.updatemetaverse_smachup = async (req, res, next) => {
     try {
 
         let obj = Object.assign({}, p);
-
-        obj = p;
-
+ 
         delete obj.id;
         const result = await writeDB.query(`UPDATE metaverse_smachup SET   ? where id= ? `, obj, p.id);
         // 

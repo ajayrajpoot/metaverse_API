@@ -28,8 +28,6 @@ exports.updatemetaverse_post = async (req, res, next) => {
 
         let obj = Object.assign({}, p);
 
-        obj = p;
-
         delete obj.id;
         const result = await writeDB.query(`UPDATE metaverse_post SET   ? where id= ? `, obj, p.id);
         
@@ -52,25 +50,10 @@ exports.getmetaverse_post = async (req, res, next) => {
         console.log("condition",req.query)
         console.log("condition",req.query.isAds)
 
-        let condition = "";
-        if(req.query.isAds){
-            condition +=` ${condition==''?'':'and'} isAds = ${req.query.isAds} `;
-        }else
-        if(req.query.isRent){
-            condition +=` ${condition==''?'':'and'} isRent = ${req.query.isRent} `;
-        }else
-        if(req.query.search){
-            condition +=`  ${condition==''?'':'and'} name = %${req.query.search}% `;
-        }
-        else {
-            condition ='1=1';
-        }
-        // console.log("condition",req)
-        console.log("condition",condition)
-        // let metaverse_post_id = req.query.metaverse_post_id
+        let condition = ""; 
+            condition ='1=1';   
 
-        let result = await readDB.query(`SELECT * FROM metaverse_post WHERE ${condition} `);
-        // console.log(__line, result)
+        let result = await readDB.query(`SELECT * FROM metaverse_post WHERE ${condition} `); 
  
         res.json({ data: result, Message: 'metaverse_post list with Ads.', Result: true });
 

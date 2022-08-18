@@ -27,7 +27,8 @@ exports.updatemetaverse_chroist_tv = async (req, res, next) => {
     try {
  
 
-        let obj = p;
+        let obj = Object.assign({}, p);
+        
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE metaverse_chroist_tv SET   ? where id= ? `, obj, p.id);

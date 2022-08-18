@@ -27,8 +27,7 @@ exports.updatepost = async (req, res, next) => {
     try {
 
         let obj = Object.assign({}, p);
-
-        obj = p;
+ 
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE post SET   ? where id= ? `, obj, p.id);

@@ -26,11 +26,11 @@ exports.updateprocess_image_video_audio_sugestion = async (req, res, next) => {
 
     try {
  
-
-        let obj = p;
+        let obj = Object.assign({}, p);
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE process_image_video_audio_sugestion SET   ? where id= ? `, obj, p.id); 
+        console.log(__line, result,  p.id)
         if (result.affectedRows > 0) {
             res.json({ Message: 'Update process_image_video_audio_sugestion .', Result: true });
         } else {
@@ -47,14 +47,8 @@ exports.updateprocess_image_video_audio_sugestion = async (req, res, next) => {
 exports.getprocess_image_video_audio_sugestion = async (req, res, next) => {
 
     try {
-        let condition = "";
-        if(req.query.user_id){
-            condition +=` ${condition==''?'':'and'} user_id = ${req.query.user_id} `;
-        }
-        
-        else {
-            condition ='1';
-        }
+        let condition = ""; 
+            condition ='1'; 
         // let shop_id = req.query.shop_id
 
         let result = await readDB.query(`SELECT * FROM process_image_video_audio_sugestion WHERE ${condition} `);

@@ -27,8 +27,7 @@ exports.updatechroist_camp_go_deatels = async (req, res, next) => {
     try {
 
         let obj = Object.assign({}, p);
-
-        obj = p;
+ 
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE chroist_camp_go_deatels SET   ? where id= ? `, obj, p.id);

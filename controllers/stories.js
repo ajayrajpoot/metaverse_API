@@ -26,13 +26,10 @@ exports.updatestories = async (req, res, next) => {
 
     try {
  
-
-        let obj = p;
+        let obj = Object.assign({}, p);
 
         delete obj.id;
-        const result = await writeDB.query(`UPDATE stories SET   ? where id= ? `, obj, p.id);
-        // 
-        // const result = await writeDB.query(`INSERT INTO stories SET ?   `, p);
+        const result = await writeDB.query(`UPDATE stories SET   ? where id= ? `, obj, p.id); 
 
         if (result.affectedRows > 0) {
             res.json({ Message: 'Update stories .', Result: true });
