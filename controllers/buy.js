@@ -73,7 +73,7 @@ exports.getbuy = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM buy WHERE ${condition} `);
         console.log(__line, result)
  
-        res.json({ data: result, Message: 'buy list .', Result: true });
+        res.json({ Data: result, Message: 'buy list .', Result: true });
 
     } catch (error) {
 

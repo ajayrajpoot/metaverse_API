@@ -7,7 +7,7 @@ exports.getshow_theaters_event = async (req, res, next) => {
 
      
 
-        res.json({ data: result, Message: 'show_theaters_event list .', Result: true });
+        res.json({ Data: result, Message: 'show_theaters_event list .', Result: true });
 
     } catch (error) {
 

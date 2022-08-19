@@ -7,7 +7,7 @@ exports.getmetaverse_worlds = async (req, res, next) => {
         console.log(__line, result)
 
        
-        res.json({ data: result, Message: 'metaverse_worlds list .', Result: true });
+        res.json({ Data: result, Message: 'metaverse_worlds list .', Result: true });
 
     } catch (error) {
 

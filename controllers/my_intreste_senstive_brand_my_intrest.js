@@ -79,7 +79,7 @@ exports.getmy_intreste_senstive_brand_my_intrest = async (req, res, next) => {
 
 
 
-        res.json({ data: result, Message: 'my_intreste_senstive_brand_my_intrest list .', Result: true });
+        res.json({ Data: result, Message: 'my_intreste_senstive_brand_my_intrest list .', Result: true });
 
     } catch (error) {
 

@@ -69,7 +69,7 @@ exports.getaccidental_facility_accident_messgae = async (req, res, next) => {
         }
         let result = await readDB.query(`SELECT * FROM accidental_facility_accident_messgae WHERE ${condition} `);
 
-        res.json({ data: result, Message: 'accidental_facility_accident_messgae list .', Result: true });
+        res.json({ Data: result, Message: 'accidental_facility_accident_messgae list .', Result: true });
 
     } catch (error) {
 

@@ -34,7 +34,7 @@ exports.getlogout = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM logout WHERE ${condition} `);
         console.log(__line, result)
 
-        res.json({ data: result, Message: 'logout list .', Result: true });
+        res.json({ Data: result, Message: 'logout list .', Result: true });
 
     } catch (error) {
 

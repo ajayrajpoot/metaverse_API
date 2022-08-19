@@ -76,7 +76,7 @@ exports.getmetaverse_shop = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM metaverse_shop WHERE ${condition} `);
         console.log(__line, result)
  
-        res.json({ data: result, Message: 'metaverse_shop list .', Result: true });
+        res.json({ Data: result, Message: 'metaverse_shop list .', Result: true });
 
     } catch (error) {
 

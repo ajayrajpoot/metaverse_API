@@ -60,7 +60,7 @@ exports.getshop_category = async (req, res, next) => {
 
       
 
-        res.json({ data: result, Message: 'shop_category list .', Result: true });
+        res.json({ Data: result, Message: 'shop_category list .', Result: true });
 
     } catch (error) {
 

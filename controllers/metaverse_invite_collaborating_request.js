@@ -5,7 +5,7 @@ exports.getmetaverse_invite_collaborating_request = async (req, res, next) => {
         console.log(__line, result)
 
  
-        res.json({ data: result, Message: 'metaverse_invite_collaborating_request list .', Result: true });
+        res.json({ Data: result, Message: 'metaverse_invite_collaborating_request list .', Result: true });
 
     } catch (error) {
 

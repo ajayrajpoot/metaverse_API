@@ -65,7 +65,7 @@ exports.getwallet = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM wallet WHERE ${condition} `);	
         console.log(__line, result)	
 
-        res.json({ data: result, Message: 'wallet list .', Result: true });	
+        res.json({ Data: result, Message: 'wallet list .', Result: true });	
 
     } catch (error) {	
 

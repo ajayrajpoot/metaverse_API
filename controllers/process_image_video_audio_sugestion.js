@@ -54,7 +54,7 @@ exports.getprocess_image_video_audio_sugestion = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM process_image_video_audio_sugestion WHERE ${condition} `);
         console.log(__line, result)
  
-        res.json({ data: result, Message: 'process_image_video_audio_sugestion list .', Result: true });
+        res.json({ Data: result, Message: 'process_image_video_audio_sugestion list .', Result: true });
 
     } catch (error) {
 

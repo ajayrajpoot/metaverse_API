@@ -54,14 +54,11 @@ exports.getpost = async (req, res, next) => {
         let condition = "";
         if(req.query.isAds){
             condition +=` ${condition==''?'':'and'} isAds = ${req.query.isAds} `;
-        }else
-        if(req.query.isRent){
+        } else if(req.query.isRent){
             condition +=` ${condition==''?'':'and'} isRent = ${req.query.isRent} `;
-        }else
-        if(req.query.search){
+        } else if(req.query.search){
             condition +=`  ${condition==''?'':'and'} name = %${req.query.search}% `;
-        }
-        else {
+        } else {
             condition ='1=1';
         }
         // console.log("condition",req)
@@ -71,7 +68,7 @@ exports.getpost = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM post WHERE ${condition} `);
         // console.log(__line, result)
  
-        res.json({ data: result, Message: 'post list with Ads.', Result: true });
+        res.json({ Data: result, Message: 'post list with Ads.', Result: true });
 
     } catch (error) {
 

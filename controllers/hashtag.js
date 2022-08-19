@@ -57,7 +57,7 @@ exports.gethashtag  = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM hashtag  `);
         console.log(__line, result)
 
-        res.json({ data: result, Message: 'hashtag  list .', Result: true });
+        res.json({ Data: result, Message: 'hashtag  list .', Result: true });
 
     } catch (error) {
 

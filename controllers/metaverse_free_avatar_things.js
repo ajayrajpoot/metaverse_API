@@ -5,7 +5,7 @@ exports.getmetaverse_free_avatar_things = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM metaverse_free_avatar_things_music WHERE 1 `);
         console.log(__line, result)
  
-        res.json({ data: result, Message: 'metaverse_free_avatar_things_music list .', Result: true });
+        res.json({ Data: result, Message: 'metaverse_free_avatar_things_music list .', Result: true });
 
     } catch (error) {
 

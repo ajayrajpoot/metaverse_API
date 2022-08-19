@@ -13,7 +13,7 @@ exports.get_type = async (req, res) => {
         let result = await readDB.query(`SELECT type_id ,  ptype ,  timestemp ,  active  FROM  types  WHERE  is_delete=0  `);
         console.log(__line, result)
 
-        res.json({ data: result, Message: 'typr list .', Result: true });
+        res.json({ Data: result, Message: 'typr list .', Result: true });
 
     } catch (error) {
 

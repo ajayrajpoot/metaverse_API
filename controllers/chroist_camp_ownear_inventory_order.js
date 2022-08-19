@@ -68,7 +68,7 @@ exports.getchroist_camp_ownear_inventory_order = async (req, res, next) => {
             condition = '1';
         }
         let result = await readDB.query(`SELECT * FROM chroist_camp_ownear_inventory_order WHERE ${condition} `);
-        res.json({ data: result, Message: 'chroist_camp_ownear_inventory_order list .', Result: true });
+        res.json({ Data: result, Message: 'chroist_camp_ownear_inventory_order list .', Result: true });
 
     } catch (error) {
 

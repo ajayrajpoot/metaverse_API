@@ -60,7 +60,7 @@ exports.getstories = async (req, res, next) => {
         console.log(__line, result)
  
 
-        res.json({ data: result, Message: 'stories list .', Result: true });
+        res.json({ Data: result, Message: 'stories list .', Result: true });
 
     } catch (error) {
 

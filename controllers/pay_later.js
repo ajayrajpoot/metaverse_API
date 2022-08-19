@@ -90,7 +90,7 @@ exports.getpay_later = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM pay_later WHERE ${condition} `);
         console.log(__line, result)
 
-        res.json({ data: result, Message: 'pay_later list .', Result: true });
+        res.json({ Data: result, Message: 'pay_later list .', Result: true });
 
     } catch (error) {
 

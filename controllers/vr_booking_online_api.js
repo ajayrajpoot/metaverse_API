@@ -75,7 +75,7 @@ exports.getvr_booking_online_api = async (req, res, next) => {
             condition = '1';
         }
         let result = await readDB.query(`SELECT * FROM vr_booking_online_api WHERE ${condition} `);
-        res.json({ data: result, Message: 'vr_booking_online_api list .', Result: true });
+        res.json({ Data: result, Message: 'vr_booking_online_api list .', Result: true });
 
     } catch (error) {
 

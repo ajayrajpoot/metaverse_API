@@ -5,7 +5,7 @@ exports.getmy_story_memo = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM my_story_memo WHERE 1 `);
         console.log(__line, result);
 
-        res.json({ data: result, Message: 'my_story_memo list .', Result: true });
+        res.json({ Data: result, Message: 'my_story_memo list .', Result: true });
 
     } catch (error) {
 

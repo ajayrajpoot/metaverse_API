@@ -68,7 +68,7 @@ exports.getmetaverse_thing_shop = async (req, res, next) => {
 
         console.log(">>>>>", result)
 
-        res.json({ data: result, Message: 'metaverse_thing_shop data.', Result: true });
+        res.json({ Data: result, Message: 'metaverse_thing_shop data.', Result: true });
 
     } catch (error) {
 

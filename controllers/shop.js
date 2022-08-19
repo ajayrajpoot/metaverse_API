@@ -73,7 +73,7 @@ exports.getshops = async (req, res, next) => {
         // console.log(__line, result)
  
 
-        res.json({ data: result, Message: 'shops list with Ads.', Result: true });
+        res.json({ Data: result, Message: 'shops list with Ads.', Result: true });
 
     } catch (error) {
 

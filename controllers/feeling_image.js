@@ -50,7 +50,7 @@ exports.getfeeling_image = async (req, res, next) => {
         const result = await readDB.query(`SELECT id, image, timestemp FROM feeling_image WHERE 1 `);
 
         console.log(">>>>>", result)
-        res.json({ data: result, Message: 'feeling data.', Result: true });
+        res.json({ Data: result, Message: 'feeling data.', Result: true });
 
     } catch (error) {
 

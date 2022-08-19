@@ -71,7 +71,7 @@ exports.getchroist_camp_go_deatels = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM chroist_camp_go_deatels WHERE ${condition} `);
         // console.log(__line, result)
  
-        res.json({ data: result, Message: 'chroist_camp_go_deatels list with Ads.', Result: true });
+        res.json({ Data: result, Message: 'chroist_camp_go_deatels list with Ads.', Result: true });
 
     } catch (error) {
 

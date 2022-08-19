@@ -10,7 +10,7 @@ exports.getBalance = async (req, res, next) => {
 
         let [LastBal] = await readDB.query(`SELECT * FROM wallet_transaction WHERE user_id = ${req.query.user_id}  order  by timestemp desc limit 1`);
 
-        res.json({ data: LastBal, Message: 'Balance  .', Result: true });
+        res.json({ Data: LastBal, Message: 'Balance  .', Result: true });
 
     } catch (error) {
 
@@ -106,7 +106,7 @@ exports.getwallet_transaction = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM wallet_transaction WHERE user_id = ${req.query.user_id} ${condition} `);
         console.log(__line, result)
 
-        res.json({ data: result, Message: 'wallet_transaction list .', Result: true });
+        res.json({ Data: result, Message: 'wallet_transaction list .', Result: true });
 
     } catch (error) {
 
@@ -133,7 +133,7 @@ exports.getwallet_transaction_all = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM wallet_transaction WHERE ${condition} `);
         console.log(__line, result)
 
-        res.json({ data: result, Message: 'wallet_transaction list .', Result: true });
+        res.json({ Data: result, Message: 'wallet_transaction list .', Result: true });
 
     } catch (error) {
 

@@ -6,7 +6,7 @@ exports.getmetaverse_formers_places = async (req, res, next) => {
         console.log(__line, result)
  
 
-        res.json({ data: result, Message: 'metaverse_formers_places list .', Result: true });
+        res.json({ Data: result, Message: 'metaverse_formers_places list .', Result: true });
 
     } catch (error) {
 

@@ -22,7 +22,11 @@ exports.signup = async (req, res, next) => {
         //     })
 
         //     p.password = hashedPw;
-
+        const result1 = await readDB.query(`SELECT  id FROM users WHERE email = ?`, p.email );
+        
+        if (result1.length > 0) {
+            return res.json({ Message: 'Email Already Registor.', Result: false });
+        }
         const result = await writeDB.query(`INSERT INTO users SET ?`, p);
 
         //     console.log(p)
@@ -33,7 +37,7 @@ exports.signup = async (req, res, next) => {
         //     return result;
         // });
 
-        res.json({ message: 'User created', userId: result, Result: true });
+        res.json({ Message: 'User created', Result: true });
     } catch (error) {
         console.log(__line, error)
         res.json({ Message: error.message, response: error, Result: false });
@@ -103,7 +107,7 @@ exports.getusers = async (req, res, next) => {
 
 
         res.json({
-            Result: true, data: result
+            Result: true, Data: result
         });
     } catch (error) {
         res.json({ Message: error.message, response: error, Result: false });
@@ -123,7 +127,7 @@ exports.profilebyid = async (req, res, next) => {
 
 
         res.json({
-            Result: true, data: result
+            Result: true, Data: result
         });
     } catch (error) {
         res.json({ Message: error.message, response: error, Result: false });

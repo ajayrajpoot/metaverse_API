@@ -51,7 +51,7 @@ exports.getcategory = async (req, res, next) => {
 
         console.log(">>>>>", result)
 
-        res.json({ data: result, Message: 'feeling data.', Result: true });
+        res.json({ Data: result, Message: 'feeling data.', Result: true });
 
     } catch (error) {
 

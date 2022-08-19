@@ -77,7 +77,7 @@ exports.getmetaverse_token_shop = async (req, res, next) => {
         console.log(__line, result)
  
 
-        res.json({ data: result, Message: 'metaverse_token_shop list .', Result: true });
+        res.json({ Data: result, Message: 'metaverse_token_shop list .', Result: true });
 
     } catch (error) {
 

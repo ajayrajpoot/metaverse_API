@@ -7,7 +7,7 @@ exports.getmovies = async (req, res, next) => {
         console.log(__line, result)
  
 
-        res.json({ data: result, Message: 'movies list .', Result: true });
+        res.json({ Data: result, Message: 'movies list .', Result: true });
 
     } catch (error) {
 

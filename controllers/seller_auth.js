@@ -73,7 +73,7 @@ exports.getseller_auth = async (req, res, next) => {
 
         let result = await readDB.query(`SELECT * FROM seller_auth WHERE ${condition} `);
 
-        res.json({ data: result, Message: 'seller_auth list .', Result: true });
+        res.json({ Data: result, Message: 'seller_auth list .', Result: true });
 
     } catch (error) {
 

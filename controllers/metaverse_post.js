@@ -55,7 +55,7 @@ exports.getmetaverse_post = async (req, res, next) => {
 
         let result = await readDB.query(`SELECT * FROM metaverse_post WHERE ${condition} `); 
  
-        res.json({ data: result, Message: 'metaverse_post list with Ads.', Result: true });
+        res.json({ Data: result, Message: 'metaverse_post list with Ads.', Result: true });
 
     } catch (error) {
 

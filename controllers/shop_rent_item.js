@@ -23,7 +23,7 @@ exports.getshop_rent_item = async (req, res, next) => {
         console.log(__line, result)
  
 
-        res.json({ data: result, Message: 'shop_rent_item list with Ads.', Result: true });
+        res.json({ Data: result, Message: 'shop_rent_item list with Ads.', Result: true });
 
     } catch (error) {
 

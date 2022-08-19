@@ -61,7 +61,7 @@ exports.getshop_search_history = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM shop_search_history WHERE ${condition} `);
         console.log(__line, result)
 
-        res.json({ data: result, Message: 'shop_search_history list .', Result: true });
+        res.json({ Data: result, Message: 'shop_search_history list .', Result: true });
 
     } catch (error) {
 

@@ -70,7 +70,7 @@ exports.getgrocery_products = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM grocery_products WHERE ${condition} `);
         console.log(__line, result)
  
-        res.json({ data: result, Message: 'grocery_products list .', Result: true });
+        res.json({ Data: result, Message: 'grocery_products list .', Result: true });
 
     } catch (error) {
 

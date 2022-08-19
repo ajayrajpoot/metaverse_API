@@ -61,7 +61,7 @@ exports.getreport_reason = async (req, res, next) => {
 
         let result = await readDB.query(`SELECT * FROM report_reason WHERE ${condition} `);
 
-        res.json({ data: result, Message: 'report_reason list .', Result: true });
+        res.json({ Data: result, Message: 'report_reason list .', Result: true });
 
     } catch (error) {
 

@@ -89,7 +89,7 @@ exports.getmy_things_metaverse = async (req, res, next) => {
             condition = '1';
         }
         let result = await readDB.query(`SELECT * FROM my_things_metaverse WHERE ${condition} `);
-        res.json({ data: result, Message: 'my_things_metaverse list .', Result: true });
+        res.json({ Data: result, Message: 'my_things_metaverse list .', Result: true });
 
     } catch (error) {
 

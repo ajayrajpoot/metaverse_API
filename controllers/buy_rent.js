@@ -61,7 +61,7 @@ exports.getbuy_rent = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM buy_rent WHERE ${condition} `);
         console.log(__line, result)
 
-        res.json({ data: result, Message: 'buy_rent list .', Result: true });
+        res.json({ Data: result, Message: 'buy_rent list .', Result: true });
 
     } catch (error) {
 

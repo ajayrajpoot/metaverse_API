@@ -67,7 +67,7 @@ exports.getstickers = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM stickers WHERE ${condition} `);
         console.log(__line, result)
  
-        res.json({ data: result, Message: 'stickers list .', Result: true });
+        res.json({ Data: result, Message: 'stickers list .', Result: true });
 
     } catch (error) {
 

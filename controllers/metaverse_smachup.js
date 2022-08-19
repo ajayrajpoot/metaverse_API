@@ -72,7 +72,7 @@ exports.getmetaverse_smachup = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM metaverse_smachup WHERE ${condition} `);
       
 
-        res.json({ data: result, Message: 'metaverse_smachup list with Ads.', Result: true });
+        res.json({ Data: result, Message: 'metaverse_smachup list with Ads.', Result: true });
 
     } catch (error) {
 

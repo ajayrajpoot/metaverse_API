@@ -79,7 +79,7 @@ exports.getexchange_tv_ac_refigartor_smart_phone_laptop_brands = async (req, res
       
         let result = await readDB.query(`SELECT * FROM exchange_tv_ac_refigartor_smart_phone_laptop_brands WHERE ${condition} `);
       
-        res.json({ data: result, Message: 'exchange_tv_ac_refigartor_smart_phone_laptop_brands list .', Result: true });
+        res.json({ Data: result, Message: 'exchange_tv_ac_refigartor_smart_phone_laptop_brands list .', Result: true });
 
     } catch (error) {
 

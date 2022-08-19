@@ -72,7 +72,7 @@ exports.getaccidental_facility_history = async (req, res, next) => {
             condition = '1';
         }
         let result = await readDB.query(`SELECT * FROM accidental_facility_history WHERE ${condition} `); 
-        res.json({ data: result, Message: 'accidental_facility_history list .', Result: true });
+        res.json({ Data: result, Message: 'accidental_facility_history list .', Result: true });
 
     } catch (error) {
 

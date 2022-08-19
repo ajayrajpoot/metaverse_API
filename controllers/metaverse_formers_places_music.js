@@ -7,7 +7,7 @@ exports.getmetaverse_formers_places_music = async (req, res, next) => {
         console.log(__line, result)
  
 
-        res.json({ data: result, Message: 'metaverse_formers_places_music list .', Result: true });
+        res.json({ Data: result, Message: 'metaverse_formers_places_music list .', Result: true });
 
     } catch (error) {
 

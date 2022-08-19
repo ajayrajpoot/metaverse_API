@@ -70,7 +70,7 @@ exports.getmetaverse_chroist_tv = async (req, res, next) => {
         console.log(__line, result)
  
 
-        res.json({ data: result, Message: 'metaverse_chroist_tv list .', Result: true });
+        res.json({ Data: result, Message: 'metaverse_chroist_tv list .', Result: true });
 
     } catch (error) {
 

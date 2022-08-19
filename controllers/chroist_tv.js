@@ -62,7 +62,7 @@ exports.getchroist_tv = async (req, res, next) => {
         let result = await readDB.query(`SELECT * FROM chroist_tv WHERE 1 `);
         console.log(__line, result)
  
-        res.json({ data: result, Message: 'chroist_tv list .', Result: true });
+        res.json({ Data: result, Message: 'chroist_tv list .', Result: true });
 
     } catch (error) {
 

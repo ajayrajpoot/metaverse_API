@@ -11,7 +11,7 @@ exports.addUserDetail = async (req, res, next) => {
             .then(result => {
                 return result;
             });
-        res.json({ message: 'Add User detail Successfull', _id: result._id, Result: true });
+        res.json({ Message: 'Add User detail Successfull', _id: result._id, Result: true });
     } catch (error) {
         res.json({ Message: error.message, response: error, Result: false });
     }

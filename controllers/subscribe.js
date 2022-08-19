@@ -31,7 +31,7 @@ exports.mysubscriber = async (req, res, next) => {
 
         let result = await readDB.query(`SELECT u.* FROM subscribe as s join users as u on u.id=s.user_id  WHERE ${condition} `); 
 
-        res.json({ data: result, Message: 'subscriber list .', Result: true });
+        res.json({ Data: result, Message: 'subscriber list .', Result: true });
 
     } catch (error) {
 

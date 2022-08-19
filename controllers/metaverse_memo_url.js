@@ -6,7 +6,7 @@ exports.getmetaverse_memo_url = async (req, res, next) => {
         console.log(__line, result)
  
 
-        res.json({ data: result, Message: 'metaverse_memo_url list .', Result: true });
+        res.json({ Data: result, Message: 'metaverse_memo_url list .', Result: true });
 
     } catch (error) {
 

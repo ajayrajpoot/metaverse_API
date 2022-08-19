@@ -7,7 +7,7 @@ exports.getmetaverse_friends_request = async (req, res, next) => {
         console.log(__line, result)
  
 
-        res.json({ data: result, Message: 'metaverse_friends_request list .', Result: true });
+        res.json({ Data: result, Message: 'metaverse_friends_request list .', Result: true });
 
     } catch (error) {
 

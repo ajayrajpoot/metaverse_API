@@ -61,7 +61,7 @@ exports.getcategory_grocery_shop = async (req, res, next) => {
 
         console.log(">>>>>", result)
 
-        res.json({ data: result, Message: 'category_grocery_shop data.', Result: true });
+        res.json({ Data: result, Message: 'category_grocery_shop data.', Result: true });
 
     } catch (error) {
 

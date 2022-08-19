@@ -1,20 +1,15 @@
-
-console.log("deletetv_search_history=================")
-
 exports.addtv_search_history = async (req, res, next) => {
     var p = req.body;
 
     try {
 
         const result = await writeDB.query(`INSERT INTO tv_search_history SET ?   `, p);
-
         console.log(__line, result)
         if (result.affectedRows > 0) {
             res.json({ Message: 'Add tv_search_history .', Result: true, insertId: result.insertId });
         } else {
             res.json({ Message: 'Fail to Add tv_search_history .', Result: false });
         }
-
     } catch (error) { 
         res.json({ Message: error.message, response: error, Result: false });
     }
@@ -63,7 +58,7 @@ exports.gettv_search_history = async (req, res, next) => {
 
         let result = await readDB.query(`SELECT * FROM tv_search_history WHERE ${condition} `);
       
-        res.json({ data: result, Message: 'tv_search_history list .', Result: true });
+        res.json({ Data: result, Message: 'tv_search_history list .', Result: true });
 
     } catch (error) {
 
