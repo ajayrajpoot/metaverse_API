@@ -30,7 +30,7 @@ const wallet_transaction = require('../controllers/wallet_transaction');
 const wallet = require('../controllers/wallet');
 const hashtag = require('../controllers/hashtag');
 const pay_later = require('../controllers/pay_later');
-const posts = require('../controllers/post');
+const posts = require('../controllers/posts');
 const metaverse_shop = require('../controllers/metaverse_shop');
 const metaverse_chroist_tv = require('../controllers/metaverse_chroist_tv');
 
