@@ -30,56 +30,74 @@ app.get('/', function (req, res, next) {
     // res.send('cors problem fixed:)');
     next()
 });
- 
+
 const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
+    destination: function (req, file, cb) {
         cb(null, 'public/uploads/');
     },
 
     // By default, multer removes file extensions so let's add them back
-    filename: function(req, file, cb) {
+    filename: function (req, file, cb) {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
 });
-const imageFilter = function(req, file, cb) {
+const imageFilter = function (req, file, cb) {
     // Accept images only
     if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF)$/)) {
         req.fileValidationError = 'Only image files are allowed!';
         return cb(new Error('Only image files are allowed!'), false);
     }
     cb(null, true);
-};  
+};
+let location = 'public/uploads/';
 
 app.post('/api/fileupload', (req, res) => {
-// console.log("EVN",process.env.dev)
+    // console.log("EVN",process.env.dev)
+
+    // let location = 'public/uploads/';
+    console.log("req.body: ", JSON.stringify(req.body));
+
+    const storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, location);
+        },
+
+        // By default, multer removes file extensions so let's add them back
+        filename: function (req, file, cb) {
+            cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+        }
+    });
 
     // 'profile_pic' is the name of our file input field in the HTML form
     let upload = multer({ storage: storage, fileFilter: imageFilter }).single('file');
 
-    upload(req, res, function(err) {
+    upload(req, res, function (err) {
         // req.file contains information of uploaded file
         // req.body contains information of text fields, if there were any
 
         if (req.fileValidationError) {
-            return res.json({error:req.fileValidationError});
+            return res.json({ error: req.fileValidationError });
         }
         else if (!req.file) {
-            return res.json({error:'Please select an image to upload'});
+            return res.json({ error: 'Please select an image to upload' });
         }
         else if (err instanceof multer.MulterError) {
-            return res.json({error:err});
+            return res.json({ error: err });
         }
         else if (err) {
-            return res.json({error:err});
+            return res.json({ error: err });
         }
 
         // Display uploaded image for user validation
-        let url = "http://localhost:8081/uploads/";
+        // let url = "http://localhost:8081/uploads/";
+        let url = "http://api.chroist.in/uploads/"; 
+
         // let url = "http://62.171.178.135:8081/uploads/";
-        console.log(__line,req.file)
+        console.log(__line, req.file)
         res.json({
-            file :`${url}${req.file.filename}`
-        } );
+            url: `${url}${req.file.filename}`,
+            fileName: `${req.file.filename}`,
+        });
     });
 });
 
@@ -88,7 +106,7 @@ app.post('/api/upload-multiple-images', (req, res) => {
     // 'multiple_images' is the name of our file input field
     let upload = multer({ storage: storage, fileFilter: imageFilter }).array('multiple_images', 10);
 
-    upload(req, res, function(err) {
+    upload(req, res, function (err) {
         if (req.fileValidationError) {
             return res.send(req.fileValidationError);
         }
@@ -109,7 +127,7 @@ app.post('/api/upload-multiple-images', (req, res) => {
         res.send(result);
     });
 });
- 
+
 app.get('/api/start', function (req, res) {
     res.send('start');
 })

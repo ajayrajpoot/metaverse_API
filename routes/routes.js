@@ -60,11 +60,12 @@ const tv_search_history = require('../controllers/tv_search_history');
 
 
 //----------------- 18-08- 2022
-
 const process_image_video_audio_sugestion = require('../controllers/process_image_video_audio_sugestion');
 const metaverse_post = require('../controllers/metaverse_post');
 const chroist_camp_go_deatels = require('../controllers/chroist_camp_go_deatels');
 
+//----------------- 21-08- 2022
+const notifications = require('../controllers/notifications'); 
 
 // const isAuth = require('../middleware/is-auth');
 
@@ -415,6 +416,12 @@ router.get('/getchroist_camp_go_deatels', chroist_camp_go_deatels.getchroist_cam
 router.post('/addchroist_camp_go_deatels', chroist_camp_go_deatels.addchroist_camp_go_deatels);
 router.post('/updatechroist_camp_go_deatels', chroist_camp_go_deatels.updatechroist_camp_go_deatels);
 router.get('/deletechroist_camp_go_deatels', chroist_camp_go_deatels.deletechroist_camp_go_deatels);
+
+
+//-------21-08-2022
+router.post('/updatenotifications', notifications.updatenotifications);
+router.post('/createStreamNotifications', notifications.createStreamNotifications);
+router.get('/getnotificationsbyuser', notifications.getnotificationsbyuser);
 
 
 
