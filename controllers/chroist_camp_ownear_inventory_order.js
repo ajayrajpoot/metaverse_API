@@ -26,21 +26,8 @@ exports.updatechroist_camp_ownear_inventory_order = async (req, res, next) => {
 
     try {
 
-
-        let obj = {
-            id: p.id,
-            active: p.active,
-            timestemp: p.timestemp,
-            quanilty: p.quanilty,
-            product_name: p.product_name,
-            order_type: p.order_type,
-            price: p.price,
-            // chroist_camp_ownear_id:p.chroist_camp_ownear_id
-        }
-
-
-
-
+        let obj = Object.assign({}, p);
+ 
         delete obj.id;
         const result = await writeDB.query(`UPDATE chroist_camp_ownear_inventory_order SET   ? where id= ? `, obj, p.id);
 

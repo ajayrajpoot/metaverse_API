@@ -26,25 +26,8 @@ exports.updateaccidental_facility_history = async (req, res, next) => {
 
     try {
 
-
-        let obj = {
-            id: p.id,
-            helper_name: p.helper_name,
-            donation_amount: p.donation_amount,
-            location: p.location,
-            message: p.message,
-            notification_message: p.notification_message,
-            images_videos_live_stream: p.images_videos_live_stream,
-            time: p.time,
-            date: p.date,
-            accidental_prn_live: p.accidental_prn_live,
-            active: p.active,
-            // timestemp: p.timestemp
-            // user_id:p.user_id
-        }
-
-        
-
+        let obj = Object.assign({}, p);
+ 
         delete obj.id;
         const result = await writeDB.query(`UPDATE accidental_facility_history SET   ? where id= ? `, obj, p.id); 
 

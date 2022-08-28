@@ -55,7 +55,6 @@ exports.login = async (req, res, next) => {
         const result = await readDB.query(`SELECT  id, username, name, gender, email,  phone_no, profileimage, avatarurl, bio, dirtof_birt, followers_count, metaverse_friends_count, suscribers, account_type
           FROM users WHERE (email=? or username=?) and password=? `, username, username, password);
 
-
         console.log(">>>>>", result)
 
         // var user = await User.findOne({ email: Email });
@@ -81,11 +80,14 @@ exports.login = async (req, res, next) => {
                 userId: loadedUser.id
             },
             'somesupersecretsecret',
-            { expiresIn: '8760h' }
+            { expiresIn: '12h' }
         );
-        res.json({
-            Result: true, loadedUser, token:token
-        });
+
+        if(loadedUser.length) {
+            res.json({ Result: true, loadedUser, token:token });
+        } else { 
+            res.json({ Result: false, loadedUser });
+        }
     } catch (error) {
         res.json({ Message: error.message, response: error, Result: false });
 

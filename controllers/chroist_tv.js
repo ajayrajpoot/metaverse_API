@@ -25,15 +25,10 @@ exports.updatechroist_tv = async (req, res, next) => {
     var p = req.body;
 
     try {
+ 
 
         let obj = Object.assign({}, p);
 
-        obj = {
-            // id
-            url: p.url,
-            description: p.description,
-            
-        }
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE chroist_tv SET   ? where id= ? `, obj, p.id);

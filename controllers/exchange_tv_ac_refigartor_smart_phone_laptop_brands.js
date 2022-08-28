@@ -26,29 +26,7 @@ exports.updateexchange_tv_ac_refigartor_smart_phone_laptop_brands = async (req, 
 
     try {
  
-
-        let obj ={
-            "id": p.id,
-            "user_id": p.user_id,
-            "brand_image": p.brand_image,
-            "brandname": p.brandname,
-            "ac_brand_name": p.ac_brand_name,
-            "ac_brandiamge": p.ac_brandiamge,
-            "refigartor_brand_name": p.refigartor_brand_name,
-            "refigartor_refigrator_brand_image": p.refigartor_refigrator_brand_image,
-            "smart_phone_brand_name": p.smart_phone_brand_name,
-            "smart_phone_brand_image": p.smart_phone_brand_image,
-            "laptop_brand_name": p.laptop_brand_name,
-            "laptop_brand_iamge": p.laptop_brand_iamge,
-            "laptop_processor_modle": p.laptop_processor_modle,
-            "tablet_brand_name": p.tablet_brand_name,
-            "tablet_brand_image": p.tablet_brand_image,
-            "washingmachine_brand_name": p.washingmachine_brand_name,
-            "washingmachine_brand_image": p.washingmachine_brand_image,
-            "modlename_tv": p.modlename_tv,
-            "tv_screen_size": p.tv_screen_size,
-            
-        }
+        let obj = Object.assign({}, p);
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE exchange_tv_ac_refigartor_smart_phone_laptop_brands SET   ? where id= ? `, obj, p.id);

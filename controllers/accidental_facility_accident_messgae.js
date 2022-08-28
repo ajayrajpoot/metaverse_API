@@ -27,17 +27,8 @@ exports.updateaccidental_facility_accident_messgae = async (req, res, next) => {
     try {
 
 
-        let obj = {
-            id: p.id,
-            message: p.message,
-            notificaion_message: p.notificaion_message,
-            voice_message: p.voice_message,
-            call_message: p.call_message, 
-            active: p.active,
-            // user_id:p.user_id
-        }
+        let obj = Object.assign({}, p);
 
-        
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE accidental_facility_accident_messgae SET   ? where id= ? `, obj, p.id);

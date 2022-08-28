@@ -67,7 +67,7 @@ const chroist_camp_go_deatels = require('../controllers/chroist_camp_go_deatels'
 //----------------- 21-08- 2022
 const notifications = require('../controllers/notifications'); 
 
-// const isAuth = require('../middleware/is-auth');
+const isAuth = require('../middleware/is-auth');
 
 router.get('/test', (req, res) => { res.json({ mess: "API" }) })
 
@@ -76,6 +76,9 @@ router.post('/login', user.login);
 router.get('/getusers', user.getusers);
 router.get('/get_otp', user.get_otp);
 router.post('/reset_password', user.reset_password);
+
+router.use(isAuth);
+
 router.get('/profilebyid', user.profilebyid);
 
 router.get('/getfeeling_image', feeling_image.getfeeling_image);
@@ -424,6 +427,13 @@ router.post('/createStreamNotifications', notifications.createStreamNotification
 router.get('/getnotificationsbyuser', notifications.getnotificationsbyuser);
 
 
+//----------27 - 08- 2022
 
+const metaverse_products = require('../controllers/metaverse_products');
+router.get('/getmetaverse_products', metaverse_products.getmetaverse_products);
+router.post('/addmetaverse_products', metaverse_products.addmetaverse_products);
+router.post('/updatemetaverse_products', metaverse_products.updatemetaverse_products);
+router.get('/deletemetaverse_products', metaverse_products.deletemetaverse_products);
+ 
 
 module.exports = router 

@@ -25,17 +25,8 @@ exports.addcategory_grocery_shop = async (req, res, next) => {
 exports.updatecategory_grocery_shop = async (req, res, next) => {
     var p = req.body;
 
-    console.log(">>>", p)
-    let obj = {
-        "name": p.name ,
-        "description": p.description ,
-        "mrp": p.mrp ,
-        "product_count": p.product_count ,
-        "seeling_prise": p.seeling_prise ,
-        "rating": p.rating ,
-        "3d_modle": p.modle_3d ,
-        "off_percentage": p.off_percentage ,
-    }
+    let obj = Object.assign({}, p);
+
     try {
         // const result = await readDB.query(`SELECT id, image, timestemp FROM feeling_image WHERE 1 `);
         const result = await writeDB.query(`UPDATE category_grocery_shop SET  category= ?, image=? where id= ? `, p.category, p.image, p.id);

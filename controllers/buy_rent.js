@@ -25,11 +25,7 @@ exports.updatebuy_rent = async (req, res, next) => {
 
     try {
  
-
-        let obj ={
-            "id": p.id,
-            "search_title": p.search_title,
-        }
+        let obj = Object.assign({}, p);
 
         delete obj.id;
         const result = await writeDB.query(`UPDATE buy_rent SET   ? where id= ? `, obj, p.id);

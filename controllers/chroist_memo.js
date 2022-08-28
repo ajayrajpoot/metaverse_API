@@ -45,21 +45,7 @@ exports.updatechroist_memo = async (req, res, next) => {
     try {
 
         let obj = Object.assign({}, p);
-
-        obj = {
-            
-            // id
-          
-            // id:p.id,
-            chroist:p.chroist,
-            Image_url:p.Image_url,
-            video_url:p.video_url,
-            user_id:p.user_id,
-            isFavirate:p.isFavirate,
-            
-            
-        }
-
+ 
         delete obj.id;
         const result = await writeDB.query(`UPDATE chroist_memo SET   ? where id= ? `, obj, p.id);
         // 
