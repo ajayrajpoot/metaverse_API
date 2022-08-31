@@ -250,14 +250,14 @@ router.get('/unsubscribe', subscribe.unsubscribe);
 router.get('/getwallet', wallet.getwallet);
 router.post('/addwallet', wallet.addwallet);
 router.post('/updatewallet', wallet.updatewallet);
-router.get('/deletewallet', wallet.deletewallet);
+// router.get('/deletewallet', wallet.deletewallet);
 
 router.get('/getBalance', wallet_transaction.getBalance);
 router.get('/getwallet_transaction', wallet_transaction.getwallet_transaction);
 router.get('/getwallet_transaction_all', wallet_transaction.getwallet_transaction_all);
 router.post('/addwallet_transaction', wallet_transaction.addwallet_transaction);
-router.post('/updatewallet_transaction', wallet_transaction.updatewallet_transaction);
-router.get('/deletewallet_transaction', wallet_transaction.deletewallet_transaction);
+// router.post('/updatewallet_transaction', wallet_transaction.updatewallet_transaction);
+// router.get('/deletewallet_transaction', wallet_transaction.deletewallet_transaction);
 
 
 
@@ -434,6 +434,65 @@ router.get('/getmetaverse_products', metaverse_products.getmetaverse_products);
 router.post('/addmetaverse_products', metaverse_products.addmetaverse_products);
 router.post('/updatemetaverse_products', metaverse_products.updatemetaverse_products);
 router.get('/deletemetaverse_products', metaverse_products.deletemetaverse_products);
- 
+
+
+//-------------
+
+const funplace_quiz_and_spin = require('../controllers/funplace_quiz_and_spin');
+router.get('/getfunplace_quiz_and_spin', funplace_quiz_and_spin.getfunplace_quiz_and_spin);
+router.post('/addfunplace_quiz_and_spin', funplace_quiz_and_spin.addfunplace_quiz_and_spin);
+router.post('/updatefunplace_quiz_and_spin', funplace_quiz_and_spin.updatefunplace_quiz_and_spin);
+router.get('/deletefunplace_quiz_and_spin', funplace_quiz_and_spin.deletefunplace_quiz_and_spin);
+
+const chatting_group = require('../controllers/chatting_group');
+router.get('/getchatting_group', chatting_group.getchatting_group);
+router.post('/addchatting_group', chatting_group.addchatting_group);
+router.post('/updatechatting_group', chatting_group.updatechatting_group);
+router.get('/deletechatting_group', chatting_group.deletechatting_group);
+
+const chatting_groups = require('../controllers/chatting_groups');
+router.get('/getchatting_groups', chatting_groups.getchatting_groups);
+router.post('/addchatting_groups', chatting_groups.addchatting_groups);
+router.post('/updatechatting_groups', chatting_groups.updatechatting_groups);
+router.get('/deletechatting_groups', chatting_groups.deletechatting_groups);
+
+
+const chatting = require('../controllers/chatting');
+router.get('/getchatting', chatting.getchatting);
+router.post('/addchatting', chatting.addchatting);
+router.post('/updatechatting', chatting.updatechatting);
+router.get('/deletechatting', chatting.deletechatting);
+
+
+//------31-08-2022
+const metaverse_wallet = require('../controllers/metaverse_wallet');
+router.get('/getmetaverse_wallet', metaverse_wallet.getmetaverse_wallet);
+router.post('/addmetaverse_wallet', metaverse_wallet.addmetaverse_wallet);
+router.post('/updatemetaverse_wallet', metaverse_wallet.updatemetaverse_wallet);
+// router.get('/deletemetaverse_wallet', metaverse_wallet.deletemetaverse_wallet);
+
+const metaverse_wallet_transaction = require('../controllers/metaverse_wallet_transaction');
+router.get('/getMetaverseBalance', metaverse_wallet_transaction.getMetaverseBalance);
+router.get('/getmetaverse_wallet_transaction', metaverse_wallet_transaction.getmetaverse_wallet_transaction);
+router.get('/getmetaverse_wallet_transaction_all', metaverse_wallet_transaction.getmetaverse_wallet_transaction_all);
+router.post('/addmetaverse_wallet_transaction', metaverse_wallet_transaction.addmetaverse_wallet_transaction);
+// router.post('/updatemetaverse_wallet_transaction', metaverse_wallet_transaction.updatemetaverse_wallet_transaction);
+// router.get('/deletemetaverse_wallet_transaction', metaverse_wallet_transaction.deletemetaverse_wallet_transaction);
+
+
+const pay_later_wallet = require('../controllers/pay_later_wallet');
+router.get('/getpay_later_wallet', pay_later_wallet.getpay_later_wallet);
+router.post('/addpay_later_wallet', pay_later_wallet.addpay_later_wallet);
+router.post('/updatepay_later_wallet', pay_later_wallet.updatepay_later_wallet);
+// router.get('/deletepay_later_wallet', pay_later_wallet.deletepay_later_wallet);
+
+const pay_latter_wallet_transaction = require('../controllers/pay_latter_wallet_transaction');
+router.get('/getPayLatterBalance', pay_latter_wallet_transaction.getPayLatterBalance);
+router.get('/getpay_latter_wallet_transaction', pay_latter_wallet_transaction.getpay_latter_wallet_transaction);
+router.get('/getpay_latter_wallet_transaction_all', pay_latter_wallet_transaction.getpay_latter_wallet_transaction_all);
+router.post('/addpay_latter_wallet_transaction', pay_latter_wallet_transaction.addpay_latter_wallet_transaction);
+// router.post('/updatepay_latter_wallet_transaction', pay_latter_wallet_transaction.updatepay_latter_wallet_transaction);
+// router.get('/deletepay_latter_wallet_transaction', pay_latter_wallet_transaction.deletepay_latter_wallet_transaction);
+
 
 module.exports = router 
