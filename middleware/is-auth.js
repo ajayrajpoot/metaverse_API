@@ -2,15 +2,12 @@ const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
   const authHeader = req.get('Authorization');
-  console.log("authHeader>>>",req)
-  console.log("authHeader>>>",authHeader)
   if (!authHeader) {
     const error = new Error('Not authenticated.');
     error.statusCode = 401;
     throw error;
   }
   const token = authHeader.split(' ')[1];
-  console.log("token>>>",token)
   let decodedToken;
   try {
     decodedToken = jwt.verify(token, 'somesupersecretsecret');
